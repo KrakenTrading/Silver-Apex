@@ -156,6 +156,7 @@ body{background:var(--bg);color:var(--silver);font-family:var(--font-mono);min-h
 <button class="tab-btn" onclick="switchTab('course',this)">📚 Course</button>
 <button class="tab-btn" onclick="switchTab('checklist',this)">✅ Checklist</button>
 <button class="tab-btn" onclick="switchTab('backtest',this)">📊 Backtest</button>
+<button class="tab-btn" onclick="switchTab('calculator',this)">🧮 Calculator</button>
 <button class="tab-btn" onclick="switchTab('news',this)">📰 News</button>
 <button class="tab-btn" onclick="switchTab('sessions',this)">🕐 Sessions</button>
 </div>
@@ -189,6 +190,50 @@ body{background:var(--bg);color:var(--silver);font-family:var(--font-mono);min-h
 </div>
 <button onclick="resetChecklist()" style="margin-top:16px;width:100%;padding:12px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--silver-dim);font-family:var(--font-mono);font-size:10px;letter-spacing:3px;cursor:pointer;text-transform:uppercase">Reset Checklist</button>
 </div></div>
+
+<div class="tab-panel" id="tab-calculator">
+<div class="card">
+<div class="card-label">Position Sizing Tool</div>
+<div class="card-title">Risk Calculator — AUD</div>
+<p style="font-size:12px;color:var(--silver-dim);margin-bottom:24px;line-height:1.8">Enter your account details below to calculate the correct position size for any trade. Never risk more than 1% per trade.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px">
+<div class="field">
+<label style="display:block;font-size:9px;letter-spacing:3px;color:var(--silver-dim);margin-bottom:8px;text-transform:uppercase">Account Balance (A$)</label>
+<input type="number" id="calc-balance" placeholder="e.g. 5000" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-bright);border-radius:10px;color:var(--silver-bright);font-family:var(--font-mono);font-size:14px;outline:none"/>
+</div>
+<div class="field">
+<label style="display:block;font-size:9px;letter-spacing:3px;color:var(--silver-dim);margin-bottom:8px;text-transform:uppercase">Risk % (recommend 1%)</label>
+<input type="number" id="calc-risk" placeholder="1" value="1" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-bright);border-radius:10px;color:var(--silver-bright);font-family:var(--font-mono);font-size:14px;outline:none"/>
+</div>
+<div class="field">
+<label style="display:block;font-size:9px;letter-spacing:3px;color:var(--silver-dim);margin-bottom:8px;text-transform:uppercase">Entry Price (A$)</label>
+<input type="number" id="calc-entry" placeholder="e.g. 113.50" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-bright);border-radius:10px;color:var(--silver-bright);font-family:var(--font-mono);font-size:14px;outline:none"/>
+</div>
+<div class="field">
+<label style="display:block;font-size:9px;letter-spacing:3px;color:var(--silver-dim);margin-bottom:8px;text-transform:uppercase">Stop Loss Price (A$)</label>
+<input type="number" id="calc-sl" placeholder="e.g. 112.80" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-bright);border-radius:10px;color:var(--silver-bright);font-family:var(--font-mono);font-size:14px;outline:none"/>
+</div>
+<div class="field">
+<label style="display:block;font-size:9px;letter-spacing:3px;color:var(--silver-dim);margin-bottom:8px;text-transform:uppercase">Take Profit Price (A$)</label>
+<input type="number" id="calc-tp" placeholder="e.g. 115.60" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-bright);border-radius:10px;color:var(--silver-bright);font-family:var(--font-mono);font-size:14px;outline:none"/>
+</div>
+</div>
+<div id="calc-results" style="display:none;padding:24px;border-radius:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2)">
+<div style="font-size:9px;color:var(--gold);letter-spacing:4px;margin-bottom:16px">TRADE CALCULATION</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px">
+<div style="text-align:center"><div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--green)" id="res-risk">A$0</div><div style="font-size:9px;color:var(--silver-dim);margin-top:4px;letter-spacing:2px">MAX RISK</div></div>
+<div style="text-align:center"><div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--silver-bright)" id="res-size">0</div><div style="font-size:9px;color:var(--silver-dim);margin-top:4px;letter-spacing:2px">UNITS / OZ</div></div>
+<div style="text-align:center"><div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--blue)" id="res-sl-dist">0.00</div><div style="font-size:9px;color:var(--silver-dim);margin-top:4px;letter-spacing:2px">SL DISTANCE</div></div>
+<div style="text-align:center"><div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--gold)" id="res-rr">0:0</div><div style="font-size:9px;color:var(--silver-dim);margin-top:4px;letter-spacing:2px">RISK : REWARD</div></div>
+<div style="text-align:center"><div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--green)" id="res-profit">A$0</div><div style="font-size:9px;color:var(--silver-dim);margin-top:4px;letter-spacing:2px">POTENTIAL PROFIT</div></div>
+</div>
+<div id="res-verdict" style="margin-top:16px;padding:12px 16px;border-radius:10px;font-size:12px;text-align:center;font-weight:600;letter-spacing:2px"></div>
+</div>
+<div style="margin-top:20px;padding:16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);font-size:11px;color:var(--silver-dim);line-height:2">
+<strong style="color:var(--silver-bright)">How to use:</strong> Enter your account balance, keep risk at 1%, then enter the exact entry price and stop loss from your chart. The calculator tells you exactly how many units to buy or sell so you never risk more than your limit.
+</div>
+</div>
+</div>
 
 <div class="tab-panel" id="tab-backtest">
 <div class="card">
@@ -301,50 +346,64 @@ function renderModel(){const m=MODELS[activeModel];document.getElementById('mode
 
 const STEPS=[
 {id:1,phase:'FOUNDATIONS',title:'What Are Financial Markets?',icon:'🌍',content:[
-{t:'A financial market is a place where buyers and sellers agree on a price for an asset.',c:''},
-{t:'Assets include currencies (Forex), commodities like Gold and Silver, indices like the ASX200 and S&P500.',c:''},
-{t:'When you trade, you are speculating whether price will go UP or DOWN over a defined period.',c:''},
-{t:'You make money when you are right about direction AND manage your risk properly — both matter equally.',c:'green'},
-{t:'You lose money when you are wrong on direction OR when your position size is too large for your account.',c:'red'},
-{t:'The market is a zero-sum game — for every winner there is a loser. Your edge comes from a repeatable system.',c:''},
-{t:'This strategy works on ANY liquid asset — Silver, Gold (XAU/AUD), EUR/USD, GBP/USD and all major pairs.',c:'highlight'},
-{t:'We use Silver as our primary teaching asset but every rule, every setup, every concept applies universally.',c:''},
+{t:'A financial market is a place where buyers and sellers agree on a price for an asset — currency, commodity, stock or index.',c:''},
+{t:'When you trade, you are not "buying Silver" like you own it physically. You are speculating on whether price will go UP or DOWN.',c:''},
+{t:'You make money when you are right about direction AND have managed your risk correctly. Both matter equally.',c:'green'},
+{t:'You lose money when you are wrong on direction, OR when your position size is too large. Most beginners fail from the second one.',c:'red'},
+{t:'The market is largely a zero-sum game — for every winner there is a loser on the other side of the trade.',c:''},
+{t:'Your edge comes entirely from a repeatable, rules-based system applied consistently over hundreds of trades.',c:'highlight'},
+{t:'What is Silver (XAG)? Silver is a precious metal commodity quoted against currencies. XAG/AUD = Silver priced in Australian Dollars.',c:''},
+{t:'Why Silver? Silver has clear session-based moves, strong institutional activity, enough volatility for good RR, and is accessible from Australian brokers.',c:'green'},
+{t:'Silver is correlated to Gold and inversely correlated to USD. When USD weakens, Silver typically rises. When risk-off hits markets, Silver gets a safe-haven bid.',c:''},
+{t:'What moves Silver? USD strength/weakness, inflation data (CPI/PCE), FOMC decisions, geopolitical risk and industrial demand sentiment.',c:''},
+{t:'This strategy works on ANY liquid asset — Gold (XAU/AUD), EUR/USD, GBP/USD, indices. Silver is your training ground.',c:'highlight'},
 ]},
 {id:2,phase:'CANDLES',title:'How to Read a Candlestick Chart',icon:'🕯️',content:[
-{t:'Every candle represents price movement over a specific time period — 1min, 5min, 15min, 1hr, Daily, etc.',c:''},
-{t:'A candle has 4 parts: Open (where price started), Close (where it ended), High (peak), Low (trough).',c:''},
-{t:'GREEN candle = price closed HIGHER than it opened. Buyers were in control that period.',c:'green'},
-{t:'RED candle = price closed LOWER than it opened. Sellers were in control that period.',c:'red'},
-{t:'The thin lines above and below the body are WICKS. They show where price was rejected.',c:''},
-{t:'Long wick above a candle = price tried to go higher but sellers pushed it back down hard.',c:''},
-{t:'Long wick below a candle = price tried to go lower but buyers pushed it back up hard.',c:''},
-{t:'Long wicks are critical to our Liquidity Sweep entry model — they signal stop hunts and reversals.',c:'highlight'},
-{t:'Small body + long wicks = indecision. Avoid trading these candles.',c:'yellow'},
-{t:'Large body + small wicks = strong conviction. These are the candles you want to trade with.',c:'green'},
+{t:'Every candle = one time period of price action. A 15m candle shows everything that happened in 15 minutes.',c:''},
+{t:'A candle has 4 parts: OPEN (price at start), CLOSE (price at end), HIGH (highest point), LOW (lowest point).',c:''},
+{t:'The thick part of the candle is the BODY. The thin lines above and below are WICKS (also called shadows).',c:''},
+{t:'GREEN / WHITE candle = price CLOSED higher than it opened. Buyers won that period.',c:'green'},
+{t:'RED / BLACK candle = price CLOSED lower than it opened. Sellers won that period.',c:'red'},
+{t:'LONG WICK ABOVE = Price pushed higher but sellers rejected it hard and pushed it back down. Bearish signal.',c:''},
+{t:'LONG WICK BELOW = Price pushed lower but buyers rejected it hard and pushed it back up. Bullish signal.',c:''},
+{t:'WHY THIS MATTERS: Long wicks on key levels = stop hunts. This is the foundation of our Sweep entry model.',c:'highlight'},
+{t:'ENGULFING CANDLE: A large candle whose body completely covers the previous candle. Very strong reversal signal.',c:'green'},
+{t:'PIN BAR / HAMMER: Tiny body, very long wick. Classic reversal candle. High probability when at S/R levels.',c:'green'},
+{t:'DOJI: Open and Close almost identical. Neither buyers nor sellers won. Signals indecision — avoid entering.',c:'yellow'},
+{t:'SMALL BODY + LONG WICKS = indecision and noise. Skip these setups entirely.',c:'yellow'},
+{t:'LARGE BODY + SMALL WICKS = conviction and momentum. These are the candles you want to trade WITH.',c:'green'},
+{t:'CONFIRMATION RULE: Always wait for a candle to CLOSE before entering. Never enter mid-candle.',c:'highlight'},
 ]},
 {id:3,phase:'STRUCTURE',title:'Trends, Ranges & Market Structure',icon:'📊',content:[
-{t:'UPTREND: Price makes Higher Highs (HH) and Higher Lows (HL). Each peak is higher than the last.',c:'green'},
-{t:'DOWNTREND: Price makes Lower Highs (LH) and Lower Lows (LL). Each trough is lower than the last.',c:'red'},
-{t:'RANGING MARKET: Price bounces between two levels without trending. The Asia session often creates this.',c:'yellow'},
-{t:'GOLDEN RULE: Only trade in the direction of the trend on the higher timeframe. Never fight it.',c:'highlight'},
-{t:'SUPPORT is a price level where buyers have repeatedly stepped in and pushed price back up.',c:''},
-{t:'RESISTANCE is a price level where sellers have repeatedly stepped in and pushed price back down.',c:''},
-{t:'KEY INSIGHT: When resistance breaks and price closes above it — it often becomes new support.',c:'green'},
-{t:'When support breaks and price closes below it — it often becomes new resistance.',c:''},
-{t:'Always mark your key levels on the Daily chart FIRST before moving to lower timeframes.',c:''},
-{t:'This structure principle applies identically to Silver, Gold, EUR/USD, GBP/USD — every market.',c:'highlight'},
+{t:'UPTREND: Price makes Higher Highs (HH) and Higher Lows (HL). Each rally reaches a new peak. Each pullback holds above the previous low.',c:'green'},
+{t:'DOWNTREND: Price makes Lower Highs (LH) and Lower Lows (LL). Each rally fails below the previous high. Each drop makes a new low.',c:'red'},
+{t:'RANGING MARKET: Price bounces between a defined high and low without clear direction. Asia session creates this daily.',c:'yellow'},
+{t:'GOLDEN RULE: Always trade WITH the higher timeframe trend. Shorting in an uptrend is fighting the strongest force in the market.',c:'highlight'},
+{t:'HOW TO IDENTIFY TREND: Open the Daily chart. Is price making a series of higher highs? Bullish. Lower lows? Bearish.',c:''},
+{t:'SUPPORT: A price level where buying interest has repeatedly prevented price from falling further. The more times it holds, the stronger it is.',c:''},
+{t:'RESISTANCE: A price level where selling interest has repeatedly prevented price from rising further.',c:''},
+{t:'CRITICAL INSIGHT: When a resistance level breaks with a strong close ABOVE it — that level flips to support.',c:'green'},
+{t:'When a support level breaks with a strong close BELOW it — that level flips to resistance.',c:''},
+{t:'HOW TO DRAW LEVELS: Mark the BODY of candles for key levels, not the wicks. Wicks are noise — bodies are commitment.',c:''},
+{t:'TOP-DOWN ANALYSIS: Always start on the Daily chart. Mark key levels. Drop to 4H. Mark those levels. Then enter on 15m/5m.',c:'highlight'},
+{t:'COMMON MISTAKE: Drawing too many lines. You need 2–3 KEY levels per chart maximum. More than that = confusion.',c:'red'},
+{t:'ROUND NUMBERS (113.00, 114.00, 115.00 on Silver): Always act as S/R. Institutions place orders here. Respect them.',c:'green'},
 ]},
 {id:4,phase:'LIQUIDITY',title:'Liquidity, Stop Hunts & Smart Money',icon:'💧',content:[
-{t:'Liquidity = the availability of buy and sell orders at a given price level.',c:''},
-{t:'Retail traders (you and me) place stop losses in predictable locations — above swing highs and below swing lows.',c:''},
-{t:'Institutions KNOW exactly where retail stops are. They deliberately move price to trigger them.',c:'red'},
-{t:'This is called a LIQUIDITY SWEEP or STOP HUNT — price spikes beyond a level, triggers stops, then reverses.',c:''},
-{t:'It feels like the market is targeting you personally. It is not — but institutions do need your stops for liquidity.',c:''},
-{t:'After a sweep, smart money has filled their position at the best price and drives price the other way.',c:'highlight'},
-{t:'This is why our Liquidity Sweep entry model has a 70–75% win rate — we trade WITH the institutions.',c:'green'},
-{t:'FAIR VALUE GAP (FVG): When price moves so fast it leaves an imbalance — a gap that often gets filled later.',c:''},
-{t:'ORDER BLOCK (OB): The last bearish candle before a major bullish move (or vice versa). Acts as strong S/R.',c:''},
-{t:'These concepts work on every liquid market — Gold, Forex, Silver, indices. Institutions are everywhere.',c:'highlight'},
+{t:'LIQUIDITY = pools of buy or sell orders sitting at predictable price levels in the market.',c:''},
+{t:'Retail traders are predictable. They ALL place stop losses in the same places — just above swing highs and just below swing lows.',c:''},
+{t:'Major institutions (banks, hedge funds) need MASSIVE volume to fill their positions. Your small stop orders provide that liquidity.',c:''},
+{t:'So institutions deliberately move price BEYOND the obvious stop levels to trigger them, fill their own orders, then reverse.',c:'red'},
+{t:'This feels personal — like the market is targeting YOU. It is not. But it is targeting predictable retail behaviour.',c:''},
+{t:'LIQUIDITY SWEEP: Price spikes dramatically above a high or below a low with a long wick, then immediately reverses.',c:'highlight'},
+{t:'After the sweep: Retail stops have been triggered. Institutions are now filled. Price reverses hard in the opposite direction.',c:''},
+{t:'THIS IS YOUR EDGE: We wait for the sweep to happen, then enter in the direction of the reversal. 70–75% win rate.',c:'green'},
+{t:'WHERE SWEEPS HAPPEN MOST: Asia session high/low, prior day high/low, round numbers (113.00, 114.00), weekly highs/lows.',c:''},
+{t:'FAIR VALUE GAP (FVG): When price moves so fast between 3 candles that it leaves a visible gap. These gaps often get filled.',c:''},
+{t:'HOW TO SPOT AN FVG: Candle 1 high and Candle 3 low do not overlap. The space between = the FVG. Price often returns to it.',c:''},
+{t:'ORDER BLOCK (OB): The last bearish candle before a major bullish move, or last bullish candle before a major drop.',c:''},
+{t:'WHY ORDER BLOCKS WORK: Institutions entered there. They defend their entry price when market returns to it.',c:''},
+{t:'COMBINE THESE: A Liquidity Sweep that lands on an Order Block or FVG = extremely high probability setup.',c:'highlight'},
 ]},
 {id:5,phase:'SESSIONS',title:'Trading Sessions & Kill Zones',icon:'🌐',content:[
 {t:'The market runs 24 hours but NOT all hours are created equal. Most profitable moves happen in 3 windows.',c:''},
@@ -372,9 +431,14 @@ const STEPS=[
 {t:'Apply this exact SMA stack to Gold, EUR/USD, GBP/USD — copy the settings identically.',c:'highlight'},
 ]},
 {id:7,phase:'RISK MGMT',title:'Risk Management & Position Sizing',icon:'🛡️',content:[
-{t:'Risk management is more important than your entry. You can survive bad entries. You cannot survive a blown account.',c:'highlight'},
-{t:'THE 1% RULE: Never risk more than 1% of your total account on a single trade. This is non-negotiable.',c:'red'},
-{t:'Example: A$5,000 account × 1% = A$50 maximum loss per trade. This keeps you in the game.',c:''},
+{t:'Risk management is the most important skill in trading. You can survive a poor entry. You cannot survive a blown account.',c:'highlight'},
+{t:'THE 1% RULE: Never risk more than 1% of your total account balance on any single trade. This is non-negotiable.',c:'red'},
+{t:'WHY 1%? At 1% risk, you can lose 20 trades in a row and still have 82% of your account. The strategy keeps you in the game.',c:'green'},
+{t:'POSITION SIZE CALCULATION: Risk Amount ÷ Stop Loss Distance (in price) = Lot Size.',c:''},
+{t:'EXAMPLE — A$5,000 account, 1% risk = A$50 max loss. SL = 0.50 on Silver. Lot size = A$50 ÷ 0.50 = 100 units.',c:''},
+{t:'EXAMPLE — A$10,000 account, 1% risk = A$100 max loss. SL = 0.80 on Silver. Lot size = A$100 ÷ 0.80 = 125 units.',c:''},
+{t:'EXAMPLE — A$20,000 account, 1% risk = A$200 max loss. SL = 1.00 on Silver. Lot size = A$200 ÷ 1.00 = 200 units.',c:''},
+{t:'NEVER use fixed lot sizes. Always calculate position size BASED on your stop loss distance for that specific trade.',c:'red'},
 {t:'Example: A$10,000 account × 1% = A$100 maximum loss per trade.',c:''},
 {t:'POSITION SIZE formula: (Account × Risk%) ÷ Stop Loss in dollars. Calculate BEFORE entering.',c:''},
 {t:'STOP LOSS: Place below/above the last swing wick + a small buffer. Never at a round number.',c:''},
@@ -440,17 +504,23 @@ const STEPS=[
 {t:'DAILY HABIT: Open forexfactory.com every morning. Filter to HIGH + MEDIUM impact events only.',c:'highlight'},
 ]},
 {id:12,phase:'PSYCHOLOGY',title:'Trading Psychology & Discipline',icon:'🧠',content:[
-{t:'Your strategy can be perfect and you can still lose money. Emotions are the real enemy.',c:'highlight'},
-{t:'THE 5 EMOTIONS THAT DESTROY TRADERS: Fear, Greed, Hope, Revenge and FOMO.',c:'red'},
-{t:'FEAR: Makes you cut winners too early. You see 1R profit and close instead of holding to 3R.',c:''},
-{t:'GREED: Makes you hold losers hoping they come back. "It will reverse" has blown thousands of accounts.',c:''},
-{t:'HOPE: A form of greed. When you are hoping instead of following your rules — exit immediately.',c:''},
-{t:'REVENGE TRADING: You lose a trade and immediately re-enter to recover. This always makes losses worse.',c:'red'},
-{t:'FOMO: You see a big move and chase it without a valid setup. You always enter at the worst price.',c:''},
-{t:'THE FIX: The checklist. Before every trade, run through all 8 rules. If they fail, you cannot enter.',c:'green'},
-{t:'SET A DAILY LOSS LIMIT: If you lose 2R in one day — close the platform and walk away. Come back tomorrow.',c:''},
-{t:'JOURNAL EVERY TRADE: Screenshot the setup, record your emotions, review every week. This is how pros improve.',c:'highlight'},
-{t:'Remember: Missing a trade costs you zero. A revenge trade can cost you your whole account.',c:'green'},
+{t:'Your strategy can be perfect and you can still lose money consistently. Emotional discipline separates profitable traders from the rest.',c:'highlight'},
+{t:'FACT: Most traders who fail have a working strategy. They fail because they cannot follow their own rules under pressure.',c:'red'},
+{t:'THE 5 EMOTIONS THAT DESTROY TRADERS: Fear, Greed, Hope, Revenge Trading and FOMO.',c:'red'},
+{t:'FEAR: Makes you exit winners too early. You see 1R profit and close the trade instead of holding to your 3R target.',c:''},
+{t:'HOW TO FIX FEAR: Set your TP when you enter. Move your chart to a different timeframe. Stop watching tick by tick.',c:'green'},
+{t:'GREED: Makes you hold losing trades hoping they reverse. "It will come back" has destroyed more accounts than any strategy failure.',c:''},
+{t:'HOW TO FIX GREED: Your SL is set at entry. If price hits it — that is the market telling you the setup was wrong. Accept it.',c:'green'},
+{t:'HOPE: When you catch yourself "hoping" a trade works out instead of following rules — exit immediately. Hope is not a strategy.',c:''},
+{t:'REVENGE TRADING: You lose a trade and immediately re-enter to recover the loss. You always enter on emotion not setup. Losses double.',c:'red'},
+{t:'HOW TO FIX REVENGE: Daily loss limit. If you lose 2 trades in one day — close the platform. Walk away. Come back tomorrow fresh.',c:'green'},
+{t:'FOMO (Fear Of Missing Out): You see a massive candle, no valid setup, and enter anyway. You always enter at the worst price.',c:''},
+{t:'HOW TO FIX FOMO: There is ALWAYS another trade. The market opens every day. Missing one setup costs you zero. Chasing costs you real money.',c:'green'},
+{t:'THE CHECKLIST IS YOUR PSYCHOLOGY FIX: It removes emotion by creating a binary gate — either all conditions pass, or you do not trade.',c:'highlight'},
+{t:'DAILY LOSS LIMIT: Set it before you open the platform. 2R lost in one day = done for the day. No exceptions.',c:''},
+{t:'JOURNAL EVERY TRADE — WIN OR LOSS: Screenshot the chart, write what you felt, what you did right and wrong. Review every Sunday.',c:'highlight'},
+{t:'HOW JOURNALING MAKES YOU PROFITABLE: Over 3 months you will see patterns in your mistakes. Fixing one recurring mistake can double your win rate.',c:'green'},
+{t:'THE GOLDEN MINDSET: Think in probabilities not outcomes. Any single trade can lose. Over 100 trades with positive expectancy — you win.',c:'highlight'},
 ]},
 {id:13,phase:'DAILY ROUTINE',title:'Your Complete Daily Trading Routine',icon:'🗓️',content:[
 {t:'PRE-SESSION PREP — 30 minutes before the Kill Zone opens:',c:'highlight'},
@@ -477,6 +547,33 @@ const STEPS=[
 let currentStep=0;
 function renderCourse(){document.getElementById('step-nav').innerHTML=STEPS.map((s,i)=>`<button class="step-btn ${i===currentStep?'active':''}" onclick="goStep(${i})">${s.id}. ${s.phase}</button>`).join('');const step=STEPS[currentStep];document.getElementById('step-content').innerHTML=`<div style="display:flex;align-items:center;gap:16px;margin-bottom:24px"><div style="font-size:36px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:rgba(200,205,214,0.07);border:1px solid var(--border-bright);flex-shrink:0">${step.icon}</div><div><div style="font-size:9px;color:var(--silver-dim);letter-spacing:4px;margin-bottom:4px">PHASE ${step.id} · ${step.phase}</div><div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--silver-bright)">${step.title}</div></div></div><div class="rule-list">${step.content.map(l=>`<div class="rule-item ${l.c}">${l.t}</div>`).join('')}</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px"><button onclick="goStep(${currentStep-1})" ${currentStep===0?'disabled':''} style="padding:10px 20px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--silver-dim);font-family:var(--font-mono);font-size:11px;cursor:pointer;opacity:${currentStep===0?0.3:1}">← Prev</button><span style="font-size:10px;color:var(--silver-dim)">${currentStep+1} / ${STEPS.length}</span><button onclick="goStep(${currentStep+1})" ${currentStep===STEPS.length-1?'disabled':''} style="padding:10px 20px;border-radius:10px;background:rgba(200,205,214,0.1);border:1px solid var(--border-bright);color:var(--silver-bright);font-family:var(--font-mono);font-size:11px;cursor:pointer;opacity:${currentStep===STEPS.length-1?0.3:1}">Next →</button></div>`}
 function goStep(i){if(i<0||i>=STEPS.length)return;currentStep=i;renderCourse()}
+
+function calcPosition(){
+  const balance=parseFloat(document.getElementById('calc-balance').value)||0;
+  const risk=parseFloat(document.getElementById('calc-risk').value)||1;
+  const entry=parseFloat(document.getElementById('calc-entry').value)||0;
+  const sl=parseFloat(document.getElementById('calc-sl').value)||0;
+  const tp=parseFloat(document.getElementById('calc-tp').value)||0;
+  const results=document.getElementById('calc-results');
+  if(!balance||!entry||!sl){results.style.display='none';return;}
+  const riskAmt=balance*(risk/100);
+  const slDist=Math.abs(entry-sl);
+  if(slDist===0){results.style.display='none';return;}
+  const units=Math.floor(riskAmt/slDist);
+  const tpDist=tp?Math.abs(tp-entry):0;
+  const rr=tpDist?tpDist/slDist:0;
+  const profit=tpDist?units*tpDist:0;
+  document.getElementById('res-risk').textContent='A$'+riskAmt.toFixed(2);
+  document.getElementById('res-size').textContent=units.toLocaleString();
+  document.getElementById('res-sl-dist').textContent=slDist.toFixed(4);
+  document.getElementById('res-rr').textContent=rr?'1:'+rr.toFixed(1):'N/A';
+  document.getElementById('res-profit').textContent=profit?'A$'+profit.toFixed(2):'—';
+  const verdict=document.getElementById('res-verdict');
+  if(rr>=3){verdict.style.cssText='margin-top:16px;padding:12px 16px;border-radius:10px;font-size:12px;text-align:center;font-weight:600;letter-spacing:2px;background:rgba(61,220,132,0.1);border:1px solid rgba(61,220,132,0.25);color:#3ddc84';verdict.textContent='✅ VALID SETUP — RR meets minimum 1:3 requirement';}
+  else if(rr>0&&rr<3){verdict.style.cssText='margin-top:16px;padding:12px 16px;border-radius:10px;font-size:12px;text-align:center;font-weight:600;letter-spacing:2px;background:rgba(240,82,82,0.08);border:1px solid rgba(240,82,82,0.2);color:#f05252';verdict.textContent='❌ RR TOO LOW — Move TP further or tighten SL. Minimum 1:3 required.';}
+  else{verdict.style.cssText='';verdict.textContent='';}
+  results.style.display='block';
+}
 
 const CHECKLIST=["HTF bias confirmed (Daily/4H candle close)","Inside Kill Zone — London (08–10) or NY (13–15) or Asia Range","SMA 9 & 21 aligned with directional bias","SMA 50 & 200 confirming direction","Key S/R level identified (prior high/low, FVG, or OB)","Confirmation candle printed (engulf, pin bar, or rejection)","No high-impact news within ±30 minutes","Clear 1:3+ RR visible before entry"];
 let checkState=new Array(8).fill(false);
