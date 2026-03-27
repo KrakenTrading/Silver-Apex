@@ -1,7 +1,8 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Silver Apex</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/><style>
-:root{--bg:#06090f;--bg2:#0c1018;--silver:#c8cdd6;--silver-bright:#e8edf5;--silver-dim:#6b7280;--gold:#c9a84c;--gold-bright:#e2c070;--green:#3ddc84;--red:#f05252;--blue:#5b9cf6;--purple:#a78bfa;--border:rgba(200,205,214,0.08);--border-bright:rgba(200,205,214,0.18);--font-display:'Playfair Display',Georgia,serif;--font-mono:'DM Mono','Courier New',monospace}
+
+/* styles inlined */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--silver);font-family:var(--font-mono);min-height:100vh;overflow-x:hidden}
+body{background:#06090f;color:#c8cdd6;font-family:‘DM Mono’,‘Courier New’,monospace;min-height:100vh;overflow-x:hidden}
 .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(200,205,214,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(200,205,214,0.025) 1px,transparent 1px);background-size:48px 48px}
 .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px)}
 .orb-1{width:600px;height:600px;top:-200px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,0.06),transparent 70%)}
@@ -11,104 +12,104 @@ body{background:var(--bg);color:var(--silver);font-family:var(--font-mono);min-h
 #login-page{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
 .login-container{width:100%;max-width:440px;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both}
 .login-logo{text-align:center;margin-bottom:48px}
-.wordmark{font-family:var(--font-display);font-size:42px;font-weight:900;background:linear-gradient(135deg,#888,var(--silver-bright),#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px}
-.tagline{font-size:10px;letter-spacing:6px;color:var(--silver-dim);margin-top:10px;text-transform:uppercase}
-.divider-line{width:40px;height:1px;background:var(--gold);margin:16px auto 0}
-.login-card{background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid var(--border-bright);border-radius:20px;padding:40px;box-shadow:0 32px 80px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.06)}
-.login-card h2{font-family:var(--font-display);font-size:24px;font-weight:700;color:var(--silver-bright);margin-bottom:6px}
-.login-card p{font-size:12px;color:var(--silver-dim);margin-bottom:32px;line-height:1.6}
+.wordmark{font-family:‘Playfair Display’,Georgia,serif;font-size:42px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px}
+.tagline{font-size:10px;letter-spacing:6px;color:#6b7280;margin-top:10px;text-transform:uppercase}
+.divider-line{width:40px;height:1px;background:#c9a84c;margin:16px auto 0}
+.login-card{background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid rgba(200,205,214,0.18);border-radius:20px;padding:40px;box-shadow:0 32px 80px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.06)}
+.login-card h2{font-family:‘Playfair Display’,Georgia,serif;font-size:24px;font-weight:700;color:#e8edf5;margin-bottom:6px}
+.login-card p{font-size:12px;color:#6b7280;margin-bottom:32px;line-height:1.6}
 .field{margin-bottom:20px}
-.field label{display:block;font-size:10px;letter-spacing:3px;color:var(--silver-dim);margin-bottom:8px;text-transform:uppercase}
-.field input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-bright);border-radius:10px;color:var(--silver-bright);font-family:var(--font-mono);font-size:14px;transition:all 0.2s;outline:none}
-.field input:focus{border-color:var(--gold);background:rgba(201,168,76,0.05);box-shadow:0 0 0 3px rgba(201,168,76,0.1)}
+.field label{display:block;font-size:10px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase}
+.field input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:14px;transition:all 0.2s;outline:none}
+.field input:focus{border-color:#c9a84c;background:rgba(201,168,76,0.05);box-shadow:0 0 0 3px rgba(201,168,76,0.1)}
 .field input::placeholder{color:rgba(107,114,128,0.6)}
-.btn-login{width:100%;padding:15px;background:linear-gradient(135deg,var(--gold),var(--gold-bright));border:none;border-radius:10px;color:#1a1200;font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:3px;cursor:pointer;text-transform:uppercase;transition:all 0.2s;box-shadow:0 4px 20px rgba(201,168,76,0.3);margin-top:8px}
+.btn-login{width:100%;padding:15px;background:linear-gradient(135deg,#c9a84c,#e2c070);border:none;border-radius:10px;color:#1a1200;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:12px;font-weight:500;letter-spacing:3px;cursor:pointer;text-transform:uppercase;transition:all 0.2s;box-shadow:0 4px 20px rgba(201,168,76,0.3);margin-top:8px}
 .btn-login:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(201,168,76,0.4)}
-.login-error{background:rgba(240,82,82,0.1);border:1px solid rgba(240,82,82,0.2);border-radius:8px;padding:12px 14px;font-size:12px;color:var(--red);margin-top:14px;display:none}
+.login-error{background:rgba(240,82,82,0.1);border:1px solid rgba(240,82,82,0.2);border-radius:8px;padding:12px 14px;font-size:12px;color:#f05252;margin-top:14px;display:none}
 .login-footer{text-align:center;margin-top:28px;font-size:10px;color:rgba(107,114,128,0.5);letter-spacing:1px}
 #course-page{display:none}
-.nav{position:sticky;top:0;z-index:100;background:rgba(6,9,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
-.nav-logo{font-family:var(--font-display);font-size:22px;font-weight:900;background:linear-gradient(135deg,#888,var(--silver-bright),#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav{position:sticky;top:0;z-index:100;background:rgba(6,9,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,205,214,0.08);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-family:‘Playfair Display’,Georgia,serif;font-size:22px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-right{display:flex;align-items:center;gap:16px}
 .session-badge{display:flex;align-items:center;gap:7px;padding:6px 14px;border-radius:999px;font-size:11px;font-weight:500;letter-spacing:1px;border:1px solid;transition:all 0.3s}
 .session-dot{width:6px;height:6px;border-radius:50%}
-.btn-logout{padding:7px 16px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--silver-dim);font-family:var(--font-mono);font-size:10px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:all 0.2s}
-.btn-logout:hover{color:var(--silver);border-color:var(--border-bright)}
+.btn-logout{padding:7px 16px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(200,205,214,0.08);color:#6b7280;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:10px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:all 0.2s}
+.btn-logout:hover{color:#c8cdd6;border-color:rgba(200,205,214,0.18)}
 .hero{text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:600px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.hero-eyebrow{font-size:10px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:20px}
-.hero-title{font-family:var(--font-display);font-size:clamp(48px,8vw,90px);font-weight:900;line-height:0.95;letter-spacing:-2px;background:linear-gradient(135deg,#777,var(--silver-bright),#888);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}
-.hero-sub{font-size:13px;color:var(--silver-dim);letter-spacing:3px;margin-bottom:40px}
+.hero::after{content:’’;position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:600px;height:1px;background:linear-gradient(90deg,transparent,#c9a84c,transparent)}
+.hero-eyebrow{font-size:10px;letter-spacing:6px;color:#c9a84c;text-transform:uppercase;margin-bottom:20px}
+.hero-title{font-family:‘Playfair Display’,Georgia,serif;font-size:clamp(48px,8vw,90px);font-weight:900;line-height:0.95;letter-spacing:-2px;background:linear-gradient(135deg,#777,#e8edf5,#888);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}
+.hero-sub{font-size:13px;color:#6b7280;letter-spacing:3px;margin-bottom:40px}
 .hero-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
-.hero-stat .val{font-family:var(--font-display);font-size:32px;font-weight:700;color:var(--silver-bright)}
-.hero-stat .lbl{font-size:9px;letter-spacing:3px;color:var(--silver-dim);margin-top:4px}
-.tab-bar{display:flex;gap:0;overflow-x:auto;border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:60px;z-index:99;background:rgba(6,9,15,0.95);backdrop-filter:blur(20px)}
+.hero-stat .val{font-family:‘Playfair Display’,Georgia,serif;font-size:32px;font-weight:700;color:#e8edf5}
+.hero-stat .lbl{font-size:9px;letter-spacing:3px;color:#6b7280;margin-top:4px}
+.tab-bar{display:flex;gap:0;overflow-x:auto;border-bottom:1px solid rgba(200,205,214,0.08);padding:0 24px;position:sticky;top:60px;z-index:99;background:rgba(6,9,15,0.95);backdrop-filter:blur(20px)}
 .tab-bar::-webkit-scrollbar{height:0}
-.tab-btn{padding:16px 22px;border:none;background:none;color:var(--silver-dim);font-family:var(--font-mono);font-size:11px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;position:relative;top:1px}
-.tab-btn:hover{color:var(--silver)}
-.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-btn{padding:16px 22px;border:none;background:none;color:#6b7280;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:11px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;position:relative;top:1px}
+.tab-btn:hover{color:#c8cdd6}
+.tab-btn.active{color:#c9a84c;border-bottom-color:#c9a84c}
 .content{max-width:960px;margin:0 auto;padding:48px 24px 80px}
 .tab-panel{display:none}
 .tab-panel.active{display:block;animation:fadeUp 0.4s cubic-bezier(0.16,1,0.3,1) both}
-.card{background:linear-gradient(145deg,rgba(255,255,255,0.035),rgba(255,255,255,0.01));border:1px solid var(--border);border-radius:16px;padding:28px;transition:border-color 0.2s}
-.card:hover{border-color:var(--border-bright)}
-.card-label{font-size:9px;letter-spacing:4px;color:var(--silver-dim);text-transform:uppercase;margin-bottom:8px}
-.card-title{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--silver-bright);margin-bottom:20px}
+.card{background:linear-gradient(145deg,rgba(255,255,255,0.035),rgba(255,255,255,0.01));border:1px solid rgba(200,205,214,0.08);border-radius:16px;padding:28px;transition:border-color 0.2s}
+.card:hover{border-color:rgba(200,205,214,0.18)}
+.card-label{font-size:9px;letter-spacing:4px;color:#6b7280;text-transform:uppercase;margin-bottom:8px}
+.card-title{font-family:‘Playfair Display’,Georgia,serif;font-size:22px;font-weight:700;color:#e8edf5;margin-bottom:20px}
 .model-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-.model-pill{padding:10px 18px;border-radius:10px;border:none;cursor:pointer;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:1px;background:rgba(255,255,255,0.04);color:var(--silver-dim);transition:all 0.2s;display:flex;align-items:center;gap:6px}
-.model-pill.active,.model-pill:hover{background:rgba(201,168,76,0.1);color:var(--gold);outline:1px solid rgba(201,168,76,0.3)}
-.chart-wrap{border-radius:12px;overflow:hidden;border:1px solid var(--border);margin:20px 0}
+.model-pill{padding:10px 18px;border-radius:10px;border:none;cursor:pointer;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:11px;font-weight:500;letter-spacing:1px;background:rgba(255,255,255,0.04);color:#6b7280;transition:all 0.2s;display:flex;align-items:center;gap:6px}
+.model-pill.active,.model-pill:hover{background:rgba(201,168,76,0.1);color:#c9a84c;outline:1px solid rgba(201,168,76,0.3)}
+.chart-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(200,205,214,0.08);margin:20px 0}
 .stat-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
-.stat-box{flex:1;min-width:100px;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;text-align:center}
-.stat-box .sv{font-family:var(--font-display);font-size:26px;font-weight:700}
-.stat-box .sl{font-size:9px;letter-spacing:2px;color:var(--silver-dim);margin-top:4px;text-transform:uppercase}
+.stat-box{flex:1;min-width:100px;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(200,205,214,0.08);border-radius:12px;text-align:center}
+.stat-box .sv{font-family:‘Playfair Display’,Georgia,serif;font-size:26px;font-weight:700}
+.stat-box .sl{font-size:9px;letter-spacing:2px;color:#6b7280;margin-top:4px;text-transform:uppercase}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
 .info-box{padding:16px;border-radius:12px;font-size:12px;line-height:1.75}
 .info-box .ib-label{font-size:9px;letter-spacing:3px;font-weight:500;text-transform:uppercase;margin-bottom:8px}
 .rule-list{display:flex;flex-direction:column;gap:8px}
 .rule-item{padding:12px 16px;border-radius:10px;font-size:12px;line-height:1.65;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.04);color:#a0a8b8}
-.rule-item.highlight{background:rgba(201,168,76,0.07);border-color:rgba(201,168,76,0.2);color:var(--gold-bright)}
+.rule-item.highlight{background:rgba(201,168,76,0.07);border-color:rgba(201,168,76,0.2);color:#e2c070}
 .rule-item.green{background:rgba(61,220,132,0.06);border-color:rgba(61,220,132,0.15);color:#6ee7a8}
 .rule-item.red{background:rgba(240,82,82,0.06);border-color:rgba(240,82,82,0.12);color:#f59595}
 .rule-item.yellow{background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.12);color:#fbbf24}
 .rule-item.indent{margin-left:16px;background:rgba(255,255,255,0.015)}
 .step-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.step-btn{padding:7px 13px;border-radius:8px;border:none;background:rgba(255,255,255,0.04);color:var(--silver-dim);font-family:var(--font-mono);font-size:10px;letter-spacing:1px;cursor:pointer;transition:all 0.2s;text-transform:uppercase}
-.step-btn.active{background:rgba(200,205,214,0.12);color:var(--silver-bright);outline:1px solid rgba(200,205,214,0.2)}
-.bt-row{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-radius:12px;margin-bottom:10px;background:rgba(255,255,255,0.02);border:1px solid var(--border);flex-wrap:wrap;gap:12px;position:relative}
+.step-btn{padding:7px 13px;border-radius:8px;border:none;background:rgba(255,255,255,0.04);color:#6b7280;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:10px;letter-spacing:1px;cursor:pointer;transition:all 0.2s;text-transform:uppercase}
+.step-btn.active{background:rgba(200,205,214,0.12);color:#e8edf5;outline:1px solid rgba(200,205,214,0.2)}
+.bt-row{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-radius:12px;margin-bottom:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(200,205,214,0.08);flex-wrap:wrap;gap:12px;position:relative}
 .bt-row.best{background:rgba(201,168,76,0.06);border-color:rgba(201,168,76,0.3)}
-.best-badge{position:absolute;top:-10px;right:14px;background:var(--gold);color:#1a1200;font-size:9px;font-weight:700;letter-spacing:2px;padding:3px 10px;border-radius:999px}
+.best-badge{position:absolute;top:-10px;right:14px;background:#c9a84c;color:#1a1200;font-size:9px;font-weight:700;letter-spacing:2px;padding:3px 10px;border-radius:999px}
 .bt-bar{height:3px;border-radius:999px;margin-top:10px;width:100%;background:rgba(255,255,255,0.05)}
 .bt-bar-fill{height:100%;border-radius:999px;transition:width 1s ease}
-.check-item{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;cursor:pointer;background:rgba(255,255,255,0.025);border:1px solid var(--border);transition:all 0.2s;margin-bottom:8px;user-select:none}
-.check-item:hover{border-color:var(--border-bright)}
+.check-item{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;cursor:pointer;background:rgba(255,255,255,0.025);border:1px solid rgba(200,205,214,0.08);transition:all 0.2s;margin-bottom:8px;user-select:none}
+.check-item:hover{border-color:rgba(200,205,214,0.18)}
 .check-item.checked{background:rgba(61,220,132,0.06);border-color:rgba(61,220,132,0.2)}
 .check-box{width:24px;height:24px;border-radius:7px;flex-shrink:0;border:2px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;transition:all 0.2s}
-.check-item.checked .check-box{background:var(--green);border-color:var(--green)}
+.check-item.checked .check-box{background:#3ddc84;border-color:#3ddc84}
 .check-mark{color:#000;font-size:13px;font-weight:700;display:none}
 .check-item.checked .check-mark{display:block}
 .check-label{font-size:13px;color:#c0c8d8}
-.check-item.checked .check-label{color:var(--green)}
+.check-item.checked .check-label{color:#3ddc84}
 .score-gate{margin-top:24px;padding:24px;border-radius:14px;text-align:center;transition:all 0.3s}
-.score-num{font-family:var(--font-display);font-size:52px;font-weight:900}
+.score-num{font-family:‘Playfair Display’,Georgia,serif;font-size:52px;font-weight:900}
 .score-verdict{font-size:13px;letter-spacing:4px;font-weight:500;margin-top:6px}
-.score-note{font-size:11px;color:var(--silver-dim);margin-top:8px}
+.score-note{font-size:11px;color:#6b7280;margin-top:8px}
 .news-item{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-radius:10px;margin-bottom:7px;flex-wrap:wrap;gap:10px}
 .news-action{font-size:10px;font-weight:700;letter-spacing:1px;padding:4px 12px;border-radius:6px}
-.session-timeline{position:relative;height:90px;background:rgba(255,255,255,0.02);border-radius:10px;margin:20px 0;overflow:hidden;border:1px solid var(--border)}
+.session-timeline{position:relative;height:90px;background:rgba(255,255,255,0.02);border-radius:10px;margin:20px 0;overflow:hidden;border:1px solid rgba(200,205,214,0.08)}
 .session-band{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;border-radius:4px;font-size:9px;font-weight:700;letter-spacing:1px;overflow:hidden}
 .now-line{position:absolute;top:0;bottom:0;width:2px;background:rgba(255,255,255,0.6);z-index:10}
-.hour-ticks{display:flex;justify-content:space-between;padding:6px 0;font-size:9px;color:var(--silver-dim)}
-.session-card{padding:14px 18px;border-radius:12px;margin-bottom:8px;transition:all 0.3s;border:1px solid var(--border);background:rgba(255,255,255,0.02)}
+.hour-ticks{display:flex;justify-content:space-between;padding:6px 0;font-size:9px;color:#6b7280}
+.session-card{padding:14px 18px;border-radius:12px;margin-bottom:8px;transition:all 0.3s;border:1px solid rgba(200,205,214,0.08);background:rgba(255,255,255,0.02)}
 .session-card.live{border-color:rgba(201,168,76,0.35);background:rgba(201,168,76,0.04)}
-.sma-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--border)}
+.sma-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid rgba(200,205,214,0.08)}
 .sma-row:last-child{border-bottom:none}
 .sma-line{width:36px;height:3px;border-radius:999px;flex-shrink:0}
 .sma-period{font-size:11px;font-weight:500;width:60px;flex-shrink:0}
-.sma-desc{font-size:11px;color:var(--silver-dim);line-height:1.5}
+.sma-desc{font-size:11px;color:#6b7280;line-height:1.5}
 .chart-legend{display:flex;gap:16px;flex-wrap:wrap;padding:12px 0;margin-top:4px}
 .legend-item{display:flex;align-items:center;gap:6px}
-.legend-item span{font-size:9px;color:var(--silver-dim)}
+.legend-item span{font-size:9px;color:#6b7280}
 .legend-line{width:20px;height:2px;border-radius:999px}
 .legend-box{width:10px;height:10px;border-radius:2px}
 .legend-dash{width:20px;border-top:2px dashed}
@@ -116,6 +117,7 @@ body{background:var(--bg);color:var(--silver);font-family:var(--font-mono);min-h
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
 @media(max-width:600px){.hero{padding:48px 20px 40px}.hero-stats{gap:28px}.login-card{padding:28px 22px}.content{padding:32px 16px 60px}.card{padding:20px 16px}.tab-btn{padding:14px 14px;font-size:10px}}
 </style></head><body>
+
 <div class="grid-bg"></div><div class="orb orb-1"></div><div class="orb orb-2"></div>
 
 <div id="login-page" class="page active">
@@ -126,7 +128,7 @@ body{background:var(--bg);color:var(--silver);font-family:var(--font-mono);min-h
 <div class="field"><label>Email Address</label><input type="email" id="email-input" placeholder="you@example.com" autocomplete="email"/></div>
 <div class="field"><label>Password</label><input type="password" id="password-input" placeholder="••••••••" autocomplete="current-password"/></div>
 <button class="btn-login" onclick="handleLogin()">ACCESS COURSE →</button>
-<div style="text-align:center;margin-top:16px"><span onclick="handleForgotPassword()" style="font-size:11px;color:var(--silver-dim);cursor:pointer;text-decoration:underline;letter-spacing:1px">Forgot password?</span></div>
+<div style="text-align:center;margin-top:16px"><span onclick="handleForgotPassword()" style="font-size:11px;color:#6b7280;cursor:pointer;text-decoration:underline;letter-spacing:1px">Forgot password?</span></div>
 <div class="login-error" id="login-error">Incorrect email or password. Please try again.</div>
 </div>
 <div class="login-footer">© 2025 Silver Apex · AUD Edition · All rights reserved<br/><span style="margin-top:6px;display:block">For access contact your course provider · Prices in AUD</span></div>
@@ -145,10 +147,10 @@ body{background:var(--bg);color:var(--silver);font-family:var(--font-mono);min-h
 <h1 class="hero-title">Silver<br/>Apex</h1>
 <div class="hero-sub">ASIA · LONDON · NEW YORK</div>
 <div class="hero-stats">
-<div class="hero-stat"><div class="val" style="color:var(--green)">66%</div><div class="lbl">Peak Win Rate</div></div>
-<div class="hero-stat"><div class="val" style="color:var(--gold)">1:3+</div><div class="lbl">Min Risk:Reward</div></div>
-<div class="hero-stat"><div class="val" style="color:var(--blue)">4</div><div class="lbl">Entry Models</div></div>
-<div class="hero-stat"><div class="val" style="color:var(--silver)">80%</div><div class="lbl">Mechanical Rules</div></div>
+<div class="hero-stat"><div class="val" style="color:#3ddc84">66%</div><div class="lbl">Peak Win Rate</div></div>
+<div class="hero-stat"><div class="val" style="color:#c9a84c">1:3+</div><div class="lbl">Min Risk:Reward</div></div>
+<div class="hero-stat"><div class="val" style="color:#5b9cf6">4</div><div class="lbl">Entry Models</div></div>
+<div class="hero-stat"><div class="val" style="color:#c8cdd6">80%</div><div class="lbl">Mechanical Rules</div></div>
 </div></div>
 
 <div class="tab-bar">
@@ -188,49 +190,49 @@ body{background:var(--bg);color:var(--silver);font-family:var(--font-mono);min-h
 <div class="score-verdict" id="score-verdict">❌ DO NOT TRADE</div>
 <div class="score-note" id="score-note">Complete the checklist above before entering any trade.</div>
 </div>
-<button onclick="resetChecklist()" style="margin-top:16px;width:100%;padding:12px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--silver-dim);font-family:var(--font-mono);font-size:10px;letter-spacing:3px;cursor:pointer;text-transform:uppercase">Reset Checklist</button>
+<button onclick="resetChecklist()" style="margin-top:16px;width:100%;padding:12px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.08);color:#6b7280;font-family:'DM Mono','Courier New',monospace;font-size:10px;letter-spacing:3px;cursor:pointer;text-transform:uppercase">Reset Checklist</button>
 </div></div>
 
 <div class="tab-panel" id="tab-calculator">
 <div class="card">
 <div class="card-label">Position Sizing Tool</div>
 <div class="card-title">Risk Calculator — AUD</div>
-<p style="font-size:12px;color:var(--silver-dim);margin-bottom:24px;line-height:1.8">Enter your account details below to calculate the correct position size for any trade. Never risk more than 1% per trade.</p>
+<p style="font-size:12px;color:#6b7280;margin-bottom:24px;line-height:1.8">Enter your account details below to calculate the correct position size for any trade. Never risk more than 1% per trade.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px">
 <div class="field">
-<label style="display:block;font-size:9px;letter-spacing:3px;color:var(--silver-dim);margin-bottom:8px;text-transform:uppercase">Account Balance (A$)</label>
-<input type="number" id="calc-balance" placeholder="e.g. 5000" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-bright);border-radius:10px;color:var(--silver-bright);font-family:var(--font-mono);font-size:14px;outline:none"/>
+<label style="display:block;font-size:9px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase">Account Balance (A$)</label>
+<input type="number" id="calc-balance" placeholder="e.g. 5000" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;outline:none"/>
 </div>
 <div class="field">
-<label style="display:block;font-size:9px;letter-spacing:3px;color:var(--silver-dim);margin-bottom:8px;text-transform:uppercase">Risk % (recommend 1%)</label>
-<input type="number" id="calc-risk" placeholder="1" value="1" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-bright);border-radius:10px;color:var(--silver-bright);font-family:var(--font-mono);font-size:14px;outline:none"/>
+<label style="display:block;font-size:9px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase">Risk % (recommend 1%)</label>
+<input type="number" id="calc-risk" placeholder="1" value="1" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;outline:none"/>
 </div>
 <div class="field">
-<label style="display:block;font-size:9px;letter-spacing:3px;color:var(--silver-dim);margin-bottom:8px;text-transform:uppercase">Entry Price (A$)</label>
-<input type="number" id="calc-entry" placeholder="e.g. 113.50" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-bright);border-radius:10px;color:var(--silver-bright);font-family:var(--font-mono);font-size:14px;outline:none"/>
+<label style="display:block;font-size:9px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase">Entry Price (A$)</label>
+<input type="number" id="calc-entry" placeholder="e.g. 113.50" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;outline:none"/>
 </div>
 <div class="field">
-<label style="display:block;font-size:9px;letter-spacing:3px;color:var(--silver-dim);margin-bottom:8px;text-transform:uppercase">Stop Loss Price (A$)</label>
-<input type="number" id="calc-sl" placeholder="e.g. 112.80" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-bright);border-radius:10px;color:var(--silver-bright);font-family:var(--font-mono);font-size:14px;outline:none"/>
+<label style="display:block;font-size:9px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase">Stop Loss Price (A$)</label>
+<input type="number" id="calc-sl" placeholder="e.g. 112.80" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;outline:none"/>
 </div>
 <div class="field">
-<label style="display:block;font-size:9px;letter-spacing:3px;color:var(--silver-dim);margin-bottom:8px;text-transform:uppercase">Take Profit Price (A$)</label>
-<input type="number" id="calc-tp" placeholder="e.g. 115.60" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-bright);border-radius:10px;color:var(--silver-bright);font-family:var(--font-mono);font-size:14px;outline:none"/>
+<label style="display:block;font-size:9px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase">Take Profit Price (A$)</label>
+<input type="number" id="calc-tp" placeholder="e.g. 115.60" oninput="calcPosition()" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;outline:none"/>
 </div>
 </div>
 <div id="calc-results" style="display:none;padding:24px;border-radius:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2)">
-<div style="font-size:9px;color:var(--gold);letter-spacing:4px;margin-bottom:16px">TRADE CALCULATION</div>
+<div style="font-size:9px;color:#c9a84c;letter-spacing:4px;margin-bottom:16px">TRADE CALCULATION</div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px">
-<div style="text-align:center"><div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--green)" id="res-risk">A$0</div><div style="font-size:9px;color:var(--silver-dim);margin-top:4px;letter-spacing:2px">MAX RISK</div></div>
-<div style="text-align:center"><div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--silver-bright)" id="res-size">0</div><div style="font-size:9px;color:var(--silver-dim);margin-top:4px;letter-spacing:2px">UNITS / OZ</div></div>
-<div style="text-align:center"><div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--blue)" id="res-sl-dist">0.00</div><div style="font-size:9px;color:var(--silver-dim);margin-top:4px;letter-spacing:2px">SL DISTANCE</div></div>
-<div style="text-align:center"><div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--gold)" id="res-rr">0:0</div><div style="font-size:9px;color:var(--silver-dim);margin-top:4px;letter-spacing:2px">RISK : REWARD</div></div>
-<div style="text-align:center"><div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--green)" id="res-profit">A$0</div><div style="font-size:9px;color:var(--silver-dim);margin-top:4px;letter-spacing:2px">POTENTIAL PROFIT</div></div>
+<div style="text-align:center"><div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:700;color:#3ddc84" id="res-risk">A$0</div><div style="font-size:9px;color:#6b7280;margin-top:4px;letter-spacing:2px">MAX RISK</div></div>
+<div style="text-align:center"><div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:700;color:#e8edf5" id="res-size">0</div><div style="font-size:9px;color:#6b7280;margin-top:4px;letter-spacing:2px">UNITS / OZ</div></div>
+<div style="text-align:center"><div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:700;color:#5b9cf6" id="res-sl-dist">0.00</div><div style="font-size:9px;color:#6b7280;margin-top:4px;letter-spacing:2px">SL DISTANCE</div></div>
+<div style="text-align:center"><div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:700;color:#c9a84c" id="res-rr">0:0</div><div style="font-size:9px;color:#6b7280;margin-top:4px;letter-spacing:2px">RISK : REWARD</div></div>
+<div style="text-align:center"><div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:700;color:#3ddc84" id="res-profit">A$0</div><div style="font-size:9px;color:#6b7280;margin-top:4px;letter-spacing:2px">POTENTIAL PROFIT</div></div>
 </div>
 <div id="res-verdict" style="margin-top:16px;padding:12px 16px;border-radius:10px;font-size:12px;text-align:center;font-weight:600;letter-spacing:2px"></div>
 </div>
-<div style="margin-top:20px;padding:16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);font-size:11px;color:var(--silver-dim);line-height:2">
-<strong style="color:var(--silver-bright)">How to use:</strong> Enter your account balance, keep risk at 1%, then enter the exact entry price and stop loss from your chart. The calculator tells you exactly how many units to buy or sell so you never risk more than your limit.
+<div style="margin-top:20px;padding:16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(200,205,214,0.08);font-size:11px;color:#6b7280;line-height:2">
+<strong style="color:#e8edf5">How to use:</strong> Enter your account balance, keep risk at 1%, then enter the exact entry price and stop loss from your chart. The calculator tells you exactly how many units to buy or sell so you never risk more than your limit.
 </div>
 </div>
 </div>
@@ -240,17 +242,17 @@ body{background:var(--bg);color:var(--silver);font-family:var(--font-mono);min-h
 <div class="card-label">Silver XAG/USD (quoted in AUD) · 500+ Trade Sample · 2022–2024</div>
 <div class="card-title">Backtest Results</div>
 <div id="backtest-rows"></div>
-<div style="margin-top:20px;padding:16px;border-radius:12px;background:rgba(200,205,214,0.04);border:1px solid var(--border);font-size:12px;color:var(--silver-dim);line-height:1.9"><strong style="color:var(--silver-bright)">Key insight:</strong> The 15m Intraday Confirmation Entry in the London/NY overlap delivers 0.98R expectancy per trade — the strongest mathematical edge across all setups tested on Silver.</div>
+<div style="margin-top:20px;padding:16px;border-radius:12px;background:rgba(200,205,214,0.04);border:1px solid rgba(200,205,214,0.08);font-size:12px;color:#6b7280;line-height:1.9"><strong style="color:#e8edf5">Key insight:</strong> The 15m Intraday Confirmation Entry in the London/NY overlap delivers 0.98R expectancy per trade — the strongest mathematical edge across all setups tested on Silver.</div>
 </div></div>
 
 <div class="tab-panel" id="tab-news">
 <div class="card">
 <div class="card-label">Economic Calendar Protocol</div>
 <div class="card-title">News Protocol for Silver</div>
-<p style="font-size:12px;color:var(--silver-dim);margin-bottom:24px;line-height:1.8">Silver is AUD-correlated with a safe-haven overlay. Check this list every morning before any session.</p>
+<p style="font-size:12px;color:#6b7280;margin-bottom:24px;line-height:1.8">Silver is AUD-correlated with a safe-haven overlay. Check this list every morning before any session.</p>
 <div id="news-items"></div>
 <div style="margin-top:20px;padding:18px;border-radius:12px;background:rgba(61,220,132,0.05);border:1px solid rgba(61,220,132,0.15)">
-<div style="font-size:9px;color:var(--green);letter-spacing:3px;font-weight:700;margin-bottom:12px">📌 DAILY PRE-SESSION ROUTINE</div>
+<div style="font-size:9px;color:#3ddc84;letter-spacing:3px;font-weight:700;margin-bottom:12px">📌 DAILY PRE-SESSION ROUTINE</div>
 <div style="font-size:12px;color:#9ca3af;line-height:2.1">1. Open Forex Factory or Investing.com before each session<br/>2. Filter to HIGH + MEDIUM impact AUD events only<br/>3. Mark all event times on your chart before session opens<br/>4. 🔴 event in London Kill Zone → skip that session entirely<br/>5. 🔴 event in NY Kill Zone → wait 15 minutes post-release</div>
 </div></div></div>
 
@@ -280,6 +282,7 @@ body{background:var(--bg);color:var(--silver);font-family:var(--font-mono);min-h
 </div></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 const _supabase=supabase.createClient('https://aofzbbprtafsozdwvtoa.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvZnpiYnBydGFmc296ZHd2dG9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1MDQxODQsImV4cCI6MjA5MDA4MDE4NH0.NlSEcWplEwGHgXRvUq5xG2KprPiiORQ91-OQEUtn36s');
 async function handleLogin(){
@@ -319,10 +322,10 @@ window.addEventListener('load',async()=>{
 });
 function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active')}
 const MODELS={
-confirm:{tag:'⭐ BEST SETUP',tagColor:'var(--green)',tagBg:'rgba(61,220,132,0.15)',title:'Confirmation Entry',sub:'London KZ Pullback · NY Session · Your chart\'s second red arrow',wr:'65–70%',rr:'1:3–4',wrColor:'var(--green)',when:'After an expansion move, price pulls back into the SMA 9/21 cluster. The SMAs continue pointing in the original direction. A rejection candle forms at the SMA touch — confirming the pullback is complete and the trend is resuming.',entry:'Enter the candle that CLOSES back in the direction of the original move after touching SMA 9/21. Wait for the close — never anticipate.',sl:'Above/below the SMA cluster — not the original expansion high. Trail only after 1R profit is secured.',notes:[{t:'🏆 This is the highest-expectancy setup in the strategy — 0.98R per trade on the 15m',c:'highlight'},{t:'SMA 50 must still be pointing in the original direction — non-negotiable',c:''},{t:'Works on 5m and 15m — best on 15m per backtest (66% win rate)',c:'green'},{t:'Can pyramid: enter half at SMA 9 touch, add second half on candle close',c:''},{t:'This setup appears regularly at SMA convergence zones — watch for it at key S/R levels',c:''}]},
-early:{tag:'AGGRESSIVE',tagColor:'var(--gold)',tagBg:'rgba(201,168,76,0.15)',title:'Early Entry',sub:'London / NY Kill Zone — first candle at expansion peak',wr:'50–55%',rr:'1:4–6',wrColor:'var(--gold)',when:'Price makes a sharp expansion high/low and SMA 9 begins to curl away from price. First rejection candle at the extreme — no pullback confirmation needed.',entry:'Enter the first bearish/bullish engulfing candle at the expansion extreme. No waiting for a pullback — you\'re catching the turn as it happens.',sl:'Above/below the wick of the expansion candle + small buffer. Tight stop — use 0.5% risk max.',notes:[{t:'Highest reward potential — you catch the full move from the very top or bottom',c:''},{t:'Lower win rate 50–55% — price may push further before turning. Size down.',c:'red'},{t:'Best used when SMA 9 has visibly and sharply curled against price direction',c:''},{t:'Avoid if spread is wide — you\'ll get filled at a terrible price on a volatile move',c:''}]},
-sweep:{tag:'HIGHEST WIN RATE',tagColor:'var(--purple)',tagBg:'rgba(167,139,250,0.15)',title:'Liquidity Sweep',sub:'Asia Range Extremes · Kill Zone Opens · Round Numbers',wr:'70–75%',rr:'1:3–5',wrColor:'var(--purple)',when:'Price spikes beyond a known level — Asia high/low, prior swing, round number — with a long wick, then closes back inside. The market hunted stops then reversed sharply.',entry:'Enter the candle that closes back inside the swept level. The sweep wick IS your signal. Never enter mid-wick — wait for the full candle close.',sl:'Below/above the absolute lowest/highest point of the sweep wick. This is the true invalidation.',notes:[{t:'🏆 Highest win rate of all entry types at 70–75% — but rarest to find',c:'highlight'},{t:'Works especially well at Asia session high/low levels just before London opens',c:'green'},{t:'Wick MUST close back inside the level — partial close outside is not valid',c:''},{t:'Most common at: Asia high/low, round numbers, prior day highs/lows',c:''}]},
-asia:{tag:'ASIA SESSION',tagColor:'var(--green)',tagBg:'rgba(61,220,132,0.12)',title:'Asia Range Fade',sub:'Asia 00:00–07:00 GMT · London Breakout 08:00–10:00 GMT',wr:'60–65%',rr:'1:2–3',wrColor:'var(--green)',when:'During Asia, Silver consolidates in a range. Two modes: (1) Fade the extremes — sell at range top, buy at range bottom. (2) Wait for London to break the range and trade the pullback.',entry:'FADE: rejection candle at Asia high/low. BREAKOUT: London breaks range → wait for first pullback to boundary → enter continuation.',sl:'FADE: outside range extreme + buffer. BREAKOUT: below the broken range boundary. Old resistance = new support.',notes:[{t:'First 2 hours of Asia (00:00–02:00 GMT) define the range — mark it every day',c:''},{t:'Fade mode only works if range is at least 0.5% wide — too tight = noise',c:'yellow'},{t:'Breakout mode is higher probability — combine with SMA alignment',c:'green'},{t:'The London Breakout + pullback entry is your best Asia-into-London setup',c:''}]}
+confirm:{tag:'⭐ BEST SETUP',tagColor:'#3ddc84',tagBg:'rgba(61,220,132,0.15)',title:'Confirmation Entry',sub:'London KZ Pullback · NY Session · Your chart\'s second red arrow',wr:'65–70%',rr:'1:3–4',wrColor:'#3ddc84',when:'After an expansion move, price pulls back into the SMA 9/21 cluster. The SMAs continue pointing in the original direction. A rejection candle forms at the SMA touch — confirming the pullback is complete and the trend is resuming.',entry:'Enter the candle that CLOSES back in the direction of the original move after touching SMA 9/21. Wait for the close — never anticipate.',sl:'Above/below the SMA cluster — not the original expansion high. Trail only after 1R profit is secured.',notes:[{t:'🏆 This is the highest-expectancy setup in the strategy — 0.98R per trade on the 15m',c:'highlight'},{t:'SMA 50 must still be pointing in the original direction — non-negotiable',c:''},{t:'Works on 5m and 15m — best on 15m per backtest (66% win rate)',c:'green'},{t:'Can pyramid: enter half at SMA 9 touch, add second half on candle close',c:''},{t:'This setup appears regularly at SMA convergence zones — watch for it at key S/R levels',c:''}]},
+early:{tag:'AGGRESSIVE',tagColor:'#c9a84c',tagBg:'rgba(201,168,76,0.15)',title:'Early Entry',sub:'London / NY Kill Zone — first candle at expansion peak',wr:'50–55%',rr:'1:4–6',wrColor:'#c9a84c',when:'Price makes a sharp expansion high/low and SMA 9 begins to curl away from price. First rejection candle at the extreme — no pullback confirmation needed.',entry:'Enter the first bearish/bullish engulfing candle at the expansion extreme. No waiting for a pullback — you\'re catching the turn as it happens.',sl:'Above/below the wick of the expansion candle + small buffer. Tight stop — use 0.5% risk max.',notes:[{t:'Highest reward potential — you catch the full move from the very top or bottom',c:''},{t:'Lower win rate 50–55% — price may push further before turning. Size down.',c:'red'},{t:'Best used when SMA 9 has visibly and sharply curled against price direction',c:''},{t:'Avoid if spread is wide — you\'ll get filled at a terrible price on a volatile move',c:''}]},
+sweep:{tag:'HIGHEST WIN RATE',tagColor:'#a78bfa',tagBg:'rgba(167,139,250,0.15)',title:'Liquidity Sweep',sub:'Asia Range Extremes · Kill Zone Opens · Round Numbers',wr:'70–75%',rr:'1:3–5',wrColor:'#a78bfa',when:'Price spikes beyond a known level — Asia high/low, prior swing, round number — with a long wick, then closes back inside. The market hunted stops then reversed sharply.',entry:'Enter the candle that closes back inside the swept level. The sweep wick IS your signal. Never enter mid-wick — wait for the full candle close.',sl:'Below/above the absolute lowest/highest point of the sweep wick. This is the true invalidation.',notes:[{t:'🏆 Highest win rate of all entry types at 70–75% — but rarest to find',c:'highlight'},{t:'Works especially well at Asia session high/low levels just before London opens',c:'green'},{t:'Wick MUST close back inside the level — partial close outside is not valid',c:''},{t:'Most common at: Asia high/low, round numbers, prior day highs/lows',c:''}]},
+asia:{tag:'ASIA SESSION',tagColor:'#3ddc84',tagBg:'rgba(61,220,132,0.12)',title:'Asia Range Fade',sub:'Asia 00:00–07:00 GMT · London Breakout 08:00–10:00 GMT',wr:'60–65%',rr:'1:2–3',wrColor:'#3ddc84',when:'During Asia, Silver consolidates in a range. Two modes: (1) Fade the extremes — sell at range top, buy at range bottom. (2) Wait for London to break the range and trade the pullback.',entry:'FADE: rejection candle at Asia high/low. BREAKOUT: London breaks range → wait for first pullback to boundary → enter continuation.',sl:'FADE: outside range extreme + buffer. BREAKOUT: below the broken range boundary. Old resistance = new support.',notes:[{t:'First 2 hours of Asia (00:00–02:00 GMT) define the range — mark it every day',c:''},{t:'Fade mode only works if range is at least 0.5% wide — too tight = noise',c:'yellow'},{t:'Breakout mode is higher probability — combine with SMA alignment',c:'green'},{t:'The London Breakout + pullback entry is your best Asia-into-London setup',c:''}]}
 };
 let activeModel='confirm';
 function switchModel(id,btn){activeModel=id;document.querySelectorAll('.model-pill').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderModel()}
@@ -331,16 +334,16 @@ function renderModel(){const m=MODELS[activeModel];document.getElementById('mode
 <div class="card-label">${m.tag}</div>
 <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px">
 <div><div style="display:inline-block;padding:3px 12px;border-radius:999px;background:${m.tagBg};color:${m.tagColor};font-size:9px;letter-spacing:3px;font-weight:700;margin-bottom:10px">${m.tag}</div>
-<div style="font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--silver-bright)">${m.title}</div>
-<div style="font-size:11px;color:var(--silver-dim);margin-top:4px">${m.sub}</div></div>
+<div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:700;color:#e8edf5">${m.title}</div>
+<div style="font-size:11px;color:#6b7280;margin-top:4px">${m.sub}</div></div>
 <div style="display:flex;gap:16px">
 <div class="stat-box"><div class="sv" style="color:${m.wrColor}">${m.wr}</div><div class="sl">Win Rate</div></div>
-<div class="stat-box"><div class="sv" style="color:var(--blue)">${m.rr}</div><div class="sl">RR Target</div></div>
+<div class="stat-box"><div class="sv" style="color:#5b9cf6">${m.rr}</div><div class="sl">RR Target</div></div>
 </div></div></div>
 <div class="info-grid" style="margin-bottom:14px">
-<div class="info-box" style="background:rgba(91,156,246,0.07);border:1px solid rgba(91,156,246,0.15)"><div class="ib-label" style="color:var(--blue)">When To Use</div>${m.when}</div>
-<div class="info-box" style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.15)"><div class="ib-label" style="color:var(--gold)">Entry Trigger</div>${m.entry}</div>
-<div class="info-box" style="background:rgba(240,82,82,0.07);border:1px solid rgba(240,82,82,0.15)"><div class="ib-label" style="color:var(--red)">Stop Loss</div>${m.sl}</div>
+<div class="info-box" style="background:rgba(91,156,246,0.07);border:1px solid rgba(91,156,246,0.15)"><div class="ib-label" style="color:#5b9cf6">When To Use</div>${m.when}</div>
+<div class="info-box" style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.15)"><div class="ib-label" style="color:#c9a84c">Entry Trigger</div>${m.entry}</div>
+<div class="info-box" style="background:rgba(240,82,82,0.07);border:1px solid rgba(240,82,82,0.15)"><div class="ib-label" style="color:#f05252">Stop Loss</div>${m.sl}</div>
 </div>
 <div class="card"><div class="card-label">Rules & Notes</div><div class="rule-list">${m.notes.map(n=>`<div class="rule-item ${n.c}">${n.t}</div>`).join('')}</div></div>`}
 
@@ -545,7 +548,7 @@ const STEPS=[
 ]}
 ];
 let currentStep=0;
-function renderCourse(){document.getElementById('step-nav').innerHTML=STEPS.map((s,i)=>`<button class="step-btn ${i===currentStep?'active':''}" onclick="goStep(${i})">${s.id}. ${s.phase}</button>`).join('');const step=STEPS[currentStep];document.getElementById('step-content').innerHTML=`<div style="display:flex;align-items:center;gap:16px;margin-bottom:24px"><div style="font-size:36px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:rgba(200,205,214,0.07);border:1px solid var(--border-bright);flex-shrink:0">${step.icon}</div><div><div style="font-size:9px;color:var(--silver-dim);letter-spacing:4px;margin-bottom:4px">PHASE ${step.id} · ${step.phase}</div><div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--silver-bright)">${step.title}</div></div></div><div class="rule-list">${step.content.map(l=>`<div class="rule-item ${l.c}">${l.t}</div>`).join('')}</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px"><button onclick="goStep(${currentStep-1})" ${currentStep===0?'disabled':''} style="padding:10px 20px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--silver-dim);font-family:var(--font-mono);font-size:11px;cursor:pointer;opacity:${currentStep===0?0.3:1}">← Prev</button><span style="font-size:10px;color:var(--silver-dim)">${currentStep+1} / ${STEPS.length}</span><button onclick="goStep(${currentStep+1})" ${currentStep===STEPS.length-1?'disabled':''} style="padding:10px 20px;border-radius:10px;background:rgba(200,205,214,0.1);border:1px solid var(--border-bright);color:var(--silver-bright);font-family:var(--font-mono);font-size:11px;cursor:pointer;opacity:${currentStep===STEPS.length-1?0.3:1}">Next →</button></div>`}
+function renderCourse(){document.getElementById('step-nav').innerHTML=STEPS.map((s,i)=>`<button class="step-btn ${i===currentStep?'active':''}" onclick="goStep(${i})">${s.id}. ${s.phase}</button>`).join('');const step=STEPS[currentStep];document.getElementById('step-content').innerHTML=`<div style="display:flex;align-items:center;gap:16px;margin-bottom:24px"><div style="font-size:36px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:rgba(200,205,214,0.07);border:1px solid rgba(200,205,214,0.18);flex-shrink:0">${step.icon}</div><div><div style="font-size:9px;color:#6b7280;letter-spacing:4px;margin-bottom:4px">PHASE ${step.id} · ${step.phase}</div><div style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700;color:#e8edf5">${step.title}</div></div></div><div class="rule-list">${step.content.map(l=>`<div class="rule-item ${l.c}">${l.t}</div>`).join('')}</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px"><button onclick="goStep(${currentStep-1})" ${currentStep===0?'disabled':''} style="padding:10px 20px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(200,205,214,0.08);color:#6b7280;font-family:'DM Mono','Courier New',monospace;font-size:11px;cursor:pointer;opacity:${currentStep===0?0.3:1}">← Prev</button><span style="font-size:10px;color:#6b7280">${currentStep+1} / ${STEPS.length}</span><button onclick="goStep(${currentStep+1})" ${currentStep===STEPS.length-1?'disabled':''} style="padding:10px 20px;border-radius:10px;background:rgba(200,205,214,0.1);border:1px solid rgba(200,205,214,0.18);color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:11px;cursor:pointer;opacity:${currentStep===STEPS.length-1?0.3:1}">Next →</button></div>`}
 function goStep(i){if(i<0||i>=STEPS.length)return;currentStep=i;renderCourse()}
 
 function calcPosition(){
@@ -580,16 +583,16 @@ let checkState=new Array(8).fill(false);
 function renderChecklist(){document.getElementById('checklist-items').innerHTML=CHECKLIST.map((item,i)=>`<div class="check-item ${checkState[i]?'checked':''}" onclick="toggleCheck(${i})"><div class="check-box"><span class="check-mark">✓</span></div><span class="check-label">${item}</span></div>`).join('');updateScore()}
 function toggleCheck(i){checkState[i]=!checkState[i];renderChecklist()}
 function resetChecklist(){checkState=new Array(8).fill(false);renderChecklist()}
-function updateScore(){const s=checkState.filter(Boolean).length,gate=document.getElementById('score-gate'),num=document.getElementById('score-num'),verdict=document.getElementById('score-verdict'),note=document.getElementById('score-note');num.textContent=`${s}/8`;if(s>=7){gate.style.cssText='margin-top:24px;padding:24px;border-radius:14px;text-align:center;background:rgba(61,220,132,0.08);border:1px solid rgba(61,220,132,0.3)';num.style.color='var(--green)';verdict.style.color='var(--green)';verdict.textContent='✅ TRADE APPROVED';note.textContent='All conditions met. Execute with full discipline.'}else if(s>=5){gate.style.cssText='margin-top:24px;padding:24px;border-radius:14px;text-align:center;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3)';num.style.color='#f59e0b';verdict.style.color='#f59e0b';verdict.textContent='⚠️ INCOMPLETE — WAIT';note.textContent='Not enough confluence. Wait for the setup to fully develop.'}else{gate.style.cssText='margin-top:24px;padding:24px;border-radius:14px;text-align:center;background:rgba(240,82,82,0.07);border:1px solid rgba(240,82,82,0.15)';num.style.color='var(--red)';verdict.style.color='var(--red)';verdict.textContent='❌ DO NOT TRADE';note.textContent='Conditions not met. Preserve your capital.'}}
+function updateScore(){const s=checkState.filter(Boolean).length,gate=document.getElementById('score-gate'),num=document.getElementById('score-num'),verdict=document.getElementById('score-verdict'),note=document.getElementById('score-note');num.textContent=`${s}/8`;if(s>=7){gate.style.cssText='margin-top:24px;padding:24px;border-radius:14px;text-align:center;background:rgba(61,220,132,0.08);border:1px solid rgba(61,220,132,0.3)';num.style.color='#3ddc84';verdict.style.color='#3ddc84';verdict.textContent='✅ TRADE APPROVED';note.textContent='All conditions met. Execute with full discipline.'}else if(s>=5){gate.style.cssText='margin-top:24px;padding:24px;border-radius:14px;text-align:center;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3)';num.style.color='#f59e0b';verdict.style.color='#f59e0b';verdict.textContent='⚠️ INCOMPLETE — WAIT';note.textContent='Not enough confluence. Wait for the setup to fully develop.'}else{gate.style.cssText='margin-top:24px;padding:24px;border-radius:14px;text-align:center;background:rgba(240,82,82,0.07);border:1px solid rgba(240,82,82,0.15)';num.style.color='#f05252';verdict.style.color='#f05252';verdict.textContent='❌ DO NOT TRADE';note.textContent='Conditions not met. Preserve your capital.'}}
 
 const BACKTEST=[{tf:'1m Scalp',session:'London Kill Zone',wr:52,rr:'1:3.2',exp:0.66,best:false},{tf:'5m Scalp',session:'London Kill Zone',wr:58,rr:'1:2.8',exp:0.62,best:false},{tf:'15m Scalp',session:'London Kill Zone',wr:63,rr:'1:2.2',exp:0.59,best:false},{tf:'5m Intraday',session:'NY Session',wr:61,rr:'1:3.5',exp:0.78,best:false},{tf:'15m Intraday',session:'London / NY Overlap',wr:66,rr:'1:3.0',exp:0.98,best:true},{tf:'1H Intraday',session:'NY Session',wr:71,rr:'1:2.5',exp:0.775,best:false}];
-function renderBacktest(){document.getElementById('backtest-rows').innerHTML=BACKTEST.map(r=>`<div class="bt-row ${r.best?'best':''}">${r.best?'<div class="best-badge">⭐ HIGHEST EXPECTANCY</div>':''}<div><div style="font-size:14px;font-weight:700;color:${r.best?'var(--gold)':'var(--silver-bright)'}">${r.tf}</div><div style="font-size:10px;color:var(--silver-dim);margin-top:2px">${r.session}</div></div><div style="display:flex;gap:20px;flex-wrap:wrap"><div style="text-align:right"><div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:${r.wr>=65?'var(--green)':r.wr>=58?'#f59e0b':'var(--red)'}">${r.wr}%</div><div style="font-size:9px;color:var(--silver-dim)">WIN RATE</div></div><div style="text-align:right"><div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--blue)">${r.rr}</div><div style="font-size:9px;color:var(--silver-dim)">RR</div></div><div style="text-align:right"><div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:${r.exp>=0.9?'var(--gold)':'var(--silver)'}">+${r.exp}R</div><div style="font-size:9px;color:var(--silver-dim)">EXPECTANCY</div></div></div><div class="bt-bar"><div class="bt-bar-fill" style="width:${r.wr}%;background:${r.best?'linear-gradient(90deg,var(--gold),var(--gold-bright))':'linear-gradient(90deg,#374151,#6b7280)'}"></div></div></div>`).join('')}
+function renderBacktest(){document.getElementById('backtest-rows').innerHTML=BACKTEST.map(r=>`<div class="bt-row ${r.best?'best':''}">${r.best?'<div class="best-badge">⭐ HIGHEST EXPECTANCY</div>':''}<div><div style="font-size:14px;font-weight:700;color:${r.best?'#c9a84c':'#e8edf5'}">${r.tf}</div><div style="font-size:10px;color:#6b7280;margin-top:2px">${r.session}</div></div><div style="display:flex;gap:20px;flex-wrap:wrap"><div style="text-align:right"><div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:700;color:${r.wr>=65?'#3ddc84':r.wr>=58?'#f59e0b':'#f05252'}">${r.wr}%</div><div style="font-size:9px;color:#6b7280">WIN RATE</div></div><div style="text-align:right"><div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:700;color:#5b9cf6">${r.rr}</div><div style="font-size:9px;color:#6b7280">RR</div></div><div style="text-align:right"><div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:700;color:${r.exp>=0.9?'#c9a84c':'#c8cdd6'}">+${r.exp}R</div><div style="font-size:9px;color:#6b7280">EXPECTANCY</div></div></div><div class="bt-bar"><div class="bt-bar-fill" style="width:${r.wr}%;background:${r.best?'linear-gradient(90deg,#c9a84c,#e2c070)':'linear-gradient(90deg,#374151,#6b7280)'}"></div></div></div>`).join('')}
 
 const NEWS=[{event:'US CPI (impacts AUD/USD which moves Silver in AUD)',impact:'red',action:'NO TRADE ±30min'},{event:'FOMC Rate Decision',impact:'red',action:'NO TRADE ±1 Hour'},{event:'NFP (Non-Farm Payroll)',impact:'red',action:'NO TRADE — Entire Day'},{event:'US GDP Release',impact:'red',action:'NO TRADE ±30min'},{event:'Fed Chair Speech',impact:'red',action:'NO TRADE — Duration'},{event:'US PPI / PCE',impact:'red',action:'NO TRADE ±30min'},{event:'ISM Manufacturing PMI',impact:'yellow',action:'Reduce Size 50%'},{event:'Retail Sales',impact:'yellow',action:'Wait for Market to Settle'},{event:'ADP Employment',impact:'yellow',action:'Watch DXY/AUD Reaction First'},{event:'Consumer Confidence',impact:'yellow',action:'Light Position Only'}];
-function renderNews(){document.getElementById('news-items').innerHTML=NEWS.map(n=>`<div class="news-item" style="background:${n.impact==='red'?'rgba(240,82,82,0.05)':'rgba(245,158,11,0.05)'};border:1px solid ${n.impact==='red'?'rgba(240,82,82,0.15)':'rgba(245,158,11,0.12)'}"><div style="display:flex;align-items:center;gap:10px"><span style="font-size:15px">${n.impact==='red'?'🔴':'🟡'}</span><span style="font-size:12px;color:var(--silver-bright)">${n.event}</span></div><div class="news-action" style="background:${n.impact==='red'?'rgba(240,82,82,0.15)':'rgba(245,158,11,0.15)'};color:${n.impact==='red'?'var(--red)':'#f59e0b'}">${n.action}</div></div>`).join('')}
+function renderNews(){document.getElementById('news-items').innerHTML=NEWS.map(n=>`<div class="news-item" style="background:${n.impact==='red'?'rgba(240,82,82,0.05)':'rgba(245,158,11,0.05)'};border:1px solid ${n.impact==='red'?'rgba(240,82,82,0.15)':'rgba(245,158,11,0.12)'}"><div style="display:flex;align-items:center;gap:10px"><span style="font-size:15px">${n.impact==='red'?'🔴':'🟡'}</span><span style="font-size:12px;color:#e8edf5">${n.event}</span></div><div class="news-action" style="background:${n.impact==='red'?'rgba(240,82,82,0.15)':'rgba(245,158,11,0.15)'};color:${n.impact==='red'?'#f05252':'#f59e0b'}">${n.action}</div></div>`).join('')}
 
 const SESSIONS_DATA=[{name:'Asia Session 🌏',start:0,end:9,color:'#3ddc84',label:'00:00–09:00 GMT',tips:'Mark the range in the first 2 hours. 00:00–09:00 GMT = 10:00am–7:00pm AEST. Fade extremes or wait for London breakout.'},{name:'London Kill Zone 🔥',start:8,end:10,color:'#f59e0b',label:'08:00–10:00 GMT',tips:'Best scalp window. 08:00–10:00 GMT = 6:00pm–8:00pm AEST. Asia range breakout + SMA alignment = highest probability.'},{name:'London Session 🇬🇧',start:8,end:17,color:'#5b9cf6',label:'08:00–17:00 GMT',tips:'Trend continuation or reversal of Asia range. 08:00–17:00 GMT = 6:00pm–3:00am AEST. Watch DXY/AUD for Silver bias.'},{name:'NY Kill Zone 🔥',start:13,end:15,color:'#a78bfa',label:'13:00–15:00 GMT',tips:'Best intraday window. 13:00–15:00 GMT = 11:00pm–1:00am AEST. Second chance at London move or a clean reversal.'},{name:'New York Session 🇺🇸',start:13,end:22,color:'#f05252',label:'13:00–22:00 GMT',tips:'Continuation trades only. 13:00–22:00 GMT = 11:00pm–8:00am AEST. Avoid last hour — liquidity thins and spreads widen.'}];
-function renderSessions(){const h=new Date().getUTCHours();document.getElementById('now-line').style.left=`${(h/24)*100}%`;document.getElementById('session-cards').innerHTML=SESSIONS_DATA.map(s=>{const isNow=h>=s.start&&h<s.end;return`<div class="session-card ${isNow?'live':''}" style="${isNow?'border-color:'+s.color+'55;background:'+s.color+'07':''}"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="display:flex;align-items:center;gap:8px"><span style="font-size:13px;font-weight:600;color:${isNow?s.color:'var(--silver-bright)'}">${s.name}</span>${isNow?`<span style="font-size:8px;padding:2px 8px;border-radius:999px;background:${s.color};color:#000;font-weight:700;letter-spacing:2px">LIVE</span>`:''}</div><span style="font-size:10px;color:var(--silver-dim)">${s.label}</span></div><div style="font-size:11px;color:var(--silver-dim);line-height:1.6">${s.tips}</div></div>`}).join('')}
+function renderSessions(){const h=new Date().getUTCHours();document.getElementById('now-line').style.left=`${(h/24)*100}%`;document.getElementById('session-cards').innerHTML=SESSIONS_DATA.map(s=>{const isNow=h>=s.start&&h<s.end;return`<div class="session-card ${isNow?'live':''}" style="${isNow?'border-color:'+s.color+'55;background:'+s.color+'07':''}"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="display:flex;align-items:center;gap:8px"><span style="font-size:13px;font-weight:600;color:${isNow?s.color:'#e8edf5'}">${s.name}</span>${isNow?`<span style="font-size:8px;padding:2px 8px;border-radius:999px;background:${s.color};color:#000;font-weight:700;letter-spacing:2px">LIVE</span>`:''}</div><span style="font-size:10px;color:#6b7280">${s.label}</span></div><div style="font-size:11px;color:#6b7280;line-height:1.6">${s.tips}</div></div>`}).join('')}
 function updateSessionBadge(){const h=new Date().getUTCHours(),badge=document.getElementById('session-badge'),dot=document.getElementById('session-dot'),name=document.getElementById('session-name');let s;if(h>=8&&h<10)s={n:'🔥 London Kill Zone',c:'#f59e0b'};else if(h>=13&&h<15)s={n:'🔥 NY Kill Zone',c:'#a78bfa'};else if(h>=0&&h<9)s={n:'🌏 Asia Session',c:'#3ddc84'};else if(h>=8&&h<17)s={n:'🇬🇧 London Session',c:'#5b9cf6'};else if(h>=13&&h<22)s={n:'🇺🇸 New York Session',c:'#f05252'};else s={n:'💤 No Active Session',c:'#6b7280'};badge.style.borderColor=s.c+'44';badge.style.background=s.c+'12';dot.style.background=s.c;dot.style.boxShadow='0 0 6px '+s.c;name.textContent=s.n;name.style.color=s.c}
 function initCourse(){renderModel();renderCourse();renderChecklist();renderBacktest();renderNews();renderSessions();updateSessionBadge();setInterval(()=>{updateSessionBadge();renderSessions()},60000)}
 </script></body></html>
