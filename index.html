@@ -323,7 +323,7 @@ async function handleLogin(){
 async function handleForgotPassword(){
   const email=document.getElementById('email-input').value.trim().toLowerCase();
   if(!email){alert('Please enter your email address first.');return;}
-  const {error}=await _supabase.auth.resetPasswordForEmail(email,{redirectTo:'https://krakentrading.github.io/Silver-Apex/'});
+  const {error}=await _supabase.auth.resetPasswordForEmail(email,{redirectTo:'https://krakentrading.github.io/Silver-Apex/reset.html'});
   if(error)alert('Error: '+error.message);
   else alert('Password reset email sent to '+email+'. Check your inbox.');
 }
