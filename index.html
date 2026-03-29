@@ -132,31 +132,6 @@ body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monosp
 <div class="login-footer">© 2025 Silver Apex · AUD Edition · All rights reserved<br/><span style="margin-top:6px;display:block">For access contact your course provider · Prices in AUD</span></div>
 </div></div>
 
-<div id="reset-page" class="page" style="display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px">
-<div style="width:100%;max-width:440px">
-<div style="text-align:center;margin-bottom:48px">
-<div style="font-family:'Playfair Display',Georgia,serif;font-size:42px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px">Silver Apex</div>
-<div style="width:40px;height:1px;background:#c9a84c;margin:16px auto 0"></div>
-<div style="font-size:10px;letter-spacing:6px;color:#6b7280;margin-top:10px;text-transform:uppercase">Set New Password</div>
-</div>
-<div style="background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid rgba(200,205,214,0.18);border-radius:20px;padding:40px;box-shadow:0 32px 80px rgba(0,0,0,0.5)">
-<h2 style="font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:700;color:#e8edf5;margin-bottom:6px">Choose a new password</h2>
-<p style="font-size:12px;color:#6b7280;margin-bottom:32px;line-height:1.6">Enter a new password for your account.</p>
-<div style="margin-bottom:20px">
-<label style="display:block;font-size:10px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase">New Password</label>
-<input type="password" id="new-password" placeholder="Enter new password" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;outline:none"/>
-</div>
-<div style="margin-bottom:20px">
-<label style="display:block;font-size:10px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase">Confirm Password</label>
-<input type="password" id="confirm-password" placeholder="Confirm new password" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;outline:none"/>
-</div>
-<button onclick="handlePasswordReset()" style="width:100%;padding:15px;background:linear-gradient(135deg,#c9a84c,#e2c070);border:none;border-radius:10px;color:#1a1200;font-family:'DM Mono','Courier New',monospace;font-size:12px;font-weight:500;letter-spacing:3px;cursor:pointer;text-transform:uppercase;box-shadow:0 4px 20px rgba(201,168,76,0.3);margin-top:8px">SET NEW PASSWORD</button>
-<div id="reset-error" style="background:rgba(240,82,82,0.1);border:1px solid rgba(240,82,82,0.2);border-radius:8px;padding:12px 14px;font-size:12px;color:#f05252;margin-top:14px;display:none"></div>
-<div id="reset-success" style="background:rgba(61,220,132,0.08);border:1px solid rgba(61,220,132,0.2);border-radius:8px;padding:12px 14px;font-size:12px;color:#3ddc84;margin-top:14px;display:none">Password updated successfully! Redirecting to your course...</div>
-</div>
-</div>
-</div>
-
 <div id="course-page" class="page">
 <nav class="nav">
 <div class="nav-logo">Silver Apex</div>
@@ -334,36 +309,54 @@ async function handleLogout(){
   document.getElementById('course-page').style.display='none';
   document.getElementById('email-input').value='';document.getElementById('password-input').value='';
 }
-function showCourse(){document.getElementById('login-page').style.display='none';document.getElementById('course-page').style.display='block';initCourse();}
+function showCourse(){
+  document.getElementById('login-page').style.display='none';
+  document.getElementById('course-page').style.display='block';
+  // Hide reset page if it exists
+  const rp=document.getElementById('reset-page');
+  if(rp)rp.style.display='none';
+  initCourse();
+}
 document.getElementById('password-input').addEventListener('keydown',e=>{if(e.key==='Enter')handleLogin()});
 document.getElementById('email-input').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('password-input').focus()});
 window.addEventListener('load',async()=>{
+  // Always start with everything hidden
+  document.getElementById('login-page').style.display='none';
+  document.getElementById('course-page').style.display='none';
+
   // Check if redirected from successful password reset
   const urlParams=new URLSearchParams(window.location.search);
   if(urlParams.get('reset')==='done'){
-    // Show success message on login page
+    window.history.replaceState(null,'',window.location.pathname);
+    document.getElementById('login-page').style.display='flex';
     const err=document.getElementById('login-error');
     err.style.display='block';
     err.style.background='rgba(61,220,132,0.1)';
     err.style.border='1px solid rgba(61,220,132,0.2)';
     err.style.color='#3ddc84';
-    err.textContent='Password updated successfully! Please log in with your new password.';
-    // Clean URL
-    window.history.replaceState(null,'',window.location.pathname);
+    err.textContent='Password updated! Please log in with your new password.';
     return;
   }
-  // Sign out any recovery session lingering
+
+  // If there is any token in the URL hash sign out and show login
   const hash=window.location.hash;
-  if(hash.includes('access_token')){
+  if(hash.includes('access_token')||hash.includes('type=recovery')){
     await _supabase.auth.signOut();
     window.history.replaceState(null,'',window.location.pathname);
+    document.getElementById('login-page').style.display='flex';
     return;
   }
+
+  // Check for valid session
   const {data}=await _supabase.auth.getSession();
   if(data.session){
-    sessionStorage.setItem('sa_auth','1');showCourse();
+    sessionStorage.setItem('sa_auth','1');
+    showCourse();
+  } else if(sessionStorage.getItem('sa_auth')==='1'){
+    showCourse();
+  } else {
+    document.getElementById('login-page').style.display='flex';
   }
-  else if(sessionStorage.getItem('sa_auth')==='1'){showCourse();}
 });
 function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active')}
 const MODELS={
