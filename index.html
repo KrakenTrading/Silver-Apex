@@ -338,25 +338,29 @@ function showCourse(){document.getElementById('login-page').style.display='none'
 document.getElementById('password-input').addEventListener('keydown',e=>{if(e.key==='Enter')handleLogin()});
 document.getElementById('email-input').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('password-input').focus()});
 window.addEventListener('load',async()=>{
-  // Check for password reset token in URL hash
+  // Check if redirected from successful password reset
+  const urlParams=new URLSearchParams(window.location.search);
+  if(urlParams.get('reset')==='done'){
+    // Show success message on login page
+    const err=document.getElementById('login-error');
+    err.style.display='block';
+    err.style.background='rgba(61,220,132,0.1)';
+    err.style.border='1px solid rgba(61,220,132,0.2)';
+    err.style.color='#3ddc84';
+    err.textContent='Password updated successfully! Please log in with your new password.';
+    // Clean URL
+    window.history.replaceState(null,'',window.location.pathname);
+    return;
+  }
+  // Sign out any recovery session lingering
   const hash=window.location.hash;
-  if(hash.includes('type=recovery')||hash.includes('type=email_change')){
-    // User clicked reset link - show reset page not course
-    const {data}=await _supabase.auth.getSession();
-    if(data.session){
-      document.getElementById('login-page').style.display='none';
-      document.getElementById('reset-page').style.display='flex';
-      return;
-    }
+  if(hash.includes('access_token')){
+    await _supabase.auth.signOut();
+    window.history.replaceState(null,'',window.location.pathname);
+    return;
   }
   const {data}=await _supabase.auth.getSession();
   if(data.session){
-    // Check if this is a recovery session
-    if(data.session.user&&hash.includes('access_token')){
-      document.getElementById('login-page').style.display='none';
-      document.getElementById('reset-page').style.display='flex';
-      return;
-    }
     sessionStorage.setItem('sa_auth','1');showCourse();
   }
   else if(sessionStorage.getItem('sa_auth')==='1'){showCourse();}
