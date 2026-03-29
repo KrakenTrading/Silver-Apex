@@ -87,13 +87,17 @@ async function doReset(){
     const {error}=await _sb.auth.updateUser({password:np});
     if(error){err.textContent=error.message;err.style.display='block';btn.textContent='SET NEW PASSWORD';btn.disabled=false;}
     else{
-      succ.innerHTML='Password updated! Redirecting to your course...';
+      succ.innerHTML='✅ Password updated successfully!<br/>You can now log in with your new password.';
       succ.style.display='block';btn.style.display='none';
-      // Sign out first to clear the recovery session
+      document.getElementById('new-pass').style.display='none';
+      document.getElementById('confirm-pass').style.display='none';
+      document.querySelectorAll('.field').forEach(f=>f.style.display='none');
+      // Sign out recovery session completely
       await _sb.auth.signOut();
-      // Clear the URL hash so recovery token is gone
-      window.history.replaceState(null, '', window.location.pathname);
-      setTimeout(()=>{window.location.href='https://krakentrading.github.io/Silver-Apex/';},2500);
+      // Replace entire URL to remove token from history
+      setTimeout(()=>{
+        window.location.replace('https://krakentrading.github.io/Silver-Apex/?reset=done');
+      },3000);
     }
   }catch(e){err.textContent='Something went wrong. Please try again.';err.style.display='block';btn.textContent='SET NEW PASSWORD';btn.disabled=false;}
 }
