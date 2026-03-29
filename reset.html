@@ -89,6 +89,10 @@ async function doReset(){
     else{
       succ.innerHTML='Password updated! Redirecting to your course...';
       succ.style.display='block';btn.style.display='none';
+      // Sign out first to clear the recovery session
+      await _sb.auth.signOut();
+      // Clear the URL hash so recovery token is gone
+      window.history.replaceState(null, '', window.location.pathname);
       setTimeout(()=>{window.location.href='https://krakentrading.github.io/Silver-Apex/';},2500);
     }
   }catch(e){err.textContent='Something went wrong. Please try again.';err.style.display='block';btn.textContent='SET NEW PASSWORD';btn.disabled=false;}
