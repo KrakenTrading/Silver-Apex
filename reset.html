@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Silver Apex — Reset Password</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monospace;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(200,205,214,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(200,205,214,0.025) 1px,transparent 1px);background-size:48px 48px}
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);width:600px;height:600px;top:-200px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,0.06),transparent 70%)}
+.container{position:relative;z-index:1;width:100%;max-width:440px;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both}
+.logo{text-align:center;margin-bottom:48px}
+.wordmark{font-family:'Playfair Display',Georgia,serif;font-size:42px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px}
+.divider{width:40px;height:1px;background:#c9a84c;margin:16px auto 0}
+.tagline{font-size:10px;letter-spacing:6px;color:#6b7280;margin-top:10px;text-transform:uppercase}
+.card{background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid rgba(200,205,214,0.18);border-radius:20px;padding:40px;box-shadow:0 32px 80px rgba(0,0,0,0.5)}
+.card h2{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:700;color:#e8edf5;margin-bottom:6px}
+.card p{font-size:12px;color:#6b7280;margin-bottom:32px;line-height:1.6}
+.field{margin-bottom:20px}
+.field label{display:block;font-size:10px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase}
+.field input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;outline:none}
+.field input:focus{border-color:#c9a84c;background:rgba(201,168,76,0.05)}
+.btn{width:100%;padding:15px;background:linear-gradient(135deg,#c9a84c,#e2c070);border:none;border-radius:10px;color:#1a1200;font-family:'DM Mono','Courier New',monospace;font-size:12px;font-weight:500;letter-spacing:3px;cursor:pointer;text-transform:uppercase;box-shadow:0 4px 20px rgba(201,168,76,0.3);margin-top:8px}
+.btn:disabled{opacity:0.6;cursor:not-allowed}
+.error{background:rgba(240,82,82,0.1);border:1px solid rgba(240,82,82,0.2);border-radius:8px;padding:12px 14px;font-size:12px;color:#f05252;margin-top:14px;display:none}
+.success{background:rgba(61,220,132,0.08);border:1px solid rgba(61,220,132,0.2);border-radius:8px;padding:12px 14px;font-size:12px;color:#3ddc84;margin-top:14px;display:none;line-height:1.7}
+.loading{text-align:center;padding:20px;color:#6b7280;font-size:12px;letter-spacing:2px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="orb"></div>
+<div class="container">
+  <div class="logo">
+    <div class="wordmark">Silver Apex</div>
+    <div class="divider"></div>
+    <div class="tagline">Password Reset</div>
+  </div>
+  <div class="card" id="loading-card">
+    <div class="loading">Verifying reset link...</div>
+  </div>
+  <div class="card" id="reset-card" style="display:none">
+    <h2>Set new password</h2>
+    <p>Choose a strong password for your Silver Apex account.</p>
+    <div class="field"><label>New Password</label><input type="password" id="new-pass" placeholder="Minimum 8 characters"/></div>
+    <div class="field"><label>Confirm Password</label><input type="password" id="confirm-pass" placeholder="Repeat your password"/></div>
+    <button class="btn" id="reset-btn" onclick="doReset()">SET NEW PASSWORD</button>
+    <div class="error" id="err"></div>
+    <div class="success" id="succ"></div>
+  </div>
+  <div class="card" id="invalid-card" style="display:none">
+    <h2>Link expired</h2>
+    <p style="margin-bottom:24px">This reset link has expired or already been used. Please request a new one from the login page.</p>
+    <a href="https://krakentrading.github.io/Silver-Apex/" style="display:block;text-align:center;padding:15px;background:linear-gradient(135deg,#c9a84c,#e2c070);border-radius:10px;color:#1a1200;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:3px;text-decoration:none;text-transform:uppercase">Back to Login</a>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const _sb=supabase.createClient('https://aofzbbprtafsozdwvtoa.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvZnpiYnBydGFmc296ZHd2dG9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1MDQxODQsImV4cCI6MjA5MDA4MDE4NH0.NlSEcWplEwGHgXRvUq5xG2KprPiiORQ91-OQEUtn36s');
+
+window.addEventListener('load',async()=>{
+  const hash=window.location.hash.substring(1);
+  const params=new URLSearchParams(hash);
+  const accessToken=params.get('access_token');
+  const refreshToken=params.get('refresh_token');
+  const type=params.get('type');
+  if(type==='recovery'&&accessToken){
+    const {error}=await _sb.auth.setSession({access_token:accessToken,refresh_token:refreshToken});
+    document.getElementById('loading-card').style.display='none';
+    if(error){document.getElementById('invalid-card').style.display='block';}
+    else{document.getElementById('reset-card').style.display='block';}
+  } else {
+    document.getElementById('loading-card').style.display='none';
+    document.getElementById('invalid-card').style.display='block';
+  }
+});
+
+async function doReset(){
+  const np=document.getElementById('new-pass').value;
+  const cp=document.getElementById('confirm-pass').value;
+  const err=document.getElementById('err');
+  const succ=document.getElementById('succ');
+  const btn=document.getElementById('reset-btn');
+  err.style.display='none';succ.style.display='none';
+  if(!np||np.length<8){err.textContent='Password must be at least 8 characters.';err.style.display='block';return;}
+  if(np!==cp){err.textContent='Passwords do not match.';err.style.display='block';return;}
+  btn.textContent='UPDATING...';btn.disabled=true;
+  try{
+    const {error}=await _sb.auth.updateUser({password:np});
+    if(error){err.textContent=error.message;err.style.display='block';btn.textContent='SET NEW PASSWORD';btn.disabled=false;}
+    else{
+      succ.innerHTML='Password updated! Redirecting to your course...';
+      succ.style.display='block';btn.style.display='none';
+      setTimeout(()=>{window.location.href='https://krakentrading.github.io/Silver-Apex/';},2500);
+    }
+  }catch(e){err.textContent='Something went wrong. Please try again.';err.style.display='block';btn.textContent='SET NEW PASSWORD';btn.disabled=false;}
+}
+</script>
+</body></html>
