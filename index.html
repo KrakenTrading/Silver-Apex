@@ -1,8 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Silver Apex</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/><style>
-
 /* styles inlined */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:#06090f;color:#c8cdd6;font-family:‘DM Mono’,‘Courier New’,monospace;min-height:100vh;overflow-x:hidden}
+body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monospace;min-height:100vh;overflow-x:hidden}
 .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(200,205,214,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(200,205,214,0.025) 1px,transparent 1px);background-size:48px 48px}
 .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px)}
 .orb-1{width:600px;height:600px;top:-200px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,0.06),transparent 70%)}
@@ -12,40 +11,40 @@ body{background:#06090f;color:#c8cdd6;font-family:‘DM Mono’,‘Courier New�
 #login-page{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
 .login-container{width:100%;max-width:440px;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both}
 .login-logo{text-align:center;margin-bottom:48px}
-.wordmark{font-family:‘Playfair Display’,Georgia,serif;font-size:42px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px}
+.wordmark{font-family:'Playfair Display',Georgia,serif;font-size:42px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px}
 .tagline{font-size:10px;letter-spacing:6px;color:#6b7280;margin-top:10px;text-transform:uppercase}
 .divider-line{width:40px;height:1px;background:#c9a84c;margin:16px auto 0}
 .login-card{background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid rgba(200,205,214,0.18);border-radius:20px;padding:40px;box-shadow:0 32px 80px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.06)}
-.login-card h2{font-family:‘Playfair Display’,Georgia,serif;font-size:24px;font-weight:700;color:#e8edf5;margin-bottom:6px}
+.login-card h2{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:700;color:#e8edf5;margin-bottom:6px}
 .login-card p{font-size:12px;color:#6b7280;margin-bottom:32px;line-height:1.6}
 .field{margin-bottom:20px}
 .field label{display:block;font-size:10px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase}
-.field input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:14px;transition:all 0.2s;outline:none}
+.field input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;transition:all 0.2s;outline:none}
 .field input:focus{border-color:#c9a84c;background:rgba(201,168,76,0.05);box-shadow:0 0 0 3px rgba(201,168,76,0.1)}
 .field input::placeholder{color:rgba(107,114,128,0.6)}
-.btn-login{width:100%;padding:15px;background:linear-gradient(135deg,#c9a84c,#e2c070);border:none;border-radius:10px;color:#1a1200;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:12px;font-weight:500;letter-spacing:3px;cursor:pointer;text-transform:uppercase;transition:all 0.2s;box-shadow:0 4px 20px rgba(201,168,76,0.3);margin-top:8px}
+.btn-login{width:100%;padding:15px;background:linear-gradient(135deg,#c9a84c,#e2c070);border:none;border-radius:10px;color:#1a1200;font-family:'DM Mono','Courier New',monospace;font-size:12px;font-weight:500;letter-spacing:3px;cursor:pointer;text-transform:uppercase;transition:all 0.2s;box-shadow:0 4px 20px rgba(201,168,76,0.3);margin-top:8px}
 .btn-login:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(201,168,76,0.4)}
 .login-error{background:rgba(240,82,82,0.1);border:1px solid rgba(240,82,82,0.2);border-radius:8px;padding:12px 14px;font-size:12px;color:#f05252;margin-top:14px;display:none}
 .login-footer{text-align:center;margin-top:28px;font-size:10px;color:rgba(107,114,128,0.5);letter-spacing:1px}
 #course-page{display:none}
 .nav{position:sticky;top:0;z-index:100;background:rgba(6,9,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,205,214,0.08);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
-.nav-logo{font-family:‘Playfair Display’,Georgia,serif;font-size:22px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-logo{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-right{display:flex;align-items:center;gap:16px}
 .session-badge{display:flex;align-items:center;gap:7px;padding:6px 14px;border-radius:999px;font-size:11px;font-weight:500;letter-spacing:1px;border:1px solid;transition:all 0.3s}
 .session-dot{width:6px;height:6px;border-radius:50%}
-.btn-logout{padding:7px 16px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(200,205,214,0.08);color:#6b7280;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:10px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:all 0.2s}
+.btn-logout{padding:7px 16px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(200,205,214,0.08);color:#6b7280;font-family:'DM Mono','Courier New',monospace;font-size:10px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:all 0.2s}
 .btn-logout:hover{color:#c8cdd6;border-color:rgba(200,205,214,0.18)}
 .hero{text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
-.hero::after{content:’’;position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:600px;height:1px;background:linear-gradient(90deg,transparent,#c9a84c,transparent)}
+.hero::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:600px;height:1px;background:linear-gradient(90deg,transparent,#c9a84c,transparent)}
 .hero-eyebrow{font-size:10px;letter-spacing:6px;color:#c9a84c;text-transform:uppercase;margin-bottom:20px}
-.hero-title{font-family:‘Playfair Display’,Georgia,serif;font-size:clamp(48px,8vw,90px);font-weight:900;line-height:0.95;letter-spacing:-2px;background:linear-gradient(135deg,#777,#e8edf5,#888);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}
+.hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(48px,8vw,90px);font-weight:900;line-height:0.95;letter-spacing:-2px;background:linear-gradient(135deg,#777,#e8edf5,#888);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}
 .hero-sub{font-size:13px;color:#6b7280;letter-spacing:3px;margin-bottom:40px}
 .hero-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
-.hero-stat .val{font-family:‘Playfair Display’,Georgia,serif;font-size:32px;font-weight:700;color:#e8edf5}
+.hero-stat .val{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:700;color:#e8edf5}
 .hero-stat .lbl{font-size:9px;letter-spacing:3px;color:#6b7280;margin-top:4px}
 .tab-bar{display:flex;gap:0;overflow-x:auto;border-bottom:1px solid rgba(200,205,214,0.08);padding:0 24px;position:sticky;top:60px;z-index:99;background:rgba(6,9,15,0.95);backdrop-filter:blur(20px)}
 .tab-bar::-webkit-scrollbar{height:0}
-.tab-btn{padding:16px 22px;border:none;background:none;color:#6b7280;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:11px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;position:relative;top:1px}
+.tab-btn{padding:16px 22px;border:none;background:none;color:#6b7280;font-family:'DM Mono','Courier New',monospace;font-size:11px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;position:relative;top:1px}
 .tab-btn:hover{color:#c8cdd6}
 .tab-btn.active{color:#c9a84c;border-bottom-color:#c9a84c}
 .content{max-width:960px;margin:0 auto;padding:48px 24px 80px}
@@ -54,14 +53,14 @@ body{background:#06090f;color:#c8cdd6;font-family:‘DM Mono’,‘Courier New�
 .card{background:linear-gradient(145deg,rgba(255,255,255,0.035),rgba(255,255,255,0.01));border:1px solid rgba(200,205,214,0.08);border-radius:16px;padding:28px;transition:border-color 0.2s}
 .card:hover{border-color:rgba(200,205,214,0.18)}
 .card-label{font-size:9px;letter-spacing:4px;color:#6b7280;text-transform:uppercase;margin-bottom:8px}
-.card-title{font-family:‘Playfair Display’,Georgia,serif;font-size:22px;font-weight:700;color:#e8edf5;margin-bottom:20px}
+.card-title{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700;color:#e8edf5;margin-bottom:20px}
 .model-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-.model-pill{padding:10px 18px;border-radius:10px;border:none;cursor:pointer;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:11px;font-weight:500;letter-spacing:1px;background:rgba(255,255,255,0.04);color:#6b7280;transition:all 0.2s;display:flex;align-items:center;gap:6px}
+.model-pill{padding:10px 18px;border-radius:10px;border:none;cursor:pointer;font-family:'DM Mono','Courier New',monospace;font-size:11px;font-weight:500;letter-spacing:1px;background:rgba(255,255,255,0.04);color:#6b7280;transition:all 0.2s;display:flex;align-items:center;gap:6px}
 .model-pill.active,.model-pill:hover{background:rgba(201,168,76,0.1);color:#c9a84c;outline:1px solid rgba(201,168,76,0.3)}
 .chart-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(200,205,214,0.08);margin:20px 0}
 .stat-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
 .stat-box{flex:1;min-width:100px;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(200,205,214,0.08);border-radius:12px;text-align:center}
-.stat-box .sv{font-family:‘Playfair Display’,Georgia,serif;font-size:26px;font-weight:700}
+.stat-box .sv{font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:700}
 .stat-box .sl{font-size:9px;letter-spacing:2px;color:#6b7280;margin-top:4px;text-transform:uppercase}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
 .info-box{padding:16px;border-radius:12px;font-size:12px;line-height:1.75}
@@ -74,7 +73,7 @@ body{background:#06090f;color:#c8cdd6;font-family:‘DM Mono’,‘Courier New�
 .rule-item.yellow{background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.12);color:#fbbf24}
 .rule-item.indent{margin-left:16px;background:rgba(255,255,255,0.015)}
 .step-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.step-btn{padding:7px 13px;border-radius:8px;border:none;background:rgba(255,255,255,0.04);color:#6b7280;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:10px;letter-spacing:1px;cursor:pointer;transition:all 0.2s;text-transform:uppercase}
+.step-btn{padding:7px 13px;border-radius:8px;border:none;background:rgba(255,255,255,0.04);color:#6b7280;font-family:'DM Mono','Courier New',monospace;font-size:10px;letter-spacing:1px;cursor:pointer;transition:all 0.2s;text-transform:uppercase}
 .step-btn.active{background:rgba(200,205,214,0.12);color:#e8edf5;outline:1px solid rgba(200,205,214,0.2)}
 .bt-row{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-radius:12px;margin-bottom:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(200,205,214,0.08);flex-wrap:wrap;gap:12px;position:relative}
 .bt-row.best{background:rgba(201,168,76,0.06);border-color:rgba(201,168,76,0.3)}
@@ -91,7 +90,7 @@ body{background:#06090f;color:#c8cdd6;font-family:‘DM Mono’,‘Courier New�
 .check-label{font-size:13px;color:#c0c8d8}
 .check-item.checked .check-label{color:#3ddc84}
 .score-gate{margin-top:24px;padding:24px;border-radius:14px;text-align:center;transition:all 0.3s}
-.score-num{font-family:‘Playfair Display’,Georgia,serif;font-size:52px;font-weight:900}
+.score-num{font-family:'Playfair Display',Georgia,serif;font-size:52px;font-weight:900}
 .score-verdict{font-size:13px;letter-spacing:4px;font-weight:500;margin-top:6px}
 .score-note{font-size:11px;color:#6b7280;margin-top:8px}
 .news-item{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-radius:10px;margin-bottom:7px;flex-wrap:wrap;gap:10px}
@@ -117,7 +116,6 @@ body{background:#06090f;color:#c8cdd6;font-family:‘DM Mono’,‘Courier New�
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
 @media(max-width:600px){.hero{padding:48px 20px 40px}.hero-stats{gap:28px}.login-card{padding:28px 22px}.content{padding:32px 16px 60px}.card{padding:20px 16px}.tab-btn{padding:14px 14px;font-size:10px}}
 </style></head><body>
-
 <div class="grid-bg"></div><div class="orb orb-1"></div><div class="orb orb-2"></div>
 
 <div id="login-page" class="page active">
@@ -133,6 +131,31 @@ body{background:#06090f;color:#c8cdd6;font-family:‘DM Mono’,‘Courier New�
 </div>
 <div class="login-footer">© 2025 Silver Apex · AUD Edition · All rights reserved<br/><span style="margin-top:6px;display:block">For access contact your course provider · Prices in AUD</span></div>
 </div></div>
+
+<div id="reset-page" class="page" style="display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px">
+<div style="width:100%;max-width:440px">
+<div style="text-align:center;margin-bottom:48px">
+<div style="font-family:'Playfair Display',Georgia,serif;font-size:42px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px">Silver Apex</div>
+<div style="width:40px;height:1px;background:#c9a84c;margin:16px auto 0"></div>
+<div style="font-size:10px;letter-spacing:6px;color:#6b7280;margin-top:10px;text-transform:uppercase">Set New Password</div>
+</div>
+<div style="background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid rgba(200,205,214,0.18);border-radius:20px;padding:40px;box-shadow:0 32px 80px rgba(0,0,0,0.5)">
+<h2 style="font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:700;color:#e8edf5;margin-bottom:6px">Choose a new password</h2>
+<p style="font-size:12px;color:#6b7280;margin-bottom:32px;line-height:1.6">Enter a new password for your account.</p>
+<div style="margin-bottom:20px">
+<label style="display:block;font-size:10px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase">New Password</label>
+<input type="password" id="new-password" placeholder="Enter new password" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;outline:none"/>
+</div>
+<div style="margin-bottom:20px">
+<label style="display:block;font-size:10px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase">Confirm Password</label>
+<input type="password" id="confirm-password" placeholder="Confirm new password" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;outline:none"/>
+</div>
+<button onclick="handlePasswordReset()" style="width:100%;padding:15px;background:linear-gradient(135deg,#c9a84c,#e2c070);border:none;border-radius:10px;color:#1a1200;font-family:'DM Mono','Courier New',monospace;font-size:12px;font-weight:500;letter-spacing:3px;cursor:pointer;text-transform:uppercase;box-shadow:0 4px 20px rgba(201,168,76,0.3);margin-top:8px">SET NEW PASSWORD</button>
+<div id="reset-error" style="background:rgba(240,82,82,0.1);border:1px solid rgba(240,82,82,0.2);border-radius:8px;padding:12px 14px;font-size:12px;color:#f05252;margin-top:14px;display:none"></div>
+<div id="reset-success" style="background:rgba(61,220,132,0.08);border:1px solid rgba(61,220,132,0.2);border-radius:8px;padding:12px 14px;font-size:12px;color:#3ddc84;margin-top:14px;display:none">Password updated successfully! Redirecting to your course...</div>
+</div>
+</div>
+</div>
 
 <div id="course-page" class="page">
 <nav class="nav">
@@ -282,7 +305,6 @@ body{background:#06090f;color:#c8cdd6;font-family:‘DM Mono’,‘Courier New�
 </div></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script>
 const _supabase=supabase.createClient('https://aofzbbprtafsozdwvtoa.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvZnpiYnBydGFmc296ZHd2dG9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1MDQxODQsImV4cCI6MjA5MDA4MDE4NH0.NlSEcWplEwGHgXRvUq5xG2KprPiiORQ91-OQEUtn36s');
 async function handleLogin(){
@@ -301,7 +323,7 @@ async function handleLogin(){
 async function handleForgotPassword(){
   const email=document.getElementById('email-input').value.trim().toLowerCase();
   if(!email){alert('Please enter your email address first.');return;}
-  const {error}=await _supabase.auth.resetPasswordForEmail(email,{redirectTo:'https://krakentrading.github.io/Silver-Apex'});
+  const {error}=await _supabase.auth.resetPasswordForEmail(email,{redirectTo:'https://krakentrading.github.io/Silver-Apex/'});
   if(error)alert('Error: '+error.message);
   else alert('Password reset email sent to '+email+'. Check your inbox.');
 }
@@ -316,8 +338,27 @@ function showCourse(){document.getElementById('login-page').style.display='none'
 document.getElementById('password-input').addEventListener('keydown',e=>{if(e.key==='Enter')handleLogin()});
 document.getElementById('email-input').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('password-input').focus()});
 window.addEventListener('load',async()=>{
+  // Check for password reset token in URL hash
+  const hash=window.location.hash;
+  if(hash.includes('type=recovery')||hash.includes('type=email_change')){
+    // User clicked reset link - show reset page not course
+    const {data}=await _supabase.auth.getSession();
+    if(data.session){
+      document.getElementById('login-page').style.display='none';
+      document.getElementById('reset-page').style.display='flex';
+      return;
+    }
+  }
   const {data}=await _supabase.auth.getSession();
-  if(data.session){sessionStorage.setItem('sa_auth','1');showCourse();}
+  if(data.session){
+    // Check if this is a recovery session
+    if(data.session.user&&hash.includes('access_token')){
+      document.getElementById('login-page').style.display='none';
+      document.getElementById('reset-page').style.display='flex';
+      return;
+    }
+    sessionStorage.setItem('sa_auth','1');showCourse();
+  }
   else if(sessionStorage.getItem('sa_auth')==='1'){showCourse();}
 });
 function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active')}
