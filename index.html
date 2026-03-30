@@ -1,7 +1,8 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Silver Apex</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/><style>
+
 /* styles inlined */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monospace;min-height:100vh;overflow-x:hidden}
+body{background:#06090f;color:#c8cdd6;font-family:‘DM Mono’,‘Courier New’,monospace;min-height:100vh;overflow-x:hidden}
 .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(200,205,214,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(200,205,214,0.025) 1px,transparent 1px);background-size:48px 48px}
 .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px)}
 .orb-1{width:600px;height:600px;top:-200px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,0.06),transparent 70%)}
@@ -11,40 +12,40 @@ body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monosp
 #login-page{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
 .login-container{width:100%;max-width:440px;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both}
 .login-logo{text-align:center;margin-bottom:48px}
-.wordmark{font-family:'Playfair Display',Georgia,serif;font-size:42px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px}
+.wordmark{font-family:‘Playfair Display’,Georgia,serif;font-size:42px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px}
 .tagline{font-size:10px;letter-spacing:6px;color:#6b7280;margin-top:10px;text-transform:uppercase}
 .divider-line{width:40px;height:1px;background:#c9a84c;margin:16px auto 0}
 .login-card{background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid rgba(200,205,214,0.18);border-radius:20px;padding:40px;box-shadow:0 32px 80px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.06)}
-.login-card h2{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:700;color:#e8edf5;margin-bottom:6px}
+.login-card h2{font-family:‘Playfair Display’,Georgia,serif;font-size:24px;font-weight:700;color:#e8edf5;margin-bottom:6px}
 .login-card p{font-size:12px;color:#6b7280;margin-bottom:32px;line-height:1.6}
 .field{margin-bottom:20px}
 .field label{display:block;font-size:10px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase}
-.field input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;transition:all 0.2s;outline:none}
+.field input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:14px;transition:all 0.2s;outline:none}
 .field input:focus{border-color:#c9a84c;background:rgba(201,168,76,0.05);box-shadow:0 0 0 3px rgba(201,168,76,0.1)}
 .field input::placeholder{color:rgba(107,114,128,0.6)}
-.btn-login{width:100%;padding:15px;background:linear-gradient(135deg,#c9a84c,#e2c070);border:none;border-radius:10px;color:#1a1200;font-family:'DM Mono','Courier New',monospace;font-size:12px;font-weight:500;letter-spacing:3px;cursor:pointer;text-transform:uppercase;transition:all 0.2s;box-shadow:0 4px 20px rgba(201,168,76,0.3);margin-top:8px}
+.btn-login{width:100%;padding:15px;background:linear-gradient(135deg,#c9a84c,#e2c070);border:none;border-radius:10px;color:#1a1200;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:12px;font-weight:500;letter-spacing:3px;cursor:pointer;text-transform:uppercase;transition:all 0.2s;box-shadow:0 4px 20px rgba(201,168,76,0.3);margin-top:8px}
 .btn-login:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(201,168,76,0.4)}
 .login-error{background:rgba(240,82,82,0.1);border:1px solid rgba(240,82,82,0.2);border-radius:8px;padding:12px 14px;font-size:12px;color:#f05252;margin-top:14px;display:none}
 .login-footer{text-align:center;margin-top:28px;font-size:10px;color:rgba(107,114,128,0.5);letter-spacing:1px}
 #course-page{display:none}
 .nav{position:sticky;top:0;z-index:100;background:rgba(6,9,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,205,214,0.08);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
-.nav-logo{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-logo{font-family:‘Playfair Display’,Georgia,serif;font-size:22px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-right{display:flex;align-items:center;gap:16px}
 .session-badge{display:flex;align-items:center;gap:7px;padding:6px 14px;border-radius:999px;font-size:11px;font-weight:500;letter-spacing:1px;border:1px solid;transition:all 0.3s}
 .session-dot{width:6px;height:6px;border-radius:50%}
-.btn-logout{padding:7px 16px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(200,205,214,0.08);color:#6b7280;font-family:'DM Mono','Courier New',monospace;font-size:10px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:all 0.2s}
+.btn-logout{padding:7px 16px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(200,205,214,0.08);color:#6b7280;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:10px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:all 0.2s}
 .btn-logout:hover{color:#c8cdd6;border-color:rgba(200,205,214,0.18)}
 .hero{text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:600px;height:1px;background:linear-gradient(90deg,transparent,#c9a84c,transparent)}
+.hero::after{content:’’;position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:600px;height:1px;background:linear-gradient(90deg,transparent,#c9a84c,transparent)}
 .hero-eyebrow{font-size:10px;letter-spacing:6px;color:#c9a84c;text-transform:uppercase;margin-bottom:20px}
-.hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(48px,8vw,90px);font-weight:900;line-height:0.95;letter-spacing:-2px;background:linear-gradient(135deg,#777,#e8edf5,#888);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}
+.hero-title{font-family:‘Playfair Display’,Georgia,serif;font-size:clamp(48px,8vw,90px);font-weight:900;line-height:0.95;letter-spacing:-2px;background:linear-gradient(135deg,#777,#e8edf5,#888);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}
 .hero-sub{font-size:13px;color:#6b7280;letter-spacing:3px;margin-bottom:40px}
 .hero-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
-.hero-stat .val{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:700;color:#e8edf5}
+.hero-stat .val{font-family:‘Playfair Display’,Georgia,serif;font-size:32px;font-weight:700;color:#e8edf5}
 .hero-stat .lbl{font-size:9px;letter-spacing:3px;color:#6b7280;margin-top:4px}
 .tab-bar{display:flex;gap:0;overflow-x:auto;border-bottom:1px solid rgba(200,205,214,0.08);padding:0 24px;position:sticky;top:60px;z-index:99;background:rgba(6,9,15,0.95);backdrop-filter:blur(20px)}
 .tab-bar::-webkit-scrollbar{height:0}
-.tab-btn{padding:16px 22px;border:none;background:none;color:#6b7280;font-family:'DM Mono','Courier New',monospace;font-size:11px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;position:relative;top:1px}
+.tab-btn{padding:16px 22px;border:none;background:none;color:#6b7280;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:11px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;position:relative;top:1px}
 .tab-btn:hover{color:#c8cdd6}
 .tab-btn.active{color:#c9a84c;border-bottom-color:#c9a84c}
 .content{max-width:960px;margin:0 auto;padding:48px 24px 80px}
@@ -53,14 +54,14 @@ body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monosp
 .card{background:linear-gradient(145deg,rgba(255,255,255,0.035),rgba(255,255,255,0.01));border:1px solid rgba(200,205,214,0.08);border-radius:16px;padding:28px;transition:border-color 0.2s}
 .card:hover{border-color:rgba(200,205,214,0.18)}
 .card-label{font-size:9px;letter-spacing:4px;color:#6b7280;text-transform:uppercase;margin-bottom:8px}
-.card-title{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700;color:#e8edf5;margin-bottom:20px}
+.card-title{font-family:‘Playfair Display’,Georgia,serif;font-size:22px;font-weight:700;color:#e8edf5;margin-bottom:20px}
 .model-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-.model-pill{padding:10px 18px;border-radius:10px;border:none;cursor:pointer;font-family:'DM Mono','Courier New',monospace;font-size:11px;font-weight:500;letter-spacing:1px;background:rgba(255,255,255,0.04);color:#6b7280;transition:all 0.2s;display:flex;align-items:center;gap:6px}
+.model-pill{padding:10px 18px;border-radius:10px;border:none;cursor:pointer;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:11px;font-weight:500;letter-spacing:1px;background:rgba(255,255,255,0.04);color:#6b7280;transition:all 0.2s;display:flex;align-items:center;gap:6px}
 .model-pill.active,.model-pill:hover{background:rgba(201,168,76,0.1);color:#c9a84c;outline:1px solid rgba(201,168,76,0.3)}
 .chart-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(200,205,214,0.08);margin:20px 0}
 .stat-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
 .stat-box{flex:1;min-width:100px;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(200,205,214,0.08);border-radius:12px;text-align:center}
-.stat-box .sv{font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:700}
+.stat-box .sv{font-family:‘Playfair Display’,Georgia,serif;font-size:26px;font-weight:700}
 .stat-box .sl{font-size:9px;letter-spacing:2px;color:#6b7280;margin-top:4px;text-transform:uppercase}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
 .info-box{padding:16px;border-radius:12px;font-size:12px;line-height:1.75}
@@ -73,7 +74,7 @@ body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monosp
 .rule-item.yellow{background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.12);color:#fbbf24}
 .rule-item.indent{margin-left:16px;background:rgba(255,255,255,0.015)}
 .step-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.step-btn{padding:7px 13px;border-radius:8px;border:none;background:rgba(255,255,255,0.04);color:#6b7280;font-family:'DM Mono','Courier New',monospace;font-size:10px;letter-spacing:1px;cursor:pointer;transition:all 0.2s;text-transform:uppercase}
+.step-btn{padding:7px 13px;border-radius:8px;border:none;background:rgba(255,255,255,0.04);color:#6b7280;font-family:‘DM Mono’,‘Courier New’,monospace;font-size:10px;letter-spacing:1px;cursor:pointer;transition:all 0.2s;text-transform:uppercase}
 .step-btn.active{background:rgba(200,205,214,0.12);color:#e8edf5;outline:1px solid rgba(200,205,214,0.2)}
 .bt-row{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-radius:12px;margin-bottom:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(200,205,214,0.08);flex-wrap:wrap;gap:12px;position:relative}
 .bt-row.best{background:rgba(201,168,76,0.06);border-color:rgba(201,168,76,0.3)}
@@ -90,7 +91,7 @@ body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monosp
 .check-label{font-size:13px;color:#c0c8d8}
 .check-item.checked .check-label{color:#3ddc84}
 .score-gate{margin-top:24px;padding:24px;border-radius:14px;text-align:center;transition:all 0.3s}
-.score-num{font-family:'Playfair Display',Georgia,serif;font-size:52px;font-weight:900}
+.score-num{font-family:‘Playfair Display’,Georgia,serif;font-size:52px;font-weight:900}
 .score-verdict{font-size:13px;letter-spacing:4px;font-weight:500;margin-top:6px}
 .score-note{font-size:11px;color:#6b7280;margin-top:8px}
 .news-item{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-radius:10px;margin-bottom:7px;flex-wrap:wrap;gap:10px}
@@ -116,6 +117,7 @@ body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monosp
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
 @media(max-width:600px){.hero{padding:48px 20px 40px}.hero-stats{gap:28px}.login-card{padding:28px 22px}.content{padding:32px 16px 60px}.card{padding:20px 16px}.tab-btn{padding:14px 14px;font-size:10px}}
 </style></head><body>
+
 <div class="grid-bg"></div><div class="orb orb-1"></div><div class="orb orb-2"></div>
 
 <div id="login-page" class="page active" style="display:flex">
@@ -323,6 +325,7 @@ body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monosp
 </div></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 const _supabase=supabase.createClient('https://aofzbbprtafsozdwvtoa.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvZnpiYnBydGFmc296ZHd2dG9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1MDQxODQsImV4cCI6MjA5MDA4MDE4NH0.NlSEcWplEwGHgXRvUq5xG2KprPiiORQ91-OQEUtn36s');
 async function handleLogin(){
@@ -403,7 +406,11 @@ window.addEventListener('load',async()=>{
 });
 function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active')}
 const MODELS={
-confirm:{tag:'⭐ BEST SETUP',tagColor:'#3ddc84',tagBg:'rgba(61,220,132,0.15)',title:'Confirmation Entry',sub:'London KZ Pullback · NY Session · Your chart\'s second red arrow',wr:'65–70%',rr:'1:3–4',wrColor:'#3ddc84',when:'After an expansion move, price pulls back into the SMA 9/21 cluster. The SMAs continue pointing in the original direction. A rejection candle forms at the SMA touch — confirming the pullback is complete and the trend is resuming.',entry:'Enter the candle that CLOSES back in the direction of the original move after touching SMA 9/21. Wait for the close — never anticipate.',sl:'Above/below the SMA cluster — not the original expansion high. Trail only after 1R profit is secured.',notes:[{t:'🏆 This is the highest-expectancy setup in the strategy — 0.98R per trade on the 15m',c:'highlight'},{t:'SMA 50 must still be pointing in the original direction — non-negotiable',c:''},{t:'Works on 5m and 15m — best on 15m per backtest (66% win rate)',c:'green'},{t:'Can pyramid: enter half at SMA 9 touch, add second half on candle close',c:''},{t:'This setup appears regularly at SMA convergence zones — watch for it at key S/R levels',c:''}]},
+confirm:{tag:'⭐ BEST SETUP',tagColor:'#3ddc84',tagBg:'rgba(61,220,132,0.15)',title:'Confirmation Entry',sub:'London KZ Pullback · NY Session · Highest Probability Setup',wr:'65–70%',rr:'1:3–4',wrColor:'#3ddc84',when:'After an expansion move, price pulls back into the SMA 9/21 cluster. The SMAs continue pointing in the original direction. A rejection candle forms at the SMA touch — confirming the pullback is complete and the trend is resuming.',entry:'Enter the candle that CLOSES back in the direction of the original move after touching SMA 9/21. Wait for the close — never anticipate.',sl:'Above/below the SMA cluster — not the original expansion high. Trail only after 1R profit is secured.',notes:[{t:'🏆 This is the highest-expectancy setup in the strategy — 0.98R per trade on the 15m',c:'highlight'},{t:'SMA 50 must still be pointing in the original direction — non-negotiable',c:''},{t:'Works on 5m and 15m — best on 15m per backtest (66% win rate)',c:'green'},{t:'Can pyramid: enter half at SMA 9 touch, add second half on candle close',c:''},{t:'This setup appears regularly at SMA convergence zones — watch for it at key S/R levels',c:''},
+{t:'STOP LOSS RULE FOR KILL ZONE ENTRIES: Place your SL below the ENTIRE Kill Zone box low — not just below the entry candle. The full KZ range is your support zone.',c:'highlight'},
+{t:'WHY: Price often wicks below the entry candle within the Kill Zone before reversing. A stop below the KZ low survives the wick and stays in the trade.',c:'green'},
+{t:'EXAMPLE: B signal fires at 69.50 inside London KZ. KZ box low is 69.20. Your SL goes at 69.18 — not at 69.45 below the candle.',c:''},
+{t:'If price closes BELOW the entire KZ box on a full candle — that is true invalidation. Exit then.',c:'red'}]},
 early:{tag:'AGGRESSIVE',tagColor:'#c9a84c',tagBg:'rgba(201,168,76,0.15)',title:'Early Entry',sub:'London / NY Kill Zone — first candle at expansion peak',wr:'50–55%',rr:'1:4–6',wrColor:'#c9a84c',when:'Price makes a sharp expansion high/low and SMA 9 begins to curl away from price. First rejection candle at the extreme — no pullback confirmation needed.',entry:'Enter the first bearish/bullish engulfing candle at the expansion extreme. No waiting for a pullback — you\'re catching the turn as it happens.',sl:'Above/below the wick of the expansion candle + small buffer. Tight stop — use 0.5% risk max.',notes:[{t:'Highest reward potential — you catch the full move from the very top or bottom',c:''},{t:'Lower win rate 50–55% — price may push further before turning. Size down.',c:'red'},{t:'Best used when SMA 9 has visibly and sharply curled against price direction',c:''},{t:'Avoid if spread is wide — you\'ll get filled at a terrible price on a volatile move',c:''}]},
 sweep:{tag:'HIGHEST WIN RATE',tagColor:'#a78bfa',tagBg:'rgba(167,139,250,0.15)',title:'Liquidity Sweep',sub:'Asia Range Extremes · Kill Zone Opens · Round Numbers',wr:'70–75%',rr:'1:3–5',wrColor:'#a78bfa',when:'Price spikes beyond a known level — Asia high/low, prior swing, round number — with a long wick, then closes back inside. The market hunted stops then reversed sharply.',entry:'Enter the candle that closes back inside the swept level. The sweep wick IS your signal. Never enter mid-wick — wait for the full candle close.',sl:'Below/above the absolute lowest/highest point of the sweep wick. This is the true invalidation.',notes:[{t:'🏆 Highest win rate of all entry types at 70–75% — but rarest to find',c:'highlight'},{t:'Works especially well at Asia session high/low levels just before London opens',c:'green'},{t:'Wick MUST close back inside the level — partial close outside is not valid',c:''},{t:'Most common at: Asia high/low, round numbers, prior day highs/lows',c:''}]},
 asia:{tag:'ASIA SESSION',tagColor:'#3ddc84',tagBg:'rgba(61,220,132,0.12)',title:'Asia Range Fade',sub:'Asia 00:00–07:00 GMT · London Breakout 08:00–10:00 GMT',wr:'60–65%',rr:'1:2–3',wrColor:'#3ddc84',when:'During Asia, Silver consolidates in a range. Two modes: (1) Fade the extremes — sell at range top, buy at range bottom. (2) Wait for London to break the range and trade the pullback.',entry:'FADE: rejection candle at Asia high/low. BREAKOUT: London breaks range → wait for first pullback to boundary → enter continuation.',sl:'FADE: outside range extreme + buffer. BREAKOUT: below the broken range boundary. Old resistance = new support.',notes:[{t:'First 2 hours of Asia (00:00–02:00 GMT) define the range — mark it every day',c:''},{t:'Fade mode only works if range is at least 0.5% wide — too tight = noise',c:'yellow'},{t:'Breakout mode is higher probability — combine with SMA alignment',c:'green'},{t:'The London Breakout + pullback entry is your best Asia-into-London setup',c:''}]}
@@ -526,6 +533,8 @@ const STEPS=[
 {t:'Example: US$10,000 account × 1% = US$100 maximum loss per trade.',c:''},
 {t:'POSITION SIZE formula: (Account × Risk%) ÷ Stop Loss in dollars. Calculate BEFORE entering.',c:''},
 {t:'STOP LOSS: Place below/above the last swing wick + a small buffer. Never at a round number.',c:''},
+{t:'KILL ZONE STOP RULE: When a B or S signal fires inside a Kill Zone — place SL below the ENTIRE KZ box low, not just below the entry candle.',c:'highlight'},
+{t:'Price frequently wicks through the entry candle inside Kill Zones before reversing. A tight stop gets taken out. A KZ-wide stop survives.',c:'green'},
 {t:'TAKE PROFIT: Minimum 1:3 RR always. SL is US$100 → TP must be at least US$300.',c:'green'},
 {t:'1R = your risk amount. A 1:3 trade = you make 3R if correct, lose 1R if wrong.',c:''},
 {t:'At 60% win rate + 1:3 RR over 10 trades: +18R on wins, -4R on losses = net +14R.',c:'green'},
@@ -556,6 +565,7 @@ const STEPS=[
 {t:'MODEL 3 — LIQUIDITY SWEEP | WR: 70–75% | RR: 1:3–5 ⭐ HIGHEST WIN RATE',c:'highlight'},
 {t:'→ When: Price wicks beyond Asia high/low or key level, then closes back inside. Enter the reversal.',c:'indent'},
 {t:'→ SL: Below/above the absolute extreme of the sweep wick. This is the true invalidation point.',c:'indent'},
+{t:'→ KILL ZONE ENTRIES SPECIFICALLY: SL goes below the entire Kill Zone box low — not just the entry candle low.',c:'indent'},
 {t:'MODEL 4 — ASIA RANGE FADE | WR: 60–65% | RR: 1:2–3',c:''},
 {t:'→ When: Fade Asia range extremes OR trade London breakout pullback back to range boundary.',c:'indent'},
 {t:'→ SL: Outside range extreme + buffer (fade) or below broken boundary (breakout).',c:'indent'},
