@@ -237,45 +237,213 @@ body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monosp
 </div>
 
 <div class="tab-panel" id="tab-indicator">
+
+<!-- SECTION 1: HOW TO GET ACCESS -->
+<div class="card" style="margin-bottom:16px">
+<div class="card-label">Setup</div>
+<div class="card-title">How to Access the Indicator</div>
+<p style="font-size:12px;color:#6b7280;margin-bottom:20px;line-height:1.9">The Silver Apex indicator is a custom TradingView tool built specifically around this strategy. Search for <strong style="color:#e8edf5">Silver Apex Strategy</strong> in the TradingView indicator library and add it to your chart.</p>
+<div style="padding:16px;border-radius:12px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);margin-bottom:16px">
+<div style="font-size:9px;letter-spacing:3px;color:#c9a84c;margin-bottom:12px">RECOMMENDED SETUP</div>
+<div class="rule-list">
+<div class="rule-item">Open TradingView → search XAG/USD (Silver) or XAU/USD (Gold)</div>
+<div class="rule-item">Set your chart to <strong style="color:#e8edf5">5m or 15m timeframe</strong> — these give the cleanest signals</div>
+<div class="rule-item">Click Indicators → search Silver Apex Strategy → Add to chart</div>
+<div class="rule-item">The indicator automatically overlays on your price chart with sessions, SMAs and signals</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 2: READING THE CHART -->
+<div class="card" style="margin-bottom:16px">
+<div class="card-label">Step 1</div>
+<div class="card-title">Reading the Chart — What Everything Means</div>
+<div class="rule-list">
+<div class="rule-item highlight">SESSION BOXES — The coloured boxes show which trading session is active, drawn to the exact price range of that session.</div>
+<div class="rule-item" style="margin-left:16px">🔴 Red box = Tokyo session (00:00–08:00 GMT) — Mark the high and low. Do not trade here.</div>
+<div class="rule-item" style="margin-left:16px">🔵 Blue box = London session (07:00–16:00 GMT) — Active session. Look for setups.</div>
+<div class="rule-item" style="margin-left:16px">🟡 Amber box = London Kill Zone (07:00–09:00 GMT) — Highest probability window.</div>
+<div class="rule-item" style="margin-left:16px">🟣 Purple box = New York session + NY Kill Zone (12:00–14:00 GMT) — Second best window.</div>
+<div class="rule-item highlight">SMA STACK — Five moving averages plotted on your chart. When they are stacked in order, the trend is confirmed.</div>
+<div class="rule-item" style="margin-left:16px">Green = SMA 9 (fastest — shows immediate momentum)</div>
+<div class="rule-item" style="margin-left:16px">Black = SMA 21 (short term trend)</div>
+<div class="rule-item" style="margin-left:16px">Red = SMA 50 (intermediate trend — must point in your direction)</div>
+<div class="rule-item" style="margin-left:16px">Blue = SMA 200 (major trend — price above = bullish only)</div>
+<div class="rule-item" style="margin-left:16px">Purple = SMA 800 (macro regime — rarely crossed)</div>
+<div class="rule-item green">ASIA RANGE LINES — Two red dashed lines showing the Tokyo session high and low. These are your key reference levels for the day.</div>
+</div>
+</div>
+
+<!-- SECTION 3: SIGNAL GUIDE -->
+<div class="card" style="margin-bottom:16px">
+<div class="card-label">Step 2</div>
+<div class="card-title">Signal Guide — What Each Label Means</div>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+
+<!-- B Signal -->
+<div style="padding:20px;border-radius:12px;background:rgba(61,220,132,0.06);border:1px solid rgba(61,220,132,0.2)">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+<div style="background:#3ddc84;color:#000;font-weight:700;font-size:13px;padding:4px 14px;border-radius:6px">B</div>
+<div style="font-size:14px;font-weight:600;color:#e8edf5">Buy Signal — Confirmation Entry</div>
+</div>
+<div class="rule-list">
+<div class="rule-item green">What it means: Price pulled back into the SMA 9/21 zone and closed bullishly above it. All 5 SMAs are stacked in bullish order. This is the Confirmation Entry model.</div>
+<div class="rule-item">Entry model: Confirmation Entry (65–70% win rate, 1:3–4 RR)</div>
+<div class="rule-item">How to enter: Buy on the close of the candle that produced the B signal. Do not enter mid-candle.</div>
+<div class="rule-item red">Stop loss: Place SL below the lowest point of the current session box — NOT just below the entry candle. Session boxes act as your support zone.</div>
+<div class="rule-item green">Fixed SL guide: Silver max 0.50 points · Gold max 12 points · EUR/USD max 12 pips</div>
+<div class="rule-item">Take profit: Minimum 1:3 RR from your entry. Identify the next key resistance level above and use that as your target.</div>
+<div class="rule-item highlight">Best context: B signal inside a Kill Zone (amber or purple box) = highest probability. B signal outside Kill Zone = still valid but use discretion.</div>
+</div>
+</div>
+
+<!-- S Signal -->
+<div style="padding:20px;border-radius:12px;background:rgba(240,82,82,0.06);border:1px solid rgba(240,82,82,0.2)">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+<div style="background:#f05252;color:#fff;font-weight:700;font-size:13px;padding:4px 14px;border-radius:6px">S</div>
+<div style="font-size:14px;font-weight:600;color:#e8edf5">Sell Signal — Confirmation Entry</div>
+</div>
+<div class="rule-list">
+<div class="rule-item red">What it means: Price pulled back into the SMA 9/21 zone and closed bearishly below it. All 5 SMAs are stacked in bearish order. This is the bearish Confirmation Entry.</div>
+<div class="rule-item">Entry model: Confirmation Entry (65–70% win rate, 1:3–4 RR)</div>
+<div class="rule-item">How to enter: Sell on the close of the candle that produced the S signal.</div>
+<div class="rule-item red">Stop loss: Place SL above the highest point of the current session box. Fixed max: Silver 0.50 · Gold 12pts · EUR/USD 12 pips.</div>
+<div class="rule-item">Take profit: Minimum 1:3 RR. Identify next key support below as your target.</div>
+<div class="rule-item highlight">Best context: S signal with Bear Div above = very strong. S signal inside Kill Zone = highest probability.</div>
+</div>
+</div>
+
+<!-- E Signal -->
+<div style="padding:20px;border-radius:12px;background:rgba(0,188,212,0.06);border:1px solid rgba(0,188,212,0.2)">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+<div style="background:#00bcd4;color:#fff;font-weight:700;font-size:13px;padding:4px 14px;border-radius:6px">E</div>
+<div style="font-size:14px;font-weight:600;color:#e8edf5">Early Entry — Breakout Signal</div>
+</div>
+<div class="rule-list">
+<div class="rule-item" style="color:#00bcd4;background:rgba(0,188,212,0.06);border-color:rgba(0,188,212,0.2)">What it means: Price has broken strongly through the SMA zone without a pullback. SMA 9 is curling with conviction. This is the Early Entry model — lower win rate but catches strong momentum moves.</div>
+<div class="rule-item">Entry model: Early Entry (50–55% win rate, 1:4–6 RR potential)</div>
+<div class="rule-item">How to enter: Enter on the close of the E candle. Use half your normal position size — this entry is riskier.</div>
+<div class="rule-item red">Stop loss: Just below/above the entry candle low/high. Keep it tight — the high RR compensates for the lower win rate.</div>
+<div class="rule-item yellow">Only fires in first half of London (07:00–11:00 GMT) or NY (12:00–16:00 GMT) — designed to catch session opening momentum moves.</div>
+</div>
+</div>
+
+<!-- Gold B/S -->
+<div style="padding:20px;border-radius:12px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2)">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+<div style="background:#c9a84c;color:#1a1200;font-weight:700;font-size:13px;padding:4px 14px;border-radius:6px">B / S</div>
+<div style="font-size:14px;font-weight:600;color:#e8edf5">Gold Signal — SMA 50/200 Bounce</div>
+</div>
+<div class="rule-list">
+<div class="rule-item highlight">What it means: Price has bounced off the SMA 50 or SMA 200 with a strong candle and full SMA alignment. This fires outside Kill Zones and catches trend continuation moves from major SMA levels.</div>
+<div class="rule-item">Entry model: Confirmation Entry variation — bounce from major SMA level</div>
+<div class="rule-item">How to enter: Enter on the close of the gold signal candle.</div>
+<div class="rule-item">Stop loss: Below/above the SMA level that was touched. If it bounced off SMA 50 — SL goes just below SMA 50.</div>
+<div class="rule-item green">Best context: Gold B/S signal that aligns with a Kill Zone on a higher timeframe = strongest version of this setup.</div>
+</div>
+</div>
+
+<!-- Sweep -->
+<div style="padding:20px;border-radius:12px;background:rgba(61,220,132,0.06);border:1px solid rgba(61,220,132,0.15)">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+<div style="background:#3ddc84;color:#000;font-weight:700;font-size:13px;padding:4px 14px;border-radius:6px">Sweep</div>
+<div style="font-size:14px;font-weight:600;color:#e8edf5">Liquidity Sweep Signal</div>
+</div>
+<div class="rule-list">
+<div class="rule-item green">What it means: Price wicked beyond the Asia session high or low then closed back inside. Institutions hunted stops then reversed. This is the Liquidity Sweep entry model — highest win rate at 70–75%.</div>
+<div class="rule-item">Entry model: Liquidity Sweep (70–75% win rate, 1:3–5 RR)</div>
+<div class="rule-item">How to enter: Enter on the close of the Sweep candle — the wick IS your signal. Never enter mid-wick.</div>
+<div class="rule-item red">Stop loss: Beyond the absolute extreme of the sweep wick — this is the true invalidation point. Fixed max applies.</div>
+<div class="rule-item highlight">Sweep signal alone is strong. Sweep + Bull/Bear Div within 3 bars = BUY/SELL combo signal — highest confidence trade on the entire indicator.</div>
+</div>
+</div>
+
+<!-- BUY/SELL Combo -->
+<div style="padding:20px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2)">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+<div style="background:#ffffff;color:#000;font-weight:700;font-size:13px;padding:4px 14px;border-radius:6px">BUY / SELL</div>
+<div style="font-size:14px;font-weight:600;color:#e8edf5">Combo Signal — Highest Confidence</div>
+</div>
+<div class="rule-list">
+<div class="rule-item highlight">What it means: A Liquidity Sweep AND RSI Divergence both fired within 3 bars of each other. This is the rarest and highest confidence signal on the indicator.</div>
+<div class="rule-item green">Entry model: Liquidity Sweep + RSI Divergence confluence — treat this as a priority entry every time it appears.</div>
+<div class="rule-item">How to enter: Enter on the close of the candle that produced the white BUY/SELL label.</div>
+<div class="rule-item red">Stop loss: Beyond the sweep wick extreme. This signal justifies a slightly wider stop because the conviction is high.</div>
+<div class="rule-item green">Take profit: Target 1:4 or higher. The combination of sweep + divergence typically produces larger moves. Consider partial close at 1:3 then let the rest run.</div>
+<div class="rule-item highlight">Do NOT close a running B trade just because a white SELL appears. Let your existing trade hit TP first — the combo is a new trade opportunity, not an exit signal for your current position.</div>
+</div>
+</div>
+
+<!-- Bull/Bear Div -->
+<div style="padding:20px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(200,205,214,0.08)">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+<div style="background:#3ddc84;color:#000;font-weight:700;font-size:11px;padding:4px 10px;border-radius:6px">Bull Div</div>
+<div style="background:#f05252;color:#fff;font-weight:700;font-size:11px;padding:4px 10px;border-radius:6px">Bear Div</div>
+<div style="font-size:14px;font-weight:600;color:#e8edf5;margin-left:4px">RSI Divergence Labels</div>
+</div>
+<div class="rule-list">
+<div class="rule-item yellow">What it means: RSI momentum is diverging from price. Bull Div = price made a lower low but RSI made a higher low — buyers are stepping in. Bear Div = price made a higher high but RSI made a lower high — sellers are stepping in.</div>
+<div class="rule-item red">IMPORTANT: Div labels alone are NOT entry signals. They are warnings that momentum is shifting. Do not enter on a Div label without SMA confirmation.</div>
+<div class="rule-item">How to use: See a Bull Div? Watch for the next B signal to confirm. See a Bear Div? Watch for the next S signal to confirm.</div>
+<div class="rule-item highlight">Div label + B or S signal = strong confluence. Div label + Sweep = BUY/SELL combo. Div label alone = wait.</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- SECTION 4: HTF CONFIRMATION -->
+<div class="card" style="margin-bottom:16px">
+<div class="card-label">Step 3</div>
+<div class="card-title">HTF Confirmation — Always Check the Higher Timeframe First</div>
+<p style="font-size:12px;color:#6b7280;margin-bottom:20px;line-height:1.9">The indicator runs on your entry timeframe (5m or 15m) but every trade must be confirmed by the higher timeframe. A B signal on 5m that goes against the Daily trend is a low probability trade.</p>
+<div class="rule-list">
+<div class="rule-item highlight">STEP 1 — Open the Daily chart. Is price above or below SMA 200? Above = bullish bias only. Below = bearish bias only.</div>
+<div class="rule-item">STEP 2 — Drop to 4H chart. Are the SMAs stacked in the same direction as the Daily? Mark your key S/R levels here.</div>
+<div class="rule-item">STEP 3 — Drop to 1H chart. Confirm the session structure. Where is the Asia range? Which direction did London open?</div>
+<div class="rule-item">STEP 4 — Now open your 5m or 15m chart with the indicator. Only take B signals that align with your Daily and 4H bias.</div>
+<div class="rule-item red">RULE: Never take a B signal on 5m if the Daily and 4H are bearish. Never take an S signal on 5m if the Daily and 4H are bullish. The HTF always wins.</div>
+<div class="rule-item green">BEST SETUP: Daily bullish + 4H bullish + London KZ active + B signal on 5m = all four timeframes aligned = highest probability trade of the day.</div>
+</div>
+</div>
+
+<!-- SECTION 5: TRADE MANAGEMENT -->
+<div class="card" style="margin-bottom:16px">
+<div class="card-label">Step 4</div>
+<div class="card-title">Stop Loss & Take Profit — Fixed Rules</div>
+<div class="rule-list">
+<div class="rule-item highlight">FIXED MAXIMUM STOP LOSS — Never exceed these distances regardless of where the natural level is. If the natural SL requires more than the maximum — skip the trade.</div>
+<div class="rule-item green">Silver XAG/USD — Maximum SL: 0.50 points</div>
+<div class="rule-item green">Gold XAU/USD — Maximum SL: 12 points</div>
+<div class="rule-item green">EUR/USD / GBP/USD — Maximum SL: 12 pips</div>
+<div class="rule-item">KILL ZONE ENTRIES: SL goes below/above the entire session box low/high — not just the entry candle. Price frequently wicks through the candle before reversing.</div>
+<div class="rule-item">SWEEP ENTRIES: SL goes beyond the absolute extreme of the sweep wick. That wick IS the invalidation point.</div>
+<div class="rule-item red">MINIMUM RR: Never enter a trade where you cannot identify a clear 1:3 target on the chart BEFORE entering. If the target is not visible — do not trade.</div>
+<div class="rule-item highlight">PARTIAL CLOSE STRATEGY: At 1:2 RR — close 50% of position and move SL to breakeven. Let remaining 50% run to 1:4 or beyond. This guarantees a profitable trade regardless of what happens next.</div>
+<div class="rule-item">BREAKEVEN RULE: Once a trade reaches 1R profit — move SL to entry price immediately. You now have a risk-free trade.</div>
+</div>
+</div>
+
+<!-- SECTION 6: FULL PROCESS -->
 <div class="card">
-<div class="card-label">Silver Apex TradingView Indicator</div>
-<div class="card-title">Your Exclusive Indicator Access</div>
-<p style="font-size:12px;color:#6b7280;margin-bottom:24px;line-height:1.9">As a Silver Apex course member you receive exclusive access to the Silver Apex TradingView indicator — a custom Pine Script built specifically around this strategy. It is invite-only and cannot be accessed without your TradingView username being manually approved.</p>
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:28px">
-<div style="padding:16px;border-radius:12px;background:rgba(61,220,132,0.06);border:1px solid rgba(61,220,132,0.15)">
-<div style="font-size:9px;letter-spacing:3px;color:#3ddc84;margin-bottom:8px">SESSION BOXES</div>
-<div style="font-size:12px;color:#9ca3af;line-height:1.7">Tokyo, London, New York and Kill Zone boxes drawn to the exact price range of each session — no full-screen overlays.</div>
-</div>
-<div style="padding:16px;border-radius:12px;background:rgba(91,156,246,0.06);border:1px solid rgba(91,156,246,0.15)">
-<div style="font-size:9px;letter-spacing:3px;color:#5b9cf6;margin-bottom:8px">SMA STACK</div>
-<div style="font-size:12px;color:#9ca3af;line-height:1.7">All 5 SMAs plotted in colour — Green (9), Black (21), Red (50), Blue (200), Purple (800). Matches the course exactly.</div>
-</div>
-<div style="padding:16px;border-radius:12px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2)">
-<div style="font-size:9px;letter-spacing:3px;color:#c9a84c;margin-bottom:8px">ENTRY SIGNALS</div>
-<div style="font-size:12px;color:#9ca3af;line-height:1.7">B (green) — Confirmation entry in Kill Zone. E (cyan) — Early breakout entry. S (red) — Sell signals. Gold B/S — SMA bounce entries.</div>
-</div>
-<div style="padding:16px;border-radius:12px;background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.15)">
-<div style="font-size:9px;letter-spacing:3px;color:#a78bfa;margin-bottom:8px">SWEEP + DIVERGENCE</div>
-<div style="font-size:12px;color:#9ca3af;line-height:1.7">Sweep labels at Asia range extremes. RSI Bull/Bear Div labels. White BUY/SELL when sweep and divergence align — highest confidence signal.</div>
+<div class="card-label">Full Process</div>
+<div class="card-title">Step by Step — From Chart Open to Trade Execution</div>
+<div class="rule-list">
+<div class="rule-item highlight">1. Check economic calendar — any high impact news in the next 2 hours? If yes on Silver/Gold — do not trade within 30 minutes of the event.</div>
+<div class="rule-item">2. Open Daily chart — note SMA 200 direction. This is your bias for the day. Write it down.</div>
+<div class="rule-item">3. Open 4H chart — confirm SMAs agree with Daily. Mark 2–3 key levels.</div>
+<div class="rule-item">4. Open 5m or 15m chart with indicator — wait for session boxes to appear.</div>
+<div class="rule-item">5. Note the Asia session box high and low — these are your key intraday levels.</div>
+<div class="rule-item">6. Wait for London KZ (07:00–09:00 GMT) or NY KZ (12:00–14:00 GMT) to open.</div>
+<div class="rule-item">7. Watch for B, S, E or white BUY/SELL signal to appear — only act if it aligns with your Daily and 4H bias.</div>
+<div class="rule-item">8. Run the 8-point checklist tab before entering. All 8 must pass.</div>
+<div class="rule-item">9. Enter on candle close. Set SL immediately. Set TP at minimum 1:3.</div>
+<div class="rule-item green">10. Move SL to breakeven at 1R profit. Partial close at 2R. Let remainder run to full target.</div>
+<div class="rule-item red">11. Do not stare at the trade. Check every 15–30 minutes only. Trust the process.</div>
 </div>
 </div>
 
-<div style="padding:20px 24px;border-radius:12px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);margin-bottom:24px">
-<div style="font-size:9px;letter-spacing:3px;color:#c9a84c;margin-bottom:12px">HOW TO GET ACCESS</div>
-<div style="font-size:12px;color:#9ca3af;line-height:2.1">
-1. Create a free TradingView account at tradingview.com if you do not already have one<br/>
-2. Note your TradingView username (found in your profile settings)<br/>
-3. Send your TradingView username to Brendon via the Discord VIP channel<br/>
-4. You will receive a notification from TradingView confirming access has been granted<br/>
-5. Find the indicator by searching <strong style="color:#e8edf5">Silver Apex Strategy</strong> in the TradingView indicator library
-</div>
-</div>
-
-<div style="padding:16px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(200,205,214,0.08);font-size:11px;color:#6b7280;line-height:1.9">
-<strong style="color:#c8cdd6">Important:</strong> This indicator is invite-only and is exclusively available to Silver Apex course members. Do not share your TradingView access with others — it is linked to your account only. Recommended timeframes: 5m and 15m for the cleanest signals.
-</div>
-</div>
 </div>
 
 <div class="tab-panel" id="tab-backtest">
