@@ -69,7 +69,7 @@ body{background:#06090f;color:#c8cdd6;font-family:"DM Mono","Courier New",monosp
 </style>
 </head>
 <body>
-
+ 
 <div id="login-page">
   <div class="login-card">
     <div class="login-logo">Silver <span style="color:#c9a84c">Apex</span></div>
@@ -83,7 +83,7 @@ body{background:#06090f;color:#c8cdd6;font-family:"DM Mono","Courier New",monosp
     <a href="reset.html" class="forgot-link">Forgot password?</a>
   </div>
 </div>
-
+ 
 <div id="course-page">
   <div class="header">
     <div class="header-logo">Silver <span>Apex</span></div>
@@ -111,13 +111,13 @@ body{background:#06090f;color:#c8cdd6;font-family:"DM Mono","Courier New",monosp
       </div>
       <div id="model-content"></div>
     </div>
-
+ 
     <!-- COURSE TAB -->
     <div class="tab-panel" id="tab-course">
       <div class="step-nav" id="step-nav"></div>
       <div id="step-content"></div>
     </div>
-
+ 
     <!-- CHECKLIST TAB -->
     <div class="tab-panel" id="tab-checklist">
       <div class="card">
@@ -128,7 +128,7 @@ body{background:#06090f;color:#c8cdd6;font-family:"DM Mono","Courier New",monosp
         <button onclick="resetChecklist()" style="margin-top:14px;width:100%;padding:10px;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.08);color:#6b7280;font-family:DM Mono,monospace;font-size:10px;cursor:pointer;letter-spacing:2px;text-transform:uppercase">Reset</button>
       </div>
     </div>
-
+ 
     <!-- CALCULATOR TAB -->
     <div class="tab-panel" id="tab-calculator">
       <div class="card">
@@ -166,7 +166,7 @@ body{background:#06090f;color:#c8cdd6;font-family:"DM Mono","Courier New",monosp
         </div>
       </div>
     </div>
-
+ 
     <!-- INDICATOR TAB -->
     <div class="tab-panel" id="tab-indicator">
       <div class="card" style="margin-bottom:16px">
@@ -253,7 +253,7 @@ body{background:#06090f;color:#c8cdd6;font-family:"DM Mono","Courier New",monosp
         </div>
       </div>
     </div>
-
+ 
     <!-- BACKTEST TAB -->
     <div class="tab-panel" id="tab-backtest">
       <div class="card">
@@ -275,7 +275,7 @@ body{background:#06090f;color:#c8cdd6;font-family:"DM Mono","Courier New",monosp
         <div id="backtest-entries"></div>
       </div>
     </div>
-
+ 
     <!-- NEWS TAB -->
     <div class="tab-panel" id="tab-news">
       <div class="card">
@@ -284,7 +284,7 @@ body{background:#06090f;color:#c8cdd6;font-family:"DM Mono","Courier New",monosp
         <div id="news-content"></div>
       </div>
     </div>
-
+ 
     <!-- SESSIONS TAB -->
     <div class="tab-panel" id="tab-sessions">
       <div class="card">
@@ -293,12 +293,12 @@ body{background:#06090f;color:#c8cdd6;font-family:"DM Mono","Courier New",monosp
         <div id="sessions-content"></div>
       </div>
     </div>
-
+ 
   </div>
 </div><script>
 const SB_URL='https://aofzbbprtafsozdwvtoa.supabase.co';
 const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvZnpiYnBydGFmc296ZHd2dG9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1MDQxODQsImV4cCI6MjA5MDA4MDE4NH0.NlSEcWplEwGHgXRvUq5xG2KprPiiORQ91-OQEUtn36s';
-
+ 
 async function sbGet(path){
   const r=await fetch(SB_URL+path,{headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});
   return r.json();
@@ -307,7 +307,7 @@ async function sbPost(path,body){
   const r=await fetch(SB_URL+path,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'},body:JSON.stringify(body)});
   return r.json();
 }
-
+ 
 async function handleLogin(){
   const email=document.getElementById('email-input').value.trim();
   const pass=document.getElementById('password-input').value;
@@ -323,22 +323,22 @@ async function handleLogin(){
     }
   } catch(e){err.style.display='block';}
 }
-
+ 
 function handleLogout(){
   localStorage.removeItem('sa_token');
   document.getElementById('course-page').style.display='none';
   document.getElementById('login-page').style.display='flex';
 }
-
+ 
 function showCourse(){
   document.getElementById('login-page').style.display='none';
   document.getElementById('course-page').style.display='block';
   initCourse();
 }
-
+ 
 document.getElementById('password-input').addEventListener('keydown',e=>{if(e.key==='Enter')handleLogin()});
 document.getElementById('email-input').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('password-input').focus()});
-
+ 
 window.addEventListener('load',async()=>{
   document.getElementById('login-page').style.display='none';
   document.getElementById('course-page').style.display='none';
@@ -352,14 +352,14 @@ window.addEventListener('load',async()=>{
   }
   document.getElementById('login-page').style.display='flex';
 });
-
+ 
 function switchTab(id,btn){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   btn.classList.add('active');
 }
-
+ 
 const MODELS={
   confirm:{tag:"MODEL 2",title:"Confirmation Entry",sub:"Highest Probability Setup",wr:"65-70%",rr:"1:3-4",wrColor:"#3ddc84",tagBg:"rgba(61,220,132,0.15)",tagColor:"#3ddc84",
     when:"Price expands then pulls back into the SMA 9/21 zone. Rejection candle forms at the touch. All 5 SMAs aligned.",
@@ -410,7 +410,7 @@ const MODELS={
       {t:"Lowest priority model — master Confirmation Entry and Sweep first.",c:"red"},
     ]},
 };
-
+ 
 let activeModel='confirm';
 function switchModel(id,btn){
   activeModel=id;
@@ -460,7 +460,7 @@ function renderCourse(){
     '</div></div>';
 }
 function goStep(i){if(i<0||i>=STEPS.length)return;currentStep=i;renderCourse();}
-
+ 
 const CHECKLIST=[
   "HTF bias confirmed — Daily and 4H chart checked",
   "Inside a Kill Zone — London 07:00-09:00 GMT or NY 12:00-14:00 GMT",
@@ -489,7 +489,7 @@ function renderChecklist(){
 }
 function toggleCheck(i){checkStates[i]=!checkStates[i];renderChecklist();}
 function resetChecklist(){checkStates=new Array(8).fill(false);renderChecklist();}
-
+ 
 function calcPosition(){
   const bal=parseFloat(document.getElementById('calc-balance').value)||0;
   const risk=parseFloat(document.getElementById('calc-risk').value)||1;
@@ -513,7 +513,7 @@ function calcPosition(){
     '<div><div style="font-family:Playfair Display,serif;font-size:22px;color:#3ddc84;font-weight:700">'+tp3.toFixed(2)+'</div><div style="font-size:8px;letter-spacing:2px;color:#6b7280;margin-top:2px">TP 1:3</div></div>'+
     '</div>';
 }
-
+ 
 function renderNews(){
   const el=document.getElementById('news-content');
   if(!el)return;
@@ -536,7 +536,7 @@ function renderNews(){
   if(!html)html='<div style="color:#6b7280;font-size:12px">No major events remaining. Check forexfactory.com for full calendar.</div>';
   el.innerHTML=html;
 }
-
+ 
 function updateSessionBadge(){
   const h=new Date().getUTCHours();
   const badge=document.getElementById('session-badge');
@@ -551,7 +551,7 @@ function updateSessionBadge(){
   badge.textContent=label;
   badge.className='session-badge'+(active?' active':'');
 }
-
+ 
 function renderSessions(){
   const el=document.getElementById('sessions-content');
   if(!el)return;
@@ -578,7 +578,7 @@ function renderSessions(){
   });
   el.innerHTML=html;
 }
-
+ 
 function initCourse(){
   renderModel();
   renderCourse();
