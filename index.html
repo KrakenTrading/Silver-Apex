@@ -471,10 +471,7 @@ body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monosp
 
 <div class="tab-panel" id="tab-course">
 <div class="step-nav" id="step-nav"></div>
-<div class="card" id="step-content"></div>
-</div>
-
-
+<div id="step-content" style="min-height:200px"></div>
 <div id="discretionary-visual" style="display:none;margin-top:20px">
 <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(200,205,214,0.1)">
   <div style="background:rgba(201,168,76,0.08);padding:14px 20px;border-bottom:1px solid rgba(200,205,214,0.08)">
@@ -586,6 +583,8 @@ body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monosp
   </div>
 </div>
 </div>
+</div>
+
 </div></div></div></div>
 
 <div class="tab-panel" id="tab-checklist">
@@ -1233,8 +1232,7 @@ const STEPS=[
 ];
 let currentStep=0;
 function renderCourse(){document.getElementById('step-nav').innerHTML=STEPS.map((s,i)=>`<button class="step-btn ${i===currentStep?'active':''}" onclick="goStep(${i})">${s.id}. ${s.phase}</button>`).join('');const step=STEPS[currentStep];
-const discretionaryVisual='';
-document.getElementById('step-content').innerHTML=`<div style="display:flex;align-items:center;gap:16px;margin-bottom:24px"><div style="font-size:36px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:rgba(200,205,214,0.07);border:1px solid rgba(200,205,214,0.18);flex-shrink:0">${step.icon}</div><div><div style="font-size:9px;color:#6b7280;letter-spacing:4px;margin-bottom:4px">PHASE ${step.id} · ${step.phase}</div><div style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700;color:#e8edf5">${step.title}</div></div></div><div class="rule-list">${step.content.map(l=>`<div class="rule-item ${l.c}">${l.t}</div>`).join('')}</div>${discretionaryVisual}<div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px"><button onclick="goStep(${currentStep-1})" ${currentStep===0?'disabled':''} style="padding:10px 20px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(200,205,214,0.08);color:#6b7280;font-family:'DM Mono','Courier New',monospace;font-size:11px;cursor:pointer;opacity:${currentStep===0?0.3:1}">← Prev</button><span style="font-size:10px;color:#6b7280">${currentStep+1} / ${STEPS.length}</span><button onclick="goStep(${currentStep+1})" ${currentStep===STEPS.length-1?'disabled':''} style="padding:10px 20px;border-radius:10px;background:rgba(200,205,214,0.1);border:1px solid rgba(200,205,214,0.18);color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:11px;cursor:pointer;opacity:${currentStep===STEPS.length-1?0.3:1}">Next →</button></div>`}
+document.getElementById('step-content').innerHTML=`<div class="card"><div style="display:flex;align-items:center;gap:16px;margin-bottom:24px"><div style="font-size:36px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:rgba(200,205,214,0.07);border:1px solid rgba(200,205,214,0.18);flex-shrink:0">${step.icon}</div><div><div style="font-size:9px;color:#6b7280;letter-spacing:4px;margin-bottom:4px">MODULE ${step.id} · ${step.phase}</div><div style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700;color:#e8edf5">${step.title}</div></div></div><div class="rule-list">${step.content.map(l=>`<div class="rule-item ${l.c}">${l.t}</div>`).join('')}</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:16px;border-top:1px solid rgba(200,205,214,0.08)"><button onclick="goStep(${currentStep-1})" ${currentStep===0?'disabled':''} style="padding:10px 20px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(200,205,214,0.08);color:#6b7280;font-family:'DM Mono',monospace;font-size:11px;cursor:pointer;opacity:${currentStep===0?0.3:1}">← Prev</button><span style="font-size:10px;color:#6b7280">${currentStep+1} / ${STEPS.length}</span><button onclick="goStep(${currentStep+1})" ${currentStep===STEPS.length-1?'disabled':''} style="padding:10px 20px;border-radius:10px;background:rgba(200,205,214,0.1);border:1px solid rgba(200,205,214,0.18);color:#e8edf5;font-family:'DM Mono',monospace;font-size:11px;cursor:pointer;opacity:${currentStep===STEPS.length-1?0.3:1}">Next →</button></div></div>`}
 function goStep(i){if(i<0||i>=STEPS.length)return;currentStep=i;renderCourse();const v=document.getElementById('discretionary-visual');if(v)v.style.display=currentStep===13?'block':'none';}
 
 function calcPosition(){
