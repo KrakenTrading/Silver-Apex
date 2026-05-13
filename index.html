@@ -18,7 +18,9 @@ body{background:#06090f;color:#c8cdd6;font-family:"DM Mono","Courier New",monosp
 .form-input:focus{border-color:rgba(201,168,76,0.4)}
 .btn-primary{width:100%;padding:14px;background:linear-gradient(135deg,#c9a84c,#a8893e);border:none;border-radius:10px;color:#000;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;font-weight:700;cursor:pointer;text-transform:uppercase}
 .login-error{color:#f05252;font-size:11px;margin-top:12px;display:none}
-.forgot-link{font-size:10px;color:#6b7280;text-decoration:none;display:block;text-align:center;margin-top:16px}
+.login-success{color:#3ddc84;font-size:11px;margin-top:12px;display:none;line-height:1.6}
+.forgot-link{font-size:10px;color:#6b7280;text-decoration:none;display:block;text-align:center;margin-top:16px;cursor:pointer;background:none;border:none;font-family:"DM Mono",monospace;width:100%}
+.forgot-link:hover{color:#c9a84c}
 .header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(200,205,214,0.08);background:rgba(6,9,15,0.96);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
 .header-logo{font-family:"Playfair Display",serif;font-size:18px;font-weight:700;color:#e8edf5}
 .header-logo span{color:#c9a84c}
@@ -80,7 +82,8 @@ body{background:#06090f;color:#c8cdd6;font-family:"DM Mono","Courier New",monosp
     <input class="form-input" id="password-input" type="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" autocomplete="current-password"/>
     <button class="btn-primary" onclick="handleLogin()">Access Course</button>
     <div class="login-error" id="login-error">Incorrect email or password. Please try again.</div>
-    <a href="reset.html" class="forgot-link">Forgot password?</a>
+    <div class="login-success" id="login-success"></div>
+    <button class="forgot-link" onclick="handleForgotPassword()">Forgot password?</button>
   </div>
 </div>
 
@@ -322,10 +325,6 @@ body{background:#06090f;color:#c8cdd6;font-family:"DM Mono","Courier New",monosp
 const SB_URL='https://aofzbbprtafsozdwvtoa.supabase.co';
 const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvZnpiYnBydGFmc296ZHd2dG9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1MDQxODQsImV4cCI6MjA5MDA4MDE4NH0.NlSEcWplEwGHgXRvUq5xG2KprPiiORQ91-OQEUtn36s';
 
-async function sbGet(path){
-  const r=await fetch(SB_URL+path,{headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});
-  return r.json();
-}
 async function sbPost(path,body){
   const r=await fetch(SB_URL+path,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'},body:JSON.stringify(body)});
   return r.json();
@@ -335,7 +334,9 @@ async function handleLogin(){
   const email=document.getElementById('email-input').value.trim();
   const pass=document.getElementById('password-input').value;
   const err=document.getElementById('login-error');
+  const succ=document.getElementById('login-success');
   err.style.display='none';
+  succ.style.display='none';
   try{
     const res=await sbPost('/auth/v1/token?grant_type=password',{email,password:pass});
     if(res.access_token){
@@ -345,6 +346,43 @@ async function handleLogin(){
       err.style.display='block';
     }
   } catch(e){err.style.display='block';}
+}
+
+async function handleForgotPassword(){
+  const email=document.getElementById('email-input').value.trim();
+  const err=document.getElementById('login-error');
+  const succ=document.getElementById('login-success');
+  err.style.display='none';
+  succ.style.display='none';
+
+  if(!email){
+    err.textContent='Please enter your email address above first.';
+    err.style.display='block';
+    return;
+  }
+
+  try{
+    const res = await fetch(SB_URL+'/auth/v1/recover',{
+      method:'POST',
+      headers:{
+        'apikey': SB_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        options: {
+          redirectTo: 'https://krakentrading.github.io/Silver-Apex/reset.html'
+        }
+      })
+    });
+
+    // Supabase returns 200 even if email doesn't exist (security)
+    succ.textContent='Reset email sent! Check your inbox and click the link to set a new password.';
+    succ.style.display='block';
+  } catch(e){
+    err.textContent='Something went wrong. Please try again.';
+    err.style.display='block';
+  }
 }
 
 function handleLogout(){
