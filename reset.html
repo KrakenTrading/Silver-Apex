@@ -1,105 +1,353 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Silver Apex — Reset Password</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silver Apex — Password Reset</title>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:#06090f;color:#c8cdd6;font-family:'DM Mono','Courier New',monospace;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(200,205,214,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(200,205,214,0.025) 1px,transparent 1px);background-size:48px 48px}
-.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);width:600px;height:600px;top:-200px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,0.06),transparent 70%)}
-.container{position:relative;z-index:1;width:100%;max-width:440px;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both}
-.logo{text-align:center;margin-bottom:48px}
-.wordmark{font-family:'Playfair Display',Georgia,serif;font-size:42px;font-weight:900;background:linear-gradient(135deg,#888,#e8edf5,#999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px}
-.divider{width:40px;height:1px;background:#c9a84c;margin:16px auto 0}
-.tagline{font-size:10px;letter-spacing:6px;color:#6b7280;margin-top:10px;text-transform:uppercase}
-.card{background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid rgba(200,205,214,0.18);border-radius:20px;padding:40px;box-shadow:0 32px 80px rgba(0,0,0,0.5)}
-.card h2{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:700;color:#e8edf5;margin-bottom:6px}
-.card p{font-size:12px;color:#6b7280;margin-bottom:32px;line-height:1.6}
-.field{margin-bottom:20px}
-.field label{display:block;font-size:10px;letter-spacing:3px;color:#6b7280;margin-bottom:8px;text-transform:uppercase}
-.field input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,205,214,0.18);border-radius:10px;color:#e8edf5;font-family:'DM Mono','Courier New',monospace;font-size:14px;outline:none}
-.field input:focus{border-color:#c9a84c;background:rgba(201,168,76,0.05)}
-.btn{width:100%;padding:15px;background:linear-gradient(135deg,#c9a84c,#e2c070);border:none;border-radius:10px;color:#1a1200;font-family:'DM Mono','Courier New',monospace;font-size:12px;font-weight:500;letter-spacing:3px;cursor:pointer;text-transform:uppercase;box-shadow:0 4px 20px rgba(201,168,76,0.3);margin-top:8px}
-.btn:disabled{opacity:0.6;cursor:not-allowed}
-.error{background:rgba(240,82,82,0.1);border:1px solid rgba(240,82,82,0.2);border-radius:8px;padding:12px 14px;font-size:12px;color:#f05252;margin-top:14px;display:none}
-.success{background:rgba(61,220,132,0.08);border:1px solid rgba(61,220,132,0.2);border-radius:8px;padding:12px 14px;font-size:12px;color:#3ddc84;margin-top:14px;display:none;line-height:1.7}
-.loading{text-align:center;padding:20px;color:#6b7280;font-size:12px;letter-spacing:2px}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:#0d0d0d;
+    font-family:'Georgia',serif;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  }
+  .container{
+    width:100%;
+    max-width:460px;
+    text-align:center;
+  }
+  .logo{
+    font-size:2.8rem;
+    font-weight:700;
+    color:#e8e8e8;
+    letter-spacing:-1px;
+    margin-bottom:8px;
+  }
+  .divider{
+    width:48px;
+    height:2px;
+    background:linear-gradient(90deg,#c9a84c,#e8d48b);
+    margin:0 auto 12px;
+  }
+  .subtitle{
+    font-family:'Arial',sans-serif;
+    font-size:0.7rem;
+    letter-spacing:6px;
+    color:#888;
+    text-transform:uppercase;
+    margin-bottom:40px;
+  }
+  .card{
+    background:#161616;
+    border:1px solid #2a2a2a;
+    border-radius:16px;
+    padding:40px 36px;
+  }
+  .card-title{
+    font-size:1.4rem;
+    color:#e8e8e8;
+    margin-bottom:8px;
+  }
+  .card-sub{
+    font-family:'Arial',sans-serif;
+    font-size:0.82rem;
+    color:#666;
+    margin-bottom:28px;
+    line-height:1.5;
+  }
+  .field{
+    margin-bottom:16px;
+    text-align:left;
+  }
+  .field label{
+    font-family:'Arial',sans-serif;
+    font-size:0.72rem;
+    letter-spacing:2px;
+    color:#888;
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:8px;
+  }
+  .field input{
+    width:100%;
+    padding:14px 16px;
+    background:#0d0d0d;
+    border:1px solid #2a2a2a;
+    border-radius:8px;
+    color:#e8e8e8;
+    font-size:0.95rem;
+    font-family:'Arial',sans-serif;
+    outline:none;
+    transition:border-color 0.2s;
+  }
+  .field input:focus{border-color:#c9a84c;}
+  .btn{
+    width:100%;
+    padding:16px;
+    background:linear-gradient(135deg,#c9a84c,#e8d48b);
+    border:none;
+    border-radius:8px;
+    color:#0d0d0d;
+    font-family:'Arial',sans-serif;
+    font-size:0.75rem;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    cursor:pointer;
+    margin-top:8px;
+    transition:opacity 0.2s;
+  }
+  .btn:hover{opacity:0.9;}
+  .btn:disabled{opacity:0.5;cursor:not-allowed;}
+  .msg{
+    font-family:'Arial',sans-serif;
+    font-size:0.83rem;
+    margin-top:16px;
+    padding:12px 16px;
+    border-radius:8px;
+    display:none;
+    line-height:1.5;
+  }
+  .msg.error{background:#2a1a1a;color:#f87171;border:1px solid #3a2020;}
+  .msg.success{background:#1a2a1a;color:#6ee7b7;border:1px solid #204030;}
+  .back-link{
+    display:block;
+    margin-top:20px;
+    font-family:'Arial',sans-serif;
+    font-size:0.78rem;
+    color:#666;
+    text-decoration:none;
+    letter-spacing:1px;
+    transition:color 0.2s;
+  }
+  .back-link:hover{color:#c9a84c;}
+  .loading-state{
+    text-align:center;
+    padding:20px 0;
+    display:none;
+  }
+  .loading-state p{
+    font-family:'Arial',sans-serif;
+    font-size:0.85rem;
+    color:#666;
+    margin-top:12px;
+  }
+  .spinner{
+    width:32px;height:32px;
+    border:3px solid #2a2a2a;
+    border-top-color:#c9a84c;
+    border-radius:50%;
+    animation:spin 0.8s linear infinite;
+    margin:0 auto;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
 </style>
 </head>
 <body>
-<div class="grid-bg"></div>
-<div class="orb"></div>
+
 <div class="container">
-  <div class="logo">
-    <div class="wordmark">Silver Apex</div>
-    <div class="divider"></div>
-    <div class="tagline">Password Reset</div>
+  <div class="logo">Silver Apex</div>
+  <div class="divider"></div>
+  <div class="subtitle">Password Reset</div>
+
+  <div class="card">
+
+    <!-- Loading while we verify the token -->
+    <div class="loading-state" id="loading">
+      <div class="spinner"></div>
+      <p>Verifying your reset link...</p>
+    </div>
+
+    <!-- The actual reset form -->
+    <div id="reset-form">
+      <div class="card-title">Choose new password</div>
+      <div class="card-sub">Enter a new password for your account.</div>
+
+      <div class="field">
+        <label>New Password</label>
+        <input type="password" id="pw1" placeholder="Minimum 8 characters" autocomplete="new-password">
+      </div>
+      <div class="field">
+        <label>Confirm Password</label>
+        <input type="password" id="pw2" placeholder="Repeat password" autocomplete="new-password">
+      </div>
+
+      <button class="btn" id="btn" onclick="setPassword()">Set New Password</button>
+      <div class="msg error" id="err"></div>
+      <div class="msg success" id="succ"></div>
+    </div>
+
+    <!-- Expired / invalid token state -->
+    <div id="expired-state" style="display:none;">
+      <div class="card-title">Link expired</div>
+      <div class="card-sub">This reset link has expired or already been used.<br>Please request a new one from the login page.</div>
+      <a href="https://krakentrading.github.io/Silver-Apex/" class="btn" style="display:block;text-decoration:none;padding:16px;margin-top:8px;">Back to Login</a>
+    </div>
+
   </div>
-  <div class="card" id="loading-card">
-    <div class="loading">Verifying reset link...</div>
-  </div>
-  <div class="card" id="reset-card" style="display:none">
-    <h2>Set new password</h2>
-    <p>Choose a strong password for your Silver Apex account.</p>
-    <div class="field"><label>New Password</label><input type="password" id="new-pass" placeholder="Minimum 8 characters"/></div>
-    <div class="field"><label>Confirm Password</label><input type="password" id="confirm-pass" placeholder="Repeat your password"/></div>
-    <button class="btn" id="reset-btn" onclick="doReset()">SET NEW PASSWORD</button>
-    <div class="error" id="err"></div>
-    <div class="success" id="succ"></div>
-  </div>
-  <div class="card" id="invalid-card" style="display:none">
-    <h2>Link expired</h2>
-    <p style="margin-bottom:24px">This reset link has expired or already been used. Please request a new one from the login page.</p>
-    <a href="https://krakentrading.github.io/Silver-Apex/" style="display:block;text-align:center;padding:15px;background:linear-gradient(135deg,#c9a84c,#e2c070);border-radius:10px;color:#1a1200;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:3px;text-decoration:none;text-transform:uppercase">Back to Login</a>
-  </div>
+
+  <a href="https://krakentrading.github.io/Silver-Apex/" class="back-link">← Back to login</a>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-const _sb=supabase.createClient('https://aofzbbprtafsozdwvtoa.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvZnpiYnBydGFmc296ZHd2dG9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1MDQxODQsImV4cCI6MjA5MDA4MDE4NH0.NlSEcWplEwGHgXRvUq5xG2KprPiiORQ91-OQEUtn36s');
+  const SUPABASE_URL = 'https://aofzbbprtafsozdwvtoa.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_BHOavwjqehMHEPeBK9ELzw_g0bpoAzv';
 
-window.addEventListener('load',async()=>{
-  const hash=window.location.hash.substring(1);
-  const params=new URLSearchParams(hash);
-  const accessToken=params.get('access_token');
-  const refreshToken=params.get('refresh_token');
-  const type=params.get('type');
-  if(type==='recovery'&&accessToken){
-    const {error}=await _sb.auth.setSession({access_token:accessToken,refresh_token:refreshToken});
-    document.getElementById('loading-card').style.display='none';
-    if(error){document.getElementById('invalid-card').style.display='block';}
-    else{document.getElementById('reset-card').style.display='block';}
-  } else {
-    document.getElementById('loading-card').style.display='none';
-    document.getElementById('invalid-card').style.display='block';
+  let accessToken = null;
+
+  // Parse tokens from the URL hash
+  // Supabase puts them as: #access_token=xxx&type=recovery&...
+  function parseHash() {
+    const hash = window.location.hash.substring(1);
+    const params = {};
+    hash.split('&').forEach(part => {
+      const [k, v] = part.split('=');
+      if (k) params[decodeURIComponent(k)] = decodeURIComponent(v || '');
+    });
+    return params;
   }
-});
 
-async function doReset(){
-  const np=document.getElementById('new-pass').value;
-  const cp=document.getElementById('confirm-pass').value;
-  const err=document.getElementById('err');
-  const succ=document.getElementById('succ');
-  const btn=document.getElementById('reset-btn');
-  err.style.display='none';succ.style.display='none';
-  if(!np||np.length<8){err.textContent='Password must be at least 8 characters.';err.style.display='block';return;}
-  if(np!==cp){err.textContent='Passwords do not match.';err.style.display='block';return;}
-  btn.textContent='UPDATING...';btn.disabled=true;
-  try{
-    const {error}=await _sb.auth.updateUser({password:np});
-    if(error){err.textContent=error.message;err.style.display='block';btn.textContent='SET NEW PASSWORD';btn.disabled=false;}
-    else{
-      succ.innerHTML='✅ Password updated successfully!<br/>You can now log in with your new password.';
-      succ.style.display='block';btn.style.display='none';
-      document.getElementById('new-pass').style.display='none';
-      document.getElementById('confirm-pass').style.display='none';
-      document.querySelectorAll('.field').forEach(f=>f.style.display='none');
-      // Sign out recovery session completely
-      await _sb.auth.signOut();
-      // Replace entire URL to remove token from history
-      setTimeout(()=>{
-        window.location.replace('https://krakentrading.github.io/Silver-Apex/?reset=done');
-      },3000);
+  // Also check query string (some Supabase versions use ?code= PKCE flow)
+  function parseQuery() {
+    const params = {};
+    window.location.search.substring(1).split('&').forEach(part => {
+      const [k, v] = part.split('=');
+      if (k) params[decodeURIComponent(k)] = decodeURIComponent(v || '');
+    });
+    return params;
+  }
+
+  async function init() {
+    const hashParams = parseHash();
+    const queryParams = parseQuery();
+
+    // Check for PKCE code flow first
+    const code = queryParams.code || hashParams.code;
+    if (code) {
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('reset-form').style.display = 'none';
+      try {
+        // Exchange code for session
+        const res = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=pkce`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_KEY
+          },
+          body: JSON.stringify({ auth_code: code })
+        });
+        const data = await res.json();
+        if (data.access_token) {
+          accessToken = data.access_token;
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('reset-form').style.display = 'block';
+          // Clear the URL so refresh doesn't re-trigger
+          history.replaceState(null, '', window.location.pathname);
+          return;
+        }
+      } catch(e) {}
+      // If code exchange failed, show expired
+      showExpired();
+      return;
     }
-  }catch(e){err.textContent='Something went wrong. Please try again.';err.style.display='block';btn.textContent='SET NEW PASSWORD';btn.disabled=false;}
-}
+
+    // Legacy hash token flow
+    const token = hashParams.access_token;
+    const type  = hashParams.type;
+
+    if (token && type === 'recovery') {
+      accessToken = token;
+      // Clear hash immediately so refresh doesn't retrigger
+      history.replaceState(null, '', window.location.pathname);
+      document.getElementById('reset-form').style.display = 'block';
+      return;
+    }
+
+    // No token at all — show expired/invalid state
+    showExpired();
+  }
+
+  function showExpired() {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('reset-form').style.display = 'none';
+    document.getElementById('expired-state').style.display = 'block';
+  }
+
+  async function setPassword() {
+    const pw1 = document.getElementById('pw1').value.trim();
+    const pw2 = document.getElementById('pw2').value.trim();
+    const err  = document.getElementById('err');
+    const succ = document.getElementById('succ');
+    const btn  = document.getElementById('btn');
+
+    err.style.display = 'none';
+    succ.style.display = 'none';
+
+    if (pw1.length < 8) {
+      err.textContent = 'Password must be at least 8 characters.';
+      err.style.display = 'block';
+      return;
+    }
+    if (pw1 !== pw2) {
+      err.textContent = 'Passwords do not match.';
+      err.style.display = 'block';
+      return;
+    }
+    if (!accessToken) {
+      err.textContent = 'Session expired. Please request a new reset link.';
+      err.style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Updating...';
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/auth/v1/user`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${accessToken}`
+        },
+        body: JSON.stringify({ password: pw1 })
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.id) {
+        succ.textContent = '✓ Password updated! Redirecting to your course...';
+        succ.style.display = 'block';
+        btn.style.display = 'none';
+        accessToken = null;
+        setTimeout(() => {
+          window.location.href = 'https://krakentrading.github.io/Silver-Apex/';
+        }, 2500);
+      } else {
+        err.textContent = data.message || data.error_description || 'Something went wrong. Try requesting a new reset link.';
+        err.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Set New Password';
+      }
+    } catch(e) {
+      err.textContent = 'Network error. Please check your connection and try again.';
+      err.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Set New Password';
+    }
+  }
+
+  // Allow Enter key to submit
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') setPassword();
+  });
+
+  // Run on load
+  init();
 </script>
-</body></html>
+</body>
+</html>
