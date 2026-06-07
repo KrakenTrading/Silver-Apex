@@ -220,15 +220,15 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 /* ─── FAQ ─────────────────────────────────────────────────────── */
 #faq{background:var(--bg2);padding:120px 24px}
 .faq-list{display:flex;flex-direction:column;gap:12px;margin-top:64px;max-width:760px;margin-left:auto;margin-right:auto}
-.faq-item{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color 0.2s}
-.faq-item.open{border-color:var(--border-gold)}
-.faq-q{display:flex;align-items:center;justify-content:space-between;padding:24px 28px;cursor:pointer;font-size:15px;font-weight:500;color:var(--silver)}
-.faq-q:hover{color:var(--silver)}
-.faq-icon{width:24px;height:24px;border-radius:50%;background:var(--card2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform 0.3s,background 0.2s;font-size:14px;color:var(--gold)}
-.faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(201,168,76,0.1)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s var(--ease-out-expo),padding 0.3s}
+.faq-item{background:#0F1520;border:1px solid rgba(200,205,214,0.08);border-radius:16px;overflow:hidden;transition:border-color 0.2s}
+.faq-item.open{border-color:rgba(201,168,76,0.25)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:24px 28px;cursor:pointer;font-size:15px;font-weight:500;color:#E8EDF5;background:#0F1520;width:100%;text-align:left;border:none;outline:none}
+.faq-q:hover{color:#fff}
+.faq-icon{width:28px;height:28px;border-radius:50%;background:#131924;border:1px solid rgba(200,205,214,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform 0.3s,background 0.2s;font-size:16px;font-weight:300;color:var(--gold);line-height:1}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(201,168,76,0.12)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s var(--ease-out-expo),padding 0.3s;background:#0F1520}
 .faq-item.open .faq-a{max-height:400px;padding:0 28px 24px}
-.faq-a-text{font-size:14px;color:var(--silver-dim);line-height:1.75;border-top:1px solid var(--border);padding-top:20px}
+.faq-a-text{font-size:14px;color:#A0A8B8;line-height:1.75;border-top:1px solid rgba(200,205,214,0.08);padding-top:20px}
 
 /* ─── FINAL CTA ──────────────────────────────────────────────── */
 #final-cta{background:var(--bg);padding:120px 24px;text-align:center}
