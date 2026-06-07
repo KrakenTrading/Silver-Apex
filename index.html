@@ -1102,7 +1102,7 @@ const STEPS=[
   {label:'4. SMA System',title:'The 5-SMA Filter',content:`
     <div class="rules">
       <div class="rule gold">Five SMAs: 9, 21, 50, 200, 800. When stacked in order, trend is confirmed.</div>
-      <div class="rule green">Bull stack (bottom to top): SMA 9 &gt; SMA 21 &gt; SMA 50 &gt; SMA 200 &gt; SMA 800. Only take longs.</div>
+      <div class="rule green">Bull stack (bottom to top): SMA 9 > SMA 21 > SMA 50 > SMA 200 > SMA 800. Only take longs.</div>
       <div class="rule red">Bear stack (top to bottom): SMA 9 &lt; SMA 21 &lt; SMA 50 &lt; SMA 200 &lt; SMA 800. Only take shorts.</div>
       <div class="rule">Mixed stack = no trade. Wait for all 5 to realign.</div>
       <div class="rule">SMA 9 and SMA 21 form the "entry zone" — the pullback zone for Confirmation entries.</div>
@@ -1117,7 +1117,53 @@ const STEPS=[
       <div class="rule red">NEVER take a B signal if Daily + 4H are bearish. The HTF always wins.</div>
       <div class="rule green">Best trades: Daily bullish + 4H bullish + London KZ + B signal at SMA zone.</div>
     </div>`},
-  {label:'6. Risk Management',title:'Risk Management & Position Sizing',content:`
+  {label:'6. Confirmation Entry',title:'Confirmation Entry Model (B / S)',content:`
+    <div class="rules">
+      <div class="rule gold">The primary setup. Accounts for the majority of trades taken in this strategy.</div>
+      <div class="rule">STEP 1 — Confirm Daily + 4H bias direction before touching the 5m chart.</div>
+      <div class="rule">STEP 2 — Wait for price to pull back into the SMA 9/21 zone during a Kill Zone.</div>
+      <div class="rule green">STEP 3 — All 5 SMAs must be fully stacked in the direction of your bias.</div>
+      <div class="rule green">STEP 4 — Entry candle closes back above the zone (long) or below the zone (short). Enter on close.</div>
+      <div class="rule red">STEP 5 — Place SL immediately below the Kill Zone session box low (long) or above the high (short).</div>
+      <div class="rule">STEP 6 — Check SL distance does not exceed the fixed cap. If it does — skip.</div>
+      <div class="rule gold">STEP 7 — Set TP at minimum 1:3 RR. Move SL to BE at 1R. Partial close at 2R.</div>
+      <div class="rule">B signal = buy confirmation. S signal = sell confirmation. Both follow identical rules.</div>
+    </div>`},
+  {label:'7. Early Entry',title:'Early Entry Model (E)',content:`
+    <div class="rules">
+      <div class="rule gold">The Early Entry is for breakout momentum candles — when you want in before the pullback forms.</div>
+      <div class="rule">TRIGGER: A strong momentum candle closes directly through the SMA 9/21 zone without pulling back.</div>
+      <div class="rule">SMA 9 must be visibly curling sharply in the direction of the breakout.</div>
+      <div class="rule yellow">Only valid in the FIRST HALF of the Kill Zone: London 07:00–11:00 GMT, NY 12:00–16:00 GMT.</div>
+      <div class="rule red">CRITICAL: Use HALF position size only. Full size requires a confirmation close — which has not printed yet.</div>
+      <div class="rule">SL: Below the entire breakout structure (the base of the move). Fixed cap still applies.</div>
+      <div class="rule green">If a B/S confirmation signal prints after your early entry — you can add to the position at full size.</div>
+      <div class="rule gold">Higher potential RR because entry is earlier in the move, but lower probability than Confirmation.</div>
+    </div>`},
+  {label:'8. Sweep Model',title:'Liquidity Sweep Model',content:`
+    <div class="rules">
+      <div class="rule gold">The highest documented win rate setup: 70–75%. Based on institutional stop-hunt behaviour.</div>
+      <div class="rule">CONCEPT: Institutions push price beyond a known cluster of stop orders, trigger them, then reverse.</div>
+      <div class="rule">The Asia High and Low are where retail traders place stops — making them the ideal sweep targets.</div>
+      <div class="rule">TRIGGER: Price wicks beyond Asia High (or Low) and the candle CLOSES back inside the Asia range.</div>
+      <div class="rule green">Entry: On the close of the sweep candle — the one that wicked out and reversed.</div>
+      <div class="rule red">SL: Placed beyond the absolute wick extreme (the furthest point of the sweep). Fixed max cap applies.</div>
+      <div class="rule">For a bullish sweep: price sweeps below Asia Low then closes back above it → long entry.</div>
+      <div class="rule">For a bearish sweep: price sweeps above Asia High then closes back below it → short entry.</div>
+      <div class="rule gold">TP: Minimum 1:3 RR. The reversal after a sweep is often fast and strong.</div>
+    </div>`},
+  {label:'9. Combo Signal',title:'Combo Signal (BUY / SELL)',content:`
+    <div class="rules">
+      <div class="rule gold">The rarest and highest-confidence signal in the entire strategy. White BUY or SELL label on indicator.</div>
+      <div class="rule">TRIGGER: A Liquidity Sweep signal combined with RSI Divergence within 3 candles of the sweep.</div>
+      <div class="rule green">Bull Combo: Sweep below Asia Low + RSI making higher low (bullish divergence) = white BUY label.</div>
+      <div class="rule red">Bear Combo: Sweep above Asia High + RSI making lower high (bearish divergence) = white SELL label.</div>
+      <div class="rule">RSI divergence means: price makes a new extreme but RSI does not confirm it. Momentum is fading.</div>
+      <div class="rule">When sweep + divergence align within 3 candles, this is maximum confluence — institutional reversal confirmation.</div>
+      <div class="rule gold">TP target: 1:4+ RR minimum. These signals often reach 1:5–1:8 RR on the follow-through.</div>
+      <div class="rule yellow">NOTE: Bull Div and Bear Div labels alone are NOT entries. Only trade them when combined with a Sweep.</div>
+    </div>`},
+  {label:'10. Risk Mgmt',title:'Risk Management & Position Sizing',content:`
     <div class="rules">
       <div class="rule gold">Risk exactly 1% of account per trade. Never more, regardless of conviction.</div>
       <div class="rule">Position size (lots) = (Account × Risk%) ÷ (SL distance in points × point value).</div>
@@ -1126,8 +1172,68 @@ const STEPS=[
       <div class="rule red">If natural stop exceeds the cap → SKIP the trade entirely. No exceptions.</div>
       <div class="rule">Trade management: Move SL to breakeven at 1R. Take partial close at 2R. Let remainder run to full TP.</div>
       <div class="rule gold">Max 2 losing trades per day. Stop trading after 2 losses. Come back tomorrow.</div>
+      <div class="rule">Max 1 trade open at a time during backtesting and early live trading. Build consistency first.</div>
     </div>`},
-  {label:'7. Psychology',title:'Trading Psychology',content:`
+  {label:'11. Checklist',title:'The 8-Point Pre-Trade Checklist',content:`
+    <div class="rules">
+      <div class="rule gold">The checklist is your mechanical gate. ALL 8 must pass. Not 7. Not 6. All 8.</div>
+      <div class="rule">1. All 5 SMAs are fully stacked in the direction of the trade.</div>
+      <div class="rule">2. Daily SMA 200 confirms directional bias (above = bullish, below = bearish).</div>
+      <div class="rule">3. 4H SMAs agree with the Daily bias.</div>
+      <div class="rule">4. Currently inside London Kill Zone OR NY Kill Zone.</div>
+      <div class="rule">5. No high-impact news event within 30 minutes of this entry.</div>
+      <div class="rule">6. Signal type matches entry model rules — not a visual guess.</div>
+      <div class="rule">7. SL placement does not exceed the fixed maximum cap for this instrument.</div>
+      <div class="rule">8. Position size calculated using the risk calculator at exactly 1%.</div>
+      <div class="rule green">Use the Checklist tab to run through this before every single trade.</div>
+    </div>`},
+  {label:'12. News Protocol',title:'News Protocol',content:`
+    <div class="rules">
+      <div class="rule gold">High-impact news creates erratic, unpredictable price spikes. Do not trade around them.</div>
+      <div class="rule red">Rule: Avoid all trading within 30 minutes BEFORE and 30 minutes AFTER any high-impact event.</div>
+      <div class="rule">High-impact events include: NFP, CPI, FOMC, Interest Rate Decisions, GDP, Unemployment.</div>
+      <div class="rule">Medium-impact events: Monitor but use judgement — if in doubt, stand aside.</div>
+      <div class="rule">Check the economic calendar tab BEFORE your session starts. Know what's coming.</div>
+      <div class="rule">XAG/USD is sensitive to: USD data (NFP, CPI, FOMC), geopolitical events, risk sentiment shifts.</div>
+      <div class="rule green">If a news event cancels your Kill Zone window, that's fine — there are 2 windows every day. No FOMO.</div>
+    </div>`},
+  {label:'13. Indicator Setup',title:'TradingView Indicator Setup',content:`
+    <div class="rules">
+      <div class="rule gold">The Silver Apex Strategy indicator automates all analysis: session boxes, SMAs, and all 5 signal types.</div>
+      <div class="rule">STEP 1: Open TradingView and load XAG/USD (Silver) on a 5m or 15m chart.</div>
+      <div class="rule">STEP 2: Click "Indicators" → search "Silver Apex Strategy" → click to add.</div>
+      <div class="rule">STEP 3: Send your TradingView username to Brendon in the Discord VIP channel for access approval.</div>
+      <div class="rule">CHART SETUP: Have 4 charts open — Daily, 4H, 1H, and 5m/15m with the indicator.</div>
+      <div class="rule green">The indicator shows: Tokyo box (red), London box (blue), London KZ (amber), NY KZ (purple).</div>
+      <div class="rule green">SMA lines: Green=9 · Black=21 · Red=50 · Blue=200 · Purple=800.</div>
+      <div class="rule">Asia Range high and low appear as red dashed horizontal lines.</div>
+      <div class="rule gold">Signal labels appear directly on the chart: B, S, E, Sweep, BUY, SELL, Bull Div, Bear Div.</div>
+    </div>`},
+  {label:'14. Backtesting',title:'Backtesting Framework',content:`
+    <div class="rules">
+      <div class="rule gold">You must backtest a minimum of 100 trades BEFORE putting any real money on the line.</div>
+      <div class="rule">Backtesting = replaying historical price data and trading it as if it were live, using your exact rules.</div>
+      <div class="rule">TOOL: TradingView Bar Replay. Open a 5m Silver chart, go back 3–6 months, press "Replay".</div>
+      <div class="rule">Add the indicator before starting replay. It will paint signals as price replays forward.</div>
+      <div class="rule">For every signal that appears: run the 8-point checklist. If all 8 pass, record the trade.</div>
+      <div class="rule">RECORD: Entry model, direction, entry price, SL, TP, outcome (W/L), RR achieved, notes.</div>
+      <div class="rule green">After 100 trades: calculate win rate, average RR, best session (London vs NY), best entry model.</div>
+      <div class="rule">This is your Personal Edge Profile — it tells you where your highest probability setups are.</div>
+      <div class="rule gold">Only go live once you have 100 trades AND feel confident executing in real-time.</div>
+    </div>`},
+  {label:'15. Trade Mgmt',title:'Trade Management',content:`
+    <div class="rules">
+      <div class="rule gold">Once you're in a trade, emotion wants to move your TP or SL. The rules prevent that.</div>
+      <div class="rule">ENTRY: Set SL immediately after entry. Set TP at minimum 1:3 RR. Walk away.</div>
+      <div class="rule green">AT 1R PROFIT: Move SL to breakeven. Your downside is now zero. Let it run.</div>
+      <div class="rule green">AT 2R PROFIT: Close 50% of the position. Lock in profit. Move SL to 1R level.</div>
+      <div class="rule">Let the remaining 50% run to full TP target (3R or beyond for Combo signals).</div>
+      <div class="rule red">DO NOT move your TP closer because you feel nervous. Let the trade play out.</div>
+      <div class="rule red">DO NOT widen your SL to avoid a loss. The original SL was placed for a reason.</div>
+      <div class="rule">Check the trade every 15–30 minutes max. You do not need to watch every candle.</div>
+      <div class="rule gold">Closed trades are closed. Do not re-enter a trade you already exited in the same session.</div>
+    </div>`},
+  {label:'16. Psychology',title:'Trading Psychology',content:`
     <div class="rules">
       <div class="rule gold">Your process is the product. Focus on executing rules perfectly — not on P&amp;L.</div>
       <div class="rule">After a loss: close the charts. Review the trade. Did you follow the rules? If yes — good trade, bad outcome. Move on.</div>
@@ -1135,6 +1241,21 @@ const STEPS=[
       <div class="rule">After a big win: Don't size up. Don't get overconfident. Return to your standard 1% risk next trade.</div>
       <div class="rule">Keep a trade journal. Review weekly. Look for patterns in rule-following, not just P&amp;L.</div>
       <div class="rule green">Consistency > performance. A trader who follows rules perfectly but slightly underperforms beats one who wins big then blows up.</div>
+      <div class="rule">Losing streaks happen to every strategy. 3–4 losses in a row is normal inside a 66% win rate system.</div>
+      <div class="rule gold">The edge only works over a LARGE sample. Each trade is just one data point. Trade 100 before judging the strategy.</div>
+    </div>`},
+  {label:'17. Bonus Data',title:'Bonus — 500+ Backtest Trade Results',content:`
+    <div class="rules">
+      <div class="rule gold">This bonus module contains Brendon's personal backtest data across 500+ documented trades on Silver.</div>
+      <div class="rule">The data covers 12 months of XAG/USD price history across all 4 entry models.</div>
+      <div class="rule green">Overall win rate: 66% peak across the dataset. Sweep model win rate: 70–75%.</div>
+      <div class="rule">Average RR achieved per winning trade: 3.2R across the full dataset.</div>
+      <div class="rule">Mathematical expectancy: 0.98R per trade (positive edge confirmed).</div>
+      <div class="rule">Best performing session: London Kill Zone (07:00–09:00 GMT) — highest signal frequency and quality.</div>
+      <div class="rule">Best performing entry model by win rate: Liquidity Sweep (70–75%).</div>
+      <div class="rule">Best performing entry model by RR: Combo Signal (BUY/SELL) — average 4.1R per winner.</div>
+      <div class="rule yellow">This data is provided as context only. Your personal edge profile may differ. Backtest your own 100 trades.</div>
+      <div class="rule gold">Use this data as a benchmark — if your backtest results are similar, you are reading the market correctly.</div>
     </div>`},
 ];
 
