@@ -954,8 +954,7 @@ function handleLogout(){
   document.getElementById('login-page').style.display='flex';
 }
 
-// Auto-login if token exists
-if(localStorage.getItem('sa_token')){showCourse()}
+// Auto-login checked after all data is defined (see bottom of script)
 
 // ─── TAB SWITCHING ────────────────────────────────────────────
 function switchTab(name,btn){
@@ -1422,6 +1421,9 @@ function renderSessions(){
   }).join('');
 }
 setInterval(renderSessions,30000);
+
+// ─── AUTO-LOGIN (must be last — needs MODELS + STEPS defined) ──
+if(localStorage.getItem('sa_token')){showCourse()}
 
 function updateSessionStatus(){
   const t=getNowGMT();
