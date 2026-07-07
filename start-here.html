@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Here · Silver Apex</title>
+<meta name="description" content="A guided path from zero to your first setup. The free foundations to work through before Silver Apex.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0D0E11;
+    --bg-2:#101216;
+    --surface:#15171C;
+    --surface-2:#1A1D23;
+    --line:#24272E;
+    --line-strong:#333842;
+    --silver:#D7DBE0;
+    --silver-dim:#9AA0A8;
+    --muted:#6E747D;
+    --gold:#C9A24B;
+    --gold-bright:#E3C374;
+    --white:#F3F5F7;
+    --maxw:960px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html{scroll-behavior:smooth}
+
+  body{
+    background:var(--bg);
+    color:var(--silver);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  /* subtle top-down metal wash */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(1200px 500px at 50% -10%, rgba(215,219,224,0.06), transparent 60%),
+      radial-gradient(900px 600px at 80% 110%, rgba(201,162,75,0.05), transparent 60%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{
+    position:relative;
+    z-index:1;
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- eyebrow / labels ---------- */
+  .eyebrow{
+    font-family:'DM Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--silver-dim);
+  }
+  .eyebrow .dot{color:var(--gold)}
+
+  /* ---------- hero ---------- */
+  header.hero{
+    padding:88px 0 40px;
+    text-align:center;
+  }
+  .hero .eyebrow{
+    display:inline-block;
+    padding:7px 14px;
+    border:1px solid var(--line-strong);
+    border-radius:999px;
+    background:rgba(255,255,255,0.02);
+  }
+  .hero h1{
+    font-family:'Bebas Neue',sans-serif;
+    font-weight:400;
+    font-size:clamp(64px,15vw,148px);
+    line-height:0.9;
+    letter-spacing:0.01em;
+    margin:26px 0 4px;
+    background:linear-gradient(180deg,var(--white) 0%,var(--silver) 55%,var(--gold) 130%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero .lede{
+    max-width:560px;
+    margin:20px auto 0;
+    color:var(--silver-dim);
+    font-size:17px;
+  }
+  .hero .lede strong{color:var(--silver);font-weight:600}
+  .hero .meta{
+    margin-top:26px;
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .chip{
+    font-family:'DM Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.05em;
+    color:var(--silver-dim);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:6px 11px;
+    background:var(--surface);
+  }
+  .chip b{color:var(--gold);font-weight:500}
+
+  /* ---------- intro note ---------- */
+  .note{
+    margin:44px auto 8px;
+    max-width:680px;
+    border:1px solid var(--line);
+    border-left:2px solid var(--gold);
+    background:linear-gradient(180deg,var(--surface),var(--bg-2));
+    border-radius:10px;
+    padding:22px 24px;
+  }
+  .note p{color:var(--silver-dim);font-size:15px}
+  .note p + p{margin-top:10px}
+  .note strong{color:var(--silver);font-weight:600}
+
+  /* ---------- section heading ---------- */
+  .path-head{
+    margin:64px 0 8px;
+    text-align:center;
+  }
+  .path-head h2{
+    font-family:'Bebas Neue',sans-serif;
+    font-weight:400;
+    font-size:clamp(34px,6vw,52px);
+    letter-spacing:0.03em;
+    color:var(--white);
+    line-height:1;
+  }
+  .path-head p{color:var(--muted);font-size:14px;margin-top:8px}
+
+  /* ---------- the climb ---------- */
+  .climb{
+    position:relative;
+    margin:40px 0 24px;
+    padding-left:8px;
+  }
+  /* vertical spine */
+  .climb::before{
+    content:"";
+    position:absolute;
+    left:23px;
+    top:14px;
+    bottom:120px;
+    width:2px;
+    background:linear-gradient(180deg,var(--silver-dim) 0%,var(--silver) 30%,var(--gold) 100%);
+    opacity:0.55;
+  }
+
+  .stage{
+    position:relative;
+    padding:0 0 30px 66px;
+  }
+  .node{
+    position:absolute;
+    left:12px;
+    top:6px;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--silver-dim);
+    display:grid;
+    place-items:center;
+    font-family:'DM Mono',monospace;
+    font-size:10px;
+    color:var(--silver);
+    z-index:2;
+  }
+  .stage:last-child .node{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,162,75,0.12)}
+
+  .card{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg,var(--surface-2),var(--surface));
+    border-radius:14px;
+    padding:22px 24px;
+    transition:border-color .25s ease,transform .25s ease;
+  }
+  .card:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+
+  .card .tag{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .card .tag .opt{
+    color:var(--muted);
+    border:1px solid var(--line-strong);
+    border-radius:5px;
+    padding:2px 7px;
+    letter-spacing:0.1em;
+  }
+  .card h3{
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:21px;
+    color:var(--white);
+    margin:9px 0 2px;
+    letter-spacing:-0.01em;
+  }
+  .card .src{
+    font-family:'DM Mono',monospace;
+    font-size:12px;
+    color:var(--silver-dim);
+    margin-bottom:14px;
+  }
+  .card .learn{font-size:15px;color:var(--silver);}
+  .card .why{
+    font-size:14px;
+    color:var(--silver-dim);
+    margin-top:10px;
+    padding-top:12px;
+    border-top:1px solid var(--line);
+  }
+  .card .why b{color:var(--gold-bright);font-weight:600}
+
+  .actions{margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'DM Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    padding:11px 18px;
+    border-radius:8px;
+    border:1px solid var(--line-strong);
+    color:var(--silver);
+    background:var(--surface);
+    transition:all .2s ease;
+  }
+  .btn:hover{border-color:var(--silver-dim);color:var(--white);background:var(--surface-2)}
+  .btn .arw{transition:transform .2s ease}
+  .btn:hover .arw{transform:translateX(3px)}
+  .free{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  /* ---------- apex destination ---------- */
+  .apex{
+    position:relative;
+    margin-top:6px;
+    padding:0 0 0 66px;
+  }
+  .apex .node{
+    border-color:var(--gold);
+    background:var(--gold);
+    box-shadow:0 0 22px rgba(201,162,75,0.45);
+  }
+  .apex .node span{color:var(--bg);font-size:12px}
+  .apex-card{
+    border:1px solid rgba(201,162,75,0.4);
+    background:
+      radial-gradient(500px 200px at 100% 0%, rgba(201,162,75,0.12), transparent 70%),
+      linear-gradient(180deg,#1C1A15,#141210);
+    border-radius:16px;
+    padding:30px 28px;
+  }
+  .apex-card .tag{color:var(--gold-bright)}
+  .apex-card h3{
+    font-family:'Bebas Neue',sans-serif;
+    font-weight:400;
+    font-size:clamp(38px,7vw,58px);
+    letter-spacing:0.02em;
+    color:var(--white);
+    margin:8px 0 6px;
+    line-height:0.95;
+  }
+  .apex-card p{color:var(--silver-dim);font-size:15.5px;max-width:520px}
+  .apex-card p strong{color:var(--silver)}
+  .cta{
+    margin-top:22px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'DM Mono',monospace;
+    font-size:14px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:15px 26px;
+    border-radius:10px;
+    color:var(--bg);
+    background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+    font-weight:500;
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,162,75,0.25)}
+  .apex-sub{
+    margin-top:14px;
+  }
+  .apex-sub a{color:var(--silver-dim);font-family:'DM Mono',monospace;font-size:12.5px;text-decoration:none;border-bottom:1px solid var(--line-strong);padding-bottom:2px}
+  .apex-sub a:hover{color:var(--silver)}
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top:70px;
+    padding:30px 0 60px;
+    border-top:1px solid var(--line);
+    text-align:center;
+  }
+  footer .mark{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:26px;
+    letter-spacing:0.18em;
+    color:var(--silver);
+  }
+  footer .mark b{color:var(--gold)}
+  footer p{color:var(--muted);font-size:12.5px;margin-top:10px;font-family:'DM Mono',monospace;letter-spacing:0.03em}
+
+  /* ---------- reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:560px){
+    .stage,.apex{padding-left:52px}
+    .climb::before{left:17px}
+    .node{left:6px}
+    .card,.apex-card{padding:20px 18px}
+    .hero{padding:64px 0 30px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none;transition:none}
+    .card:hover,.cta:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">Silver Apex <span class="dot">·</span> Foundations</span>
+    <h1>Start Here</h1>
+    <p class="lede">New to trading? Don't open the course yet. Work through this <strong>free</strong> path first — it teaches you to read a chart before you learn to trade one.</p>
+    <div class="meta">
+      <span class="chip"><b>4 stages</b> · zero to your first setup</span>
+      <span class="chip">All free · <b>no card needed</b></span>
+    </div>
+  </header>
+
+  <div class="note reveal">
+    <p><strong>Why this exists.</strong> Silver Apex teaches a specific edge in silver and forex — market structure, kill zones, entries. That only clicks once you can already read price. This path builds that base.</p>
+    <p>Go in order. Don't rush it, and don't skip to the charts before the candles make sense. When stage 4 feels comfortable, you're ready for the course.</p>
+  </div>
+
+  <div class="path-head reveal">
+    <h2>The Climb</h2>
+    <p>Silver at the base. Gold at the summit.</p>
+  </div>
+
+  <div class="climb">
+
+    <!-- STAGE 01 -->
+    <div class="stage reveal">
+      <div class="node">01</div>
+      <div class="card">
+        <div class="tag">Ground floor <span class="opt">Optional</span></div>
+        <h3>How the market actually works</h3>
+        <div class="src">Babypips — School of Pipsology</div>
+        <p class="learn">The absolute basics: what a currency pair is, what a pip is, spreads, lots, and how a trade is placed. Skip if you already know this — start at stage 2.</p>
+        <p class="why"><b>Why:</b> you can't manage risk on numbers you don't understand yet. This removes the jargon wall.</p>
+        <div class="actions">
+          <!-- Direct link, currently free -->
+          <a class="btn" href="https://www.babypips.com/learn/forex" target="_blank" rel="noopener">Open Babypips <span class="arw">→</span></a>
+          <span class="free">Free · early levels</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 02 -->
+    <div class="stage reveal">
+      <div class="node">02</div>
+      <div class="card">
+        <div class="tag">Mechanics</div>
+        <h3>Reading a single candle</h3>
+        <div class="src">The Candlestick Bible</div>
+        <p class="learn">What every candle is telling you — the body, the wicks, and the fight between buyers and sellers packed into one bar. The visual language the whole course is written in.</p>
+        <p class="why"><b>Why:</b> a candle in isolation is noise. Learn what each one <em>means</em> so structure (stage 3) has something to stand on.</p>
+        <div class="actions">
+          <!-- PDF sits in the same folder as this page in the repo -->
+          <a class="btn" href="the-candlestick-trading-bible.pdf" target="_blank" rel="noopener">Get the PDF <span class="arw">→</span></a>
+          <span class="free">Free download</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 03 -->
+    <div class="stage reveal">
+      <div class="node">03</div>
+      <div class="card">
+        <div class="tag">Structure</div>
+        <h3>Reading the whole chart</h3>
+        <div class="src">Alex G — YouTube</div>
+        <p class="learn">Market structure: the sequence of highs and lows that tells you who's in control and where price is likely to head. Taught in the same language Silver Apex uses.</p>
+        <p class="why"><b>Why:</b> this is the on-ramp. Learn structure here in <em>our exact dialect</em> and you walk straight into the course with nothing to unlearn.</p>
+        <div class="actions">
+          <a class="btn" href="https://www.youtube.com/playlist?list=PL3wdfj84a2fms3AFUBhJco5Rz3k9zywZp" target="_blank" rel="noopener">Watch on YouTube <span class="arw">→</span></a>
+          <span class="free">Free</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 04 -->
+    <div class="stage reveal">
+      <div class="node">04</div>
+      <div class="card">
+        <div class="tag">Practice</div>
+        <h3>Put it on a live chart</h3>
+        <div class="src">TradingView — paper trading</div>
+        <p class="learn">Pull up silver, watch candles form in real time, and spot structure yourself. Use the built-in paper-trading mode to practise entries with zero money at risk.</p>
+        <p class="why"><b>Why:</b> reading about a setup and seeing one live are different skills. Build the eye before you build an account.</p>
+        <div class="actions">
+          <a class="btn" href="https://www.tradingview.com" target="_blank" rel="noopener">Open TradingView <span class="arw">→</span></a>
+          <span class="free">Free tier · demo</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- APEX -->
+  <div class="apex reveal">
+    <div class="node"><span>&#9650;</span></div>
+    <div class="apex-card">
+      <div class="tag">The Summit</div>
+      <h3>Silver Apex</h3>
+      <p>Now the edge. The full course — structure, kill zones, BOS &amp; FVG entries, and the exact system on silver and forex. <strong>You'll be able to follow every word.</strong></p>
+      <!-- Gumroad purchase link -->
+      <a class="cta" href="https://brendonmeredith.gumroad.com/l/silverapex" target="_blank" rel="noopener">Enrol in Silver Apex →</a>
+      <div class="apex-sub">
+        <!-- Course portal -->
+        <a href="https://krakentrading.github.io/Silver-Apex" target="_blank" rel="noopener">Already a member? Open the portal</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="mark">SILVER<b>·</b>APEX</div>
+    <p>Foundations · a free on-ramp to the course</p>
+  </footer>
+
+</div>
+
+<script>
+  // scroll reveal (respects reduced motion via CSS)
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(e){e.classList.add('in')});
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+
+</body>
+</html>
