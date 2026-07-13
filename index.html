@@ -6,16 +6,16 @@
 <title>Silver Apex — Member Portal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 /* ─── RESET ───────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --gold:#C9A84C;--gold-light:#E5C878;--gold-dark:#A8893E;
-  --silver:#E8EDF5;--silver-dim:#A0A8B8;
-  --bg:#04070E;--bg2:#080D18;--bg3:#0C1220;
-  --card:#0F1520;--card2:#131924;--card3:rgba(255,255,255,0.025);
-  --border:rgba(200,205,214,0.08);--border-gold:rgba(201,168,76,0.22);
+  --gold:#C4CFDC;--gold-light:#E6EDF5;--gold-dark:#94A2B3;--accent:#6E7887;--accent-dim:rgba(110,120,135,0.13);--accent-line:rgba(110,120,135,0.34);
+  --silver:#E9EEF6;--silver-dim:#8A94A6;
+  --bg:#05070B;--bg2:#080C13;--bg3:#0D1219;
+  --card:#0E141C;--card2:#121924;--card3:rgba(255,255,255,0.025);
+  --border:rgba(200,212,228,0.08);--border-gold:rgba(196,207,220,0.20);
   --green:#3DDC84;--red:#F05252;--blue:#5B9CF6;--cyan:#00BCD4;--amber:#F59E0B;--purple:#A78BFA;
   --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
   --z-header:50;--z-modal:100;
@@ -28,10 +28,11 @@ input,select{font-family:'Inter',sans-serif}
 a{color:inherit;text-decoration:none}
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.2);border-radius:2px}
+::-webkit-scrollbar-thumb{background:rgba(196,207,220,0.2);border-radius:2px}
 
 /* ─── TYPE HELPERS ──────────────────────────────────────────── */
-.serif{font-family:'Playfair Display',serif}
+.serif{font-family:'Archivo',sans-serif;font-weight:800;font-stretch:108%;letter-spacing:-0.022em}
+.struck{font-family:'Archivo',sans-serif;font-weight:900;font-stretch:114%;text-transform:uppercase;letter-spacing:-0.03em;background:linear-gradient(178deg,#FFFFFF 0%,#C8D2E0 38%,#7E8B9C 62%,#EDF2F8 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
 .mono{font-family:'DM Mono',monospace}
 
 /* ═══════════════════════════════════════════════════════════
@@ -47,7 +48,7 @@ a{color:inherit;text-decoration:none}
 .login-glow{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:600px;height:600px;
-  background:radial-gradient(ellipse,rgba(201,168,76,0.05) 0%,transparent 70%);
+  background:radial-gradient(ellipse,rgba(196,207,220,0.05) 0%,transparent 70%);
   pointer-events:none;z-index:1;
 }
 .login-card{
@@ -66,7 +67,7 @@ a{color:inherit;text-decoration:none}
   border-radius:24px 24px 0 0;
 }
 .login-logo{
-  font-family:'Playfair Display',serif;
+  font-family:'Archivo',sans-serif;
   font-size:30px;font-weight:800;color:var(--silver);
   margin-bottom:4px;
 }
@@ -74,7 +75,7 @@ a{color:inherit;text-decoration:none}
 .login-sub{
   font-family:'DM Mono',monospace;
   font-size:9px;letter-spacing:5px;
-  color:rgba(201,168,76,0.6);text-transform:uppercase;
+  color:rgba(196,207,220,0.6);text-transform:uppercase;
   margin-bottom:36px;
 }
 .login-label{
@@ -92,7 +93,7 @@ a{color:inherit;text-decoration:none}
   transition:border-color 0.2s,background 0.2s;
 }
 .login-input:focus{
-  border-color:rgba(201,168,76,0.4);
+  border-color:rgba(196,207,220,0.4);
   background:rgba(255,255,255,0.06);
 }
 .login-input::placeholder{color:rgba(160,168,184,0.25)}
@@ -104,7 +105,7 @@ a{color:inherit;text-decoration:none}
   letter-spacing:3px;text-transform:uppercase;
   transition:all 0.2s;
 }
-.login-btn:hover{transform:translateY(-1px);box-shadow:0 8px 32px rgba(201,168,76,0.3)}
+.login-btn:hover{transform:translateY(-1px);box-shadow:0 8px 32px rgba(196,207,220,0.3)}
 .login-btn:active{transform:translateY(0)}
 .login-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
 .login-error{
@@ -151,11 +152,26 @@ a{color:inherit;text-decoration:none}
   backdrop-filter:blur(20px);
 }
 .header-logo{
-  font-family:'Playfair Display',serif;
+  font-family:'Archivo',sans-serif;
   font-size:18px;font-weight:800;color:var(--silver);
 }
 .header-logo span{color:var(--gold)}
 .header-center{display:flex;align-items:center;gap:8px}
+
+/* ═══ ASSAY STRIP — the signature. A struck hallmark bar. ═══ */
+.assay{border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;
+  font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(255,255,255,0.012);overflow-x:auto;scrollbar-width:none}
+.assay::-webkit-scrollbar{display:none}
+.assay-cell{padding:11px 18px;display:flex;align-items:center;gap:9px;border-right:1px solid var(--border);
+  white-space:nowrap;color:var(--silver-dim)}
+.assay-cell:last-child{border-right:none;margin-left:auto}
+.assay-cell b{color:var(--silver);font-weight:500}
+.assay-cell.live b{color:var(--accent);transition:color .9s var(--ease-out-expo)}
+.sa-pip{width:5px;height:5px;border-radius:50%;background:var(--accent);transition:background .9s var(--ease-out-expo)}
+.sa-pip.beating{animation:sa-beat 2.4s infinite}
+@keyframes sa-beat{0%{box-shadow:0 0 0 0 var(--accent-line)}70%{box-shadow:0 0 0 7px rgba(0,0,0,0)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
+
 .session-dot{
   width:8px;height:8px;border-radius:50%;background:var(--green);
   animation:pulse-dot 2s infinite;
@@ -182,7 +198,7 @@ a{color:inherit;text-decoration:none}
 
 /* ─── HERO STRIP ──────────────────────────────────────────── */
 .portal-hero{
-  background:linear-gradient(180deg,rgba(201,168,76,0.05) 0%,transparent 100%);
+  background:linear-gradient(180deg,rgba(196,207,220,0.05) 0%,transparent 100%);
   border-bottom:1px solid var(--border);
   padding:40px 32px 36px;
   text-align:center;
@@ -194,7 +210,7 @@ a{color:inherit;text-decoration:none}
   background:linear-gradient(90deg,transparent,var(--gold-dark),transparent);
 }
 .portal-hero-title{
-  font-family:'Playfair Display',serif;
+  font-family:'Archivo',sans-serif;
   font-size:clamp(40px,8vw,72px);
   font-weight:800;color:var(--silver);
   line-height:1;margin-bottom:8px;
@@ -208,7 +224,7 @@ a{color:inherit;text-decoration:none}
   display:flex;justify-content:center;gap:40px;flex-wrap:wrap;
 }
 .portal-stat-value{
-  font-family:'Playfair Display',serif;
+  font-family:'Archivo',sans-serif;
   font-size:24px;font-weight:700;
   display:block;margin-bottom:2px;
 }
@@ -271,11 +287,11 @@ a{color:inherit;text-decoration:none}
   color:var(--gold);margin-bottom:10px;display:block;
 }
 .card-title{
-  font-family:'Playfair Display',serif;
+  font-family:'Archivo',sans-serif;
   font-size:20px;font-weight:700;color:var(--silver);
   margin-bottom:16px;
 }
-.card-gold{border-color:var(--border-gold);background:rgba(201,168,76,0.03)}
+.card-gold{border-color:var(--border-gold);background:rgba(196,207,220,0.03)}
 
 /* ─── RULE ITEMS ──────────────────────────────────────────── */
 .rules{display:flex;flex-direction:column;gap:8px}
@@ -286,7 +302,7 @@ a{color:inherit;text-decoration:none}
   border:1px solid rgba(255,255,255,0.04);
   color:var(--silver-dim);
 }
-.rule.gold{background:rgba(201,168,76,0.07);border-color:rgba(201,168,76,0.18);color:#e2c070}
+.rule.gold{background:rgba(196,207,220,0.07);border-color:rgba(196,207,220,0.18);color:#e2c070}
 .rule.green{background:rgba(61,220,132,0.06);border-color:rgba(61,220,132,0.15);color:#6ee7a8}
 .rule.red{background:rgba(240,82,82,0.06);border-color:rgba(240,82,82,0.12);color:#f59595}
 .rule.yellow{background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.12);color:#fbbf24}
@@ -306,7 +322,7 @@ a{color:inherit;text-decoration:none}
   border-radius:12px;
 }
 .stat-box-val{
-  font-family:'Playfair Display',serif;
+  font-family:'Archivo',sans-serif;
   font-size:22px;font-weight:700;display:block;margin-bottom:4px;
 }
 .stat-box-lbl{
@@ -325,7 +341,7 @@ a{color:inherit;text-decoration:none}
   text-transform:uppercase;transition:all 0.2s;cursor:pointer;
 }
 .model-pill.active{
-  background:rgba(201,168,76,0.1);
+  background:rgba(196,207,220,0.1);
   border-color:var(--border-gold);color:var(--gold);
 }
 .model-pill:hover:not(.active){color:var(--silver-dim);border-color:rgba(200,205,214,0.14)}
@@ -389,9 +405,9 @@ a{color:inherit;text-decoration:none}
   color:var(--silver);font-size:14px;font-family:'DM Mono',monospace;
   outline:none;transition:border-color 0.2s;
 }
-.calc-input:focus{border-color:rgba(201,168,76,0.3)}
+.calc-input:focus{border-color:rgba(196,207,220,0.3)}
 .calc-result{
-  background:rgba(201,168,76,0.05);
+  background:rgba(196,207,220,0.05);
   border:1px solid var(--border-gold);
   border-radius:12px;padding:20px 24px;
   display:none;
@@ -403,7 +419,7 @@ a{color:inherit;text-decoration:none}
 }
 .calc-result-row:last-child{border-bottom:none;padding-top:14px;margin-top:6px}
 .calc-result-row span:first-child{color:rgba(160,168,184,0.5);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase}
-.calc-result-row span:last-child{font-weight:600;font-family:'Playfair Display',serif;font-size:16px}
+.calc-result-row span:last-child{font-weight:600;font-family:'Archivo',sans-serif;font-size:16px}
 
 /* ─── SIGNAL CARDS ────────────────────────────────────────── */
 .signal-card{
@@ -476,7 +492,7 @@ a{color:inherit;text-decoration:none}
   color:rgba(160,168,184,0.3);
 }
 .live-clock{
-  font-family:'Playfair Display',serif;
+  font-family:'Archivo',sans-serif;
   font-size:clamp(36px,8vw,56px);font-weight:700;
   color:var(--silver);text-align:center;
   margin-bottom:6px;letter-spacing:2px;
@@ -561,6 +577,7 @@ a{color:inherit;text-decoration:none}
     <div class="header-center">
       <div class="session-dot" id="session-dot" aria-hidden="true"></div>
       <span class="session-text" id="session-label">Loading…</span>
+      <span class="sa-pip" id="sa-pip" aria-hidden="true" style="margin-left:10px"></span>
     </div>
     <div class="header-right">
       <span class="header-user" id="header-user"></span>
@@ -650,6 +667,17 @@ a{color:inherit;text-decoration:none}
         <div id="checklist-result"></div>
         <button onclick="resetChecklist()" class="btn-reset" style="margin-top:14px">Reset Checklist</button>
       </div>
+      <div class="card">
+        <span class="card-eyebrow">Optional</span>
+        <div class="card-title">SMC Confluence — Grade Your Setup</div>
+        <p style="font-size:12px;color:rgba(160,168,184,0.5);margin-bottom:20px;line-height:1.7">These are NOT part of the 8-point gate. They do not make a bad setup tradeable. They tell you how much conviction a setup that already passed the gate deserves.</p>
+        <div class="rules">
+          <div class="rule green">A+ — Structure agrees (BOS in your direction) AND entry sits inside an unfilled FVG.</div>
+          <div class="rule gold">A — Structure agrees, no FVG present. Take it at normal size.</div>
+          <div class="rule yellow">B — No recent structure break either way. Take it, but expect a slower move.</div>
+          <div class="rule red">SKIP — A CHoCH has printed AGAINST your direction. Structure is turning. Stand down.</div>
+        </div>
+      </div>
     </div>
 
     <!-- ── CALCULATOR TAB ──────────────────────────────────── -->
@@ -707,13 +735,18 @@ a{color:inherit;text-decoration:none}
         <div class="card-title">Session Boxes &amp; SMAs</div>
         <div class="rules">
           <div class="rule gold">SESSION BOXES — Coloured boxes showing which trading session is active.</div>
-          <div class="rule indent">🔴 Red box = Tokyo (00:00–08:00 GMT) — Mark high/low. Do not trade here.</div>
-          <div class="rule indent">🔵 Blue box = London (07:00–15:00 GMT) — Active session. Look for setups.</div>
-          <div class="rule indent">🟡 Amber box = London Kill Zone (07:00–09:00 GMT) — Highest probability window.</div>
-          <div class="rule indent">🟣 Purple box = NY Kill Zone (12:00–14:00 GMT) — Second best window.</div>
+          <div class="rule indent">🔴 Red box = Tokyo (09:00–18:00 Tokyo time) — Mark high/low. Do not trade here.</div>
+          <div class="rule indent">🔵 Blue box = London (08:00–16:30 London time) — Active session. Look for setups.</div>
+          <div class="rule indent">🟣 Purple box = New York (08:00–17:00 NY time) — Active session. Look for setups.</div>
+          <div class="rule gold">Sessions are timezone-locked — they adjust for daylight savings automatically. No manual shifting.</div>
           <div class="rule gold">SMA STACK — Five moving averages. All must be in order to confirm trend.</div>
           <div class="rule indent">Green=SMA 9 &nbsp; Black=SMA 21 &nbsp; Red=SMA 50 &nbsp; Blue=SMA 200 &nbsp; Purple=SMA 800</div>
           <div class="rule green">ASIA RANGE LINES — Red dashed lines marking Tokyo session high and low.</div>
+          <div class="rule gold">FAIR VALUE GAPS — Shaded green (bullish) or red (bearish) boxes marking price imbalances.</div>
+          <div class="rule indent">Boxes disappear once price trades back through them — the gap has been filled.</div>
+          <div class="rule gold">STRUCTURE LABELS — Dashed line + label at the swing level that price broke.</div>
+          <div class="rule indent">BOS = break WITH the trend (continuation) &nbsp;·&nbsp; CHoCH = break AGAINST the trend (possible reversal)</div>
+          <div class="rule">All of the above can be toggled on/off in the indicator settings — run only what you need.</div>
         </div>
       </div>
       <div class="card">
@@ -725,21 +758,21 @@ a{color:inherit;text-decoration:none}
               <span class="signal-badge" style="background:var(--green);color:#000">B</span>
               <span class="signal-card-title">Buy Signal — Confirmation Entry</span>
             </div>
-            <div class="rules"><div class="rule green">Price pulled back into SMA 9/21 zone, all 5 SMAs bullishly stacked, closed above zone. Enter on candle close.</div><div class="rule">SL: Below Kill Zone box low. TP: Minimum 1:3 RR.</div></div>
+            <div class="rules"><div class="rule green">Price pulled back into SMA 9/21 zone, all 5 SMAs bullishly stacked, closed above zone. Enter on candle close.</div><div class="rule">SL: Below the session box low or last swing low. TP: Minimum 1:3 RR.</div></div>
           </div>
           <div class="signal-card" style="background:rgba(240,82,82,0.05);border:1px solid rgba(240,82,82,0.15)">
             <div class="signal-header">
               <span class="signal-badge" style="background:var(--red);color:#fff">S</span>
               <span class="signal-card-title">Sell Signal — Confirmation Entry</span>
             </div>
-            <div class="rules"><div class="rule red">Price pulled back into SMA 9/21 zone, all 5 SMAs bearishly stacked, closed below zone. Enter on candle close.</div><div class="rule">SL: Above Kill Zone box high. TP: Minimum 1:3 RR.</div></div>
+            <div class="rules"><div class="rule red">Price pulled back into SMA 9/21 zone, all 5 SMAs bearishly stacked, closed below zone. Enter on candle close.</div><div class="rule">SL: Above the session box high or last swing high. TP: Minimum 1:3 RR.</div></div>
           </div>
           <div class="signal-card" style="background:rgba(0,188,212,0.05);border:1px solid rgba(0,188,212,0.15)">
             <div class="signal-header">
               <span class="signal-badge" style="background:var(--cyan);color:#fff">E</span>
               <span class="signal-card-title">Early Entry — Breakout Signal</span>
             </div>
-            <div class="rules"><div class="rule">Strong breakout candle through SMA zone, SMA 9 curling sharply. Use <strong style="color:var(--silver)">HALF position size.</strong></div><div class="rule yellow">Only fires in first half of London (07:00–11:00 GMT) or NY (12:00–16:00 GMT).</div></div>
+            <div class="rules"><div class="rule">Strong breakout candle through SMA zone, SMA 9 curling sharply. Use <strong style="color:var(--silver)">HALF position size.</strong></div><div class="rule yellow">Only fires inside the Session Open Window — the first 4 hours of London or New York.</div></div>
           </div>
           <div class="signal-card" style="background:rgba(61,220,132,0.04);border:1px solid rgba(61,220,132,0.1)">
             <div class="signal-header">
@@ -763,6 +796,21 @@ a{color:inherit;text-decoration:none}
             </div>
             <div class="rules"><div class="rule yellow">WARNING LABELS ONLY — NOT standalone entry signals. Divergence + B/S signal = strong confluence. Divergence alone = wait.</div></div>
           </div>
+          <div class="signal-card" style="background:rgba(61,220,132,0.03);border:1px solid rgba(61,220,132,0.09)">
+            <div class="signal-header">
+              <span class="signal-badge" style="background:var(--green);color:#000;font-size:9px">FVG</span>
+              <span class="signal-card-title" style="margin-left:8px">Fair Value Gap Boxes</span>
+            </div>
+            <div class="rules"><div class="rule yellow">CONTEXT ONLY — NOT a standalone entry signal. An unfilled gap tells you where price is likely to be drawn back to.</div><div class="rule">Use as: an entry zone (wait for price to return into the gap), or a take-profit target.</div></div>
+          </div>
+          <div class="signal-card" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07)">
+            <div class="signal-header">
+              <span class="signal-badge" style="background:var(--green);color:#000;font-size:9px">BOS</span>
+              <span class="signal-badge" style="background:var(--cyan);color:#fff;font-size:9px;margin-left:4px">CHoCH</span>
+              <span class="signal-card-title" style="margin-left:8px">Market Structure Labels</span>
+            </div>
+            <div class="rules"><div class="rule green">BOS — price broke structure in the direction of trend. Continuation. Supports taking a signal in that direction.</div><div class="rule yellow">CHoCH — price broke structure AGAINST the trend. Trend may be turning. Stand down until the SMAs realign.</div><div class="rule red">Neither is an entry on its own. They tell you whether to TRUST or DISTRUST the entry signal you are looking at.</div></div>
+          </div>
         </div>
       </div>
       <div class="card">
@@ -774,7 +822,7 @@ a{color:inherit;text-decoration:none}
           <div class="rule">STEP 3 — 1H chart: Confirm session structure. Where is the Asia range?</div>
           <div class="rule">STEP 4 — 5m/15m chart with indicator: Only take signals that align with Daily and 4H bias.</div>
           <div class="rule red">RULE: Never take a B signal on 5m if Daily and 4H are bearish. The HTF always wins.</div>
-          <div class="rule green">BEST SETUP: Daily bullish + 4H bullish + London KZ + B signal on 5m = highest probability.</div>
+          <div class="rule green">BEST SETUP: Daily bullish + 4H bullish + London Open Window + BOS up + B signal at an FVG = highest probability.</div>
         </div>
       </div>
       <div class="card">
@@ -785,12 +833,13 @@ a{color:inherit;text-decoration:none}
           <div class="rule">2. Open Daily chart — note SMA 200 direction. This is your bias for the day.</div>
           <div class="rule">3. Open 4H chart — confirm SMAs agree with Daily. Mark 2–3 key levels.</div>
           <div class="rule">4. Open 5m or 15m with indicator. Note Asia session box high and low.</div>
-          <div class="rule">5. Wait for London KZ (07:00–09:00 GMT) or NY KZ (12:00–14:00 GMT) to open.</div>
+          <div class="rule">5. Wait for the London or New York session to open. Prioritise the first 4 hours (Open Window).</div>
           <div class="rule">6. Watch for B, S, E or white BUY/SELL signal aligned with your bias.</div>
-          <div class="rule">7. Run the 8-point checklist. All 8 must pass.</div>
-          <div class="rule">8. Enter on candle close. Set SL immediately. Set TP at minimum 1:3.</div>
-          <div class="rule green">9. Move SL to breakeven at 1R profit. Partial close at 2R. Let rest run.</div>
-          <div class="rule red">10. Check every 15–30 minutes only. Trust the process.</div>
+          <div class="rule">7. Check structure agrees (BOS with you, no CHoCH against you) and note any unfilled FVG.</div>
+          <div class="rule">8. Run the 8-point checklist. All 8 must pass.</div>
+          <div class="rule">9. Enter on candle close. Set SL immediately. Set TP at minimum 1:3.</div>
+          <div class="rule green">10. Move SL to breakeven at 1R profit. Partial close at 2R. Let rest run.</div>
+          <div class="rule red">11. Check every 15–30 minutes only. Trust the process.</div>
         </div>
       </div>
     </div>
@@ -846,10 +895,12 @@ a{color:inherit;text-decoration:none}
         <span class="card-eyebrow">AEST Times</span>
         <div class="card-title">Australian Trading Windows</div>
         <div class="rules">
-          <div class="rule gold">London Kill Zone — 5:00pm–7:00pm AEST (winter) &nbsp;/&nbsp; 4:00pm–6:00pm AEST (summer)</div>
-          <div class="rule gold">NY Kill Zone — 10:00pm–12:00am AEST (winter) &nbsp;/&nbsp; 9:00pm–11:00pm AEST (summer)</div>
-          <div class="rule green">These are your two trading windows each day. Outside these windows — close the charts.</div>
-          <div class="rule">Tokyo Session — 12:00am–9:00am AEST — consolidation only, mark high and low</div>
+          <div class="rule gold">London Open Window — 6:00pm–10:00pm AEST (winter) &nbsp;/&nbsp; 5:00pm–9:00pm AEST (summer)</div>
+          <div class="rule gold">New York Open Window — 11:00pm–3:00am AEST (winter) &nbsp;/&nbsp; 10:00pm–2:00am AEST (summer)</div>
+          <div class="rule green">The Open Window is the first 4 hours of each session — the highest quality part of the day.</div>
+          <div class="rule">You can still trade later in a session, but signal quality drops as volume dries up.</div>
+          <div class="rule">Tokyo Session — 10:00am–7:00pm AEST — consolidation only, mark the high and low</div>
+          <div class="rule yellow">AEST times shift twice a year with UK/US daylight savings. The live clock above is always correct — use it.</div>
         </div>
       </div>
     </div>
@@ -890,9 +941,9 @@ async function sbPost(path,body){
     for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0}
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
       const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<120){ctx.beginPath();ctx.strokeStyle=`rgba(201,168,76,${.04*(1-d/120)})`;ctx.lineWidth=.5;ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke()}
+      if(d<120){ctx.beginPath();ctx.strokeStyle=`rgba(196,207,220,${.04*(1-d/120)})`;ctx.lineWidth=.5;ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke()}
     }
-    for(const p of pts){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.g?`rgba(201,168,76,${p.a})`:`rgba(200,205,214,${p.a*.5})`;ctx.fill()}
+    for(const p of pts){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.g?`rgba(196,207,220,${p.a})`:`rgba(200,205,214,${p.a*.5})`;ctx.fill()}
     requestAnimationFrame(frame);
   }
   window.addEventListener('resize',resize,{passive:true});
@@ -988,7 +1039,7 @@ const MODELS={
       {t:'All 5 SMAs bullishly or bearishly stacked in order',c:''},
       {t:'Price pulls back into the SMA 9/21 confluence zone',c:''},
       {t:'Candle closes back above/below the zone — entry on close',c:'green'},
-      {t:'SL placed below entire Kill Zone box low (or above for short)',c:''},
+      {t:'SL placed below the session box low / last swing low (or above for short)',c:''},
       {t:'TP minimum 1:3 RR from entry. Move SL to BE at 1R.',c:'gold'},
     ],
     stat:'Standard Signal · 1:3+ RR',
@@ -1003,7 +1054,7 @@ const MODELS={
     rules:[
       {t:'Strong momentum candle closes through the SMA zone',c:''},
       {t:'SMA 9 visibly curling sharply in the breakout direction',c:''},
-      {t:'Only valid in FIRST HALF of London (07:00–11:00) or NY (12:00–16:00) GMT',c:'yellow'},
+      {t:'Only valid inside the Session Open Window — first 4 hours of London or NY',c:'yellow'},
       {t:'Use HALF position size — confirmation has not yet printed',c:'gold'},
       {t:'SL below the entire breakout structure. TP minimum 1:3 RR.',c:''},
     ],
@@ -1089,14 +1140,17 @@ const STEPS=[
       <div class="rule">Strong close = candle closes near its high (bull) or low (bear) with minimal wick.</div>
       <div class="rule gold">In Silver Apex, candle close direction through the SMA zone is the entry trigger — not the wick.</div>
     </div>`},
-  {label:'3. Sessions',title:'Market Sessions & Kill Zones',content:`
+  {label:'3. Sessions',title:'Market Sessions & Timing',content:`
     <div class="rules">
-      <div class="rule gold">Three major sessions: Tokyo (Asia), London, New York. London + NY overlap is highest volume.</div>
-      <div class="rule">Tokyo (00:00–08:00 GMT): Consolidation. Mark the range only. No trading.</div>
-      <div class="rule green">London Kill Zone (07:00–09:00 GMT): Highest probability window. Primary trading session.</div>
-      <div class="rule green">NY Kill Zone (12:00–14:00 GMT): Second trading window. Also high probability.</div>
-      <div class="rule red">Outside Kill Zones: Close the charts. Do not search for setups.</div>
-      <div class="rule">Why Kill Zones? Institutional participants execute largest volume here — this creates clean, predictable moves.</div>
+      <div class="rule gold">Three major sessions: Tokyo (Asia), London, New York. The London + NY overlap is the highest volume period of the day.</div>
+      <div class="rule">TOKYO (09:00–18:00 Tokyo time): Consolidation. You do not trade here. You mark the high and the low — these become your sweep levels.</div>
+      <div class="rule green">LONDON (08:00–16:30 London time): The primary session. Volume steps up hard at the open.</div>
+      <div class="rule green">NEW YORK (08:00–17:00 NY time): The second session. US data drives Silver hard here.</div>
+      <div class="rule gold">THE OPEN WINDOW — the first 4 hours of London and the first 4 hours of New York. This is where the strategy performs best.</div>
+      <div class="rule">Why? Institutions execute the bulk of their volume shortly after a session opens. That produces clean directional moves rather than chop.</div>
+      <div class="rule">You CAN trade later in a session. But as volume dries up, moves get choppier and signals get less reliable. Weight your risk accordingly.</div>
+      <div class="rule red">Outside London and New York entirely: close the charts. Do not go hunting for setups in dead volume.</div>
+      <div class="rule yellow">IMPORTANT: Session times are quoted in each market's LOCAL time. That means they shift against GMT twice a year with daylight savings. The indicator and the Sessions tab handle this automatically — never hardcode GMT times in your head.</div>
     </div>`},
   {label:'4. SMA System',title:'The 5-SMA Filter',content:`
     <div class="rules">
@@ -1114,32 +1168,58 @@ const STEPS=[
       <div class="rule">1H CHART: Confirm session structure. Note where the Asia range sits relative to these levels.</div>
       <div class="rule">5M/15M: Apply the indicator. Only take signals aligned with Daily + 4H direction.</div>
       <div class="rule red">NEVER take a B signal if Daily + 4H are bearish. The HTF always wins.</div>
-      <div class="rule green">Best trades: Daily bullish + 4H bullish + London KZ + B signal at SMA zone.</div>
+      <div class="rule green">Best trades: Daily bullish + 4H bullish + London Open Window + B signal at SMA zone.</div>
     </div>`},
-  {label:'6. Confirmation Entry',title:'Confirmation Entry Model (B / S)',content:`
+  {label:'6. Market Structure',title:'Market Structure — BOS & CHoCH',content:`
+    <div class="rules">
+      <div class="rule gold">The SMAs tell you what the trend IS. Market structure tells you whether that trend is still INTACT — or breaking.</div>
+      <div class="rule">A market moves in swings. In an uptrend: higher highs and higher lows. In a downtrend: lower highs and lower lows. That sequence IS the structure.</div>
+      <div class="rule green">BOS — BREAK OF STRUCTURE. Price breaks a swing point in the SAME direction as the current trend. In an uptrend, price takes out the last swing high. The trend is continuing. This is confirmation.</div>
+      <div class="rule yellow">CHoCH — CHANGE OF CHARACTER. Price breaks a swing point AGAINST the current trend. In an uptrend, price takes out the last swing LOW. The sequence has broken. The trend may be turning.</div>
+      <div class="rule">Think of it simply: BOS = "keep going." CHoCH = "something changed, pay attention."</div>
+      <div class="rule red">NEITHER IS AN ENTRY SIGNAL. You do not buy a BOS. You do not sell a CHoCH. They are context — they tell you whether to trust the B, S, E or Sweep signal you are looking at.</div>
+      <div class="rule gold">HOW TO USE IT: A B signal with a recent bullish BOS behind it is a high-conviction trade. The same B signal immediately after a bearish CHoCH is a trap — structure is turning against you. Skip it.</div>
+      <div class="rule green">A CHoCH is also your early warning that the SMA stack is about to unwind. Structure usually breaks BEFORE the SMAs cross. That is why it is worth watching.</div>
+      <div class="rule">The indicator marks these automatically with a dashed line at the broken level and a BOS or CHoCH label. Toggle them in settings under Market Structure.</div>
+      <div class="rule yellow">Adjust "Swing Lookback" in settings to control sensitivity. Lower = more labels, more noise. Higher = fewer, more significant breaks. Default 5 is a good starting point on 5m.</div>
+    </div>`},
+  {label:'7. Fair Value Gaps',title:'Fair Value Gaps (FVG)',content:`
+    <div class="rules">
+      <div class="rule gold">A Fair Value Gap is a price imbalance — a zone that price moved through so fast it left unfinished business behind.</div>
+      <div class="rule">MECHANICALLY: Take three candles. If candle 1's high and candle 3's low do not overlap, there is a gap between them. Price traded through that zone without both buyers and sellers transacting properly.</div>
+      <div class="rule">WHY IT MATTERS: Markets tend to come back and fill these gaps. Unfinished business gets finished. That makes an unfilled FVG a magnet.</div>
+      <div class="rule green">BULLISH FVG — a gap left behind by an aggressive move UP. Price often returns to it, finds support, and continues higher. Green box on the indicator.</div>
+      <div class="rule red">BEARISH FVG — a gap left behind by an aggressive move DOWN. Price often returns to it, finds resistance, and continues lower. Red box on the indicator.</div>
+      <div class="rule gold">USE 1 — AS AN ENTRY ZONE. If a B signal fires while price is inside a bullish FVG, that is your highest-quality version of that setup. The gap gives the entry a reason to hold.</div>
+      <div class="rule gold">USE 2 — AS A TARGET. An unfilled FVG sitting above price is a logical TP. Price is likely to be drawn to it. Do not set TP beyond a large opposing gap and expect a clean run.</div>
+      <div class="rule red">NOT AN ENTRY SIGNAL ON ITS OWN. A gap is a zone of interest, not a trigger. You still need a B, S, E or Sweep signal, and you still need all 8 checklist points.</div>
+      <div class="rule">The indicator deletes an FVG box the moment price fully trades back through it — the gap is filled, the business is finished, it is no longer relevant.</div>
+      <div class="rule yellow">Use the "Min FVG Size" setting to filter out tiny meaningless gaps. Default 0.25x ATR. If your chart looks cluttered, raise it.</div>
+    </div>`},
+  {label:'8. Confirmation Entry',title:'Confirmation Entry Model (B / S)',content:`
     <div class="rules">
       <div class="rule gold">The primary setup. Accounts for the majority of trades taken in this strategy.</div>
       <div class="rule">STEP 1 — Confirm Daily + 4H bias direction before touching the 5m chart.</div>
-      <div class="rule">STEP 2 — Wait for price to pull back into the SMA 9/21 zone during a Kill Zone.</div>
+      <div class="rule">STEP 2 — Wait for price to pull back into the SMA 9/21 zone during the London or NY session.</div>
       <div class="rule green">STEP 3 — All 5 SMAs must be fully stacked in the direction of your bias.</div>
       <div class="rule green">STEP 4 — Entry candle closes back above the zone (long) or below the zone (short). Enter on close.</div>
-      <div class="rule red">STEP 5 — Place SL immediately below the Kill Zone session box low (long) or above the high (short).</div>
+      <div class="rule red">STEP 5 — Place SL immediately below the session box low / last swing low (long) or above the high (short).</div>
       <div class="rule">STEP 6 — Check SL distance does not exceed the fixed cap. If it does — skip.</div>
       <div class="rule gold">STEP 7 — Set TP at minimum 1:3 RR. Move SL to BE at 1R. Partial close at 2R.</div>
       <div class="rule">B signal = buy confirmation. S signal = sell confirmation. Both follow identical rules.</div>
     </div>`},
-  {label:'7. Early Entry',title:'Early Entry Model (E)',content:`
+  {label:'9. Early Entry',title:'Early Entry Model (E)',content:`
     <div class="rules">
       <div class="rule gold">The Early Entry is for breakout momentum candles — when you want in before the pullback forms.</div>
       <div class="rule">TRIGGER: A strong momentum candle closes directly through the SMA 9/21 zone without pulling back.</div>
       <div class="rule">SMA 9 must be visibly curling sharply in the direction of the breakout.</div>
-      <div class="rule yellow">Only valid in the FIRST HALF of the Kill Zone: London 07:00–11:00 GMT, NY 12:00–16:00 GMT.</div>
+      <div class="rule yellow">Only valid inside the Session Open Window — the first 4 hours of London or New York.</div>
       <div class="rule red">CRITICAL: Use HALF position size only. Full size requires a confirmation close — which has not printed yet.</div>
       <div class="rule">SL: Below the entire breakout structure (the base of the move). Fixed cap still applies.</div>
       <div class="rule green">If a B/S confirmation signal prints after your early entry — you can add to the position at full size.</div>
       <div class="rule gold">Higher potential RR because entry is earlier in the move, but lower probability than Confirmation.</div>
     </div>`},
-  {label:'8. Sweep Model',title:'Liquidity Sweep Model',content:`
+  {label:'10. Sweep Model',title:'Liquidity Sweep Model',content:`
     <div class="rules">
       <div class="rule gold">The highest documented win rate setup: 70–75%. Based on institutional stop-hunt behaviour.</div>
       <div class="rule">CONCEPT: Institutions push price beyond a known cluster of stop orders, trigger them, then reverse.</div>
@@ -1151,7 +1231,7 @@ const STEPS=[
       <div class="rule">For a bearish sweep: price sweeps above Asia High then closes back below it → short entry.</div>
       <div class="rule gold">TP: Minimum 1:3 RR. The reversal after a sweep is often fast and strong.</div>
     </div>`},
-  {label:'9. Combo Signal',title:'Combo Signal (BUY / SELL)',content:`
+  {label:'11. Combo Signal',title:'Combo Signal (BUY / SELL)',content:`
     <div class="rules">
       <div class="rule gold">The rarest and highest-confidence signal in the entire strategy. White BUY or SELL label on indicator.</div>
       <div class="rule">TRIGGER: A Liquidity Sweep signal combined with RSI Divergence within 3 candles of the sweep.</div>
@@ -1162,7 +1242,7 @@ const STEPS=[
       <div class="rule gold">TP target: 1:4+ RR minimum. These signals often reach 1:5–1:8 RR on the follow-through.</div>
       <div class="rule yellow">NOTE: Bull Div and Bear Div labels alone are NOT entries. Only trade them when combined with a Sweep.</div>
     </div>`},
-  {label:'10. Risk Mgmt',title:'Risk Management & Position Sizing',content:`
+  {label:'12. Risk Mgmt',title:'Risk Management & Position Sizing',content:`
     <div class="rules">
       <div class="rule gold">Risk exactly 1% of account per trade. Never more, regardless of conviction.</div>
       <div class="rule">Position size (lots) = (Account × Risk%) ÷ (SL distance in points × point value).</div>
@@ -1173,20 +1253,20 @@ const STEPS=[
       <div class="rule gold">Max 2 losing trades per day. Stop trading after 2 losses. Come back tomorrow.</div>
       <div class="rule">Max 1 trade open at a time during backtesting and early live trading. Build consistency first.</div>
     </div>`},
-  {label:'11. Checklist',title:'The 8-Point Pre-Trade Checklist',content:`
+  {label:'13. Checklist',title:'The 8-Point Pre-Trade Checklist',content:`
     <div class="rules">
       <div class="rule gold">The checklist is your mechanical gate. ALL 8 must pass. Not 7. Not 6. All 8.</div>
       <div class="rule">1. All 5 SMAs are fully stacked in the direction of the trade.</div>
       <div class="rule">2. Daily SMA 200 confirms directional bias (above = bullish, below = bearish).</div>
       <div class="rule">3. 4H SMAs agree with the Daily bias.</div>
-      <div class="rule">4. Currently inside London Kill Zone OR NY Kill Zone.</div>
+      <div class="rule">4. Currently inside the London or New York session — ideally the first 4 hours.</div>
       <div class="rule">5. No high-impact news event within 30 minutes of this entry.</div>
       <div class="rule">6. Signal type matches entry model rules — not a visual guess.</div>
       <div class="rule">7. SL placement does not exceed the fixed maximum cap for this instrument.</div>
       <div class="rule">8. Position size calculated using the risk calculator at exactly 1%.</div>
       <div class="rule green">Use the Checklist tab to run through this before every single trade.</div>
     </div>`},
-  {label:'12. News Protocol',title:'News Protocol',content:`
+  {label:'14. News Protocol',title:'News Protocol',content:`
     <div class="rules">
       <div class="rule gold">High-impact news creates erratic, unpredictable price spikes. Do not trade around them.</div>
       <div class="rule red">Rule: Avoid all trading within 30 minutes BEFORE and 30 minutes AFTER any high-impact event.</div>
@@ -1194,21 +1274,23 @@ const STEPS=[
       <div class="rule">Medium-impact events: Monitor but use judgement — if in doubt, stand aside.</div>
       <div class="rule">Check the economic calendar tab BEFORE your session starts. Know what's coming.</div>
       <div class="rule">XAG/USD is sensitive to: USD data (NFP, CPI, FOMC), geopolitical events, risk sentiment shifts.</div>
-      <div class="rule green">If a news event cancels your Kill Zone window, that's fine — there are 2 windows every day. No FOMO.</div>
+      <div class="rule green">If news cancels your window, that's fine — there are two sessions every day. No FOMO.</div>
     </div>`},
-  {label:'13. Indicator Setup',title:'TradingView Indicator Setup',content:`
+  {label:'15. Indicator Setup',title:'TradingView Indicator Setup',content:`
     <div class="rules">
       <div class="rule gold">The Silver Apex Strategy indicator automates all analysis: session boxes, SMAs, and all 5 signal types.</div>
       <div class="rule">STEP 1: Open TradingView and load XAG/USD (Silver) on a 5m or 15m chart.</div>
       <div class="rule">STEP 2: Click "Indicators" → search "Silver Apex Strategy" → click to add.</div>
       <div class="rule">STEP 3: Send your TradingView username to Brendon in the Discord VIP channel for access approval.</div>
       <div class="rule">CHART SETUP: Have 4 charts open — Daily, 4H, 1H, and 5m/15m with the indicator.</div>
-      <div class="rule green">The indicator shows: Tokyo box (red), London box (blue), London KZ (amber), NY KZ (purple).</div>
+      <div class="rule green">The indicator shows: Tokyo box (red), London box (blue), New York box (purple). Overlapping sessions both display.</div>
       <div class="rule green">SMA lines: Green=9 · Black=21 · Red=50 · Blue=200 · Purple=800.</div>
       <div class="rule">Asia Range high and low appear as red dashed horizontal lines.</div>
       <div class="rule gold">Signal labels appear directly on the chart: B, S, E, Sweep, BUY, SELL, Bull Div, Bear Div.</div>
+      <div class="rule gold">SMC layer: shaded FVG boxes, plus BOS and CHoCH structure labels.</div>
+      <div class="rule">Every module can be toggled off in settings. If your chart feels cluttered, turn things off — Sessions, SMAs, Signals, Fair Value Gaps and Market Structure are all independent groups.</div>
     </div>`},
-  {label:'14. Backtesting',title:'Backtesting Framework',content:`
+  {label:'16. Backtesting',title:'Backtesting Framework',content:`
     <div class="rules">
       <div class="rule gold">You must backtest a minimum of 100 trades BEFORE putting any real money on the line.</div>
       <div class="rule">Backtesting = replaying historical price data and trading it as if it were live, using your exact rules.</div>
@@ -1220,7 +1302,7 @@ const STEPS=[
       <div class="rule">This is your Personal Edge Profile — it tells you where your highest probability setups are.</div>
       <div class="rule gold">Only go live once you have 100 trades AND feel confident executing in real-time.</div>
     </div>`},
-  {label:'15. Trade Mgmt',title:'Trade Management',content:`
+  {label:'17. Trade Mgmt',title:'Trade Management',content:`
     <div class="rules">
       <div class="rule gold">Once you're in a trade, emotion wants to move your TP or SL. The rules prevent that.</div>
       <div class="rule">ENTRY: Set SL immediately after entry. Set TP at minimum 1:3 RR. Walk away.</div>
@@ -1232,7 +1314,7 @@ const STEPS=[
       <div class="rule">Check the trade every 15–30 minutes max. You do not need to watch every candle.</div>
       <div class="rule gold">Closed trades are closed. Do not re-enter a trade you already exited in the same session.</div>
     </div>`},
-  {label:'16. Psychology',title:'Trading Psychology',content:`
+  {label:'18. Psychology',title:'Trading Psychology',content:`
     <div class="rules">
       <div class="rule gold">Your process is the product. Focus on executing rules perfectly — not on P&amp;L.</div>
       <div class="rule">After a loss: close the charts. Review the trade. Did you follow the rules? If yes — good trade, bad outcome. Move on.</div>
@@ -1243,14 +1325,14 @@ const STEPS=[
       <div class="rule">Losing streaks happen to every strategy. 3–4 losses in a row is normal inside a 66% win rate system.</div>
       <div class="rule gold">The edge only works over a LARGE sample. Each trade is just one data point. Trade 100 before judging the strategy.</div>
     </div>`},
-  {label:'17. Bonus Data',title:'Bonus — 500+ Backtest Trade Results',content:`
+  {label:'19. Bonus Data',title:'Bonus — 500+ Backtest Trade Results',content:`
     <div class="rules">
       <div class="rule gold">This bonus module contains Brendon's personal backtest data across 500+ documented trades on Silver.</div>
       <div class="rule">The data covers 12 months of XAG/USD price history across all 4 entry models.</div>
       <div class="rule green">Overall win rate: 66% peak across the dataset. Sweep model win rate: 70–75%.</div>
       <div class="rule">Average RR achieved per winning trade: 3.2R across the full dataset.</div>
       <div class="rule">Mathematical expectancy: 0.98R per trade (positive edge confirmed).</div>
-      <div class="rule">Best performing session: London Kill Zone (07:00–09:00 GMT) — highest signal frequency and quality.</div>
+      <div class="rule">Best performing session: the London Open Window (first 4 hours) — highest signal frequency and quality.</div>
       <div class="rule">Best performing entry model by win rate: Liquidity Sweep (70–75%).</div>
       <div class="rule">Best performing entry model by RR: Combo Signal (BUY/SELL) — average 4.1R per winner.</div>
       <div class="rule yellow">This data is provided as context only. Your personal edge profile may differ. Backtest your own 100 trades.</div>
@@ -1285,7 +1367,7 @@ const CHECKS=[
   'SMA 9/21/50/200/800 are all fully stacked in the direction of the trade',
   'Daily SMA 200 confirms directional bias (above = bullish, below = bearish)',
   '4H SMAs agree with the Daily bias',
-  'We are currently inside the London Kill Zone OR the NY Kill Zone',
+  'We are inside the London or New York session — ideally the first 4 hours (Open Window)',
   'No high-impact news event within 30 minutes of this entry',
   'Signal type matches entry model rules (B/S/E/Sweep) — not just a visual guess',
   'Stop loss placement does not exceed the fixed maximum cap for this instrument',
@@ -1349,7 +1431,7 @@ function calcPosition(){
     <div class="calc-result-row"><span>Position Size</span><span style="color:var(--silver)">${lots.toFixed(4)} lots</span></div>
     <div class="calc-result-row"><span>TP at 1:3 RR</span><span style="color:var(--green)">${rr3.toFixed(4)}</span></div>
     ${capWarning}
-    <div class="calc-result-row" style="border-top:1px solid rgba(201,168,76,0.1)"><span>Potential Gain</span><span style="color:var(--green);font-family:'Playfair Display',serif;font-size:20px">$${(riskAmt*3).toFixed(2)}</span></div>`;
+    <div class="calc-result-row" style="border-top:1px solid rgba(196,207,220,0.1)"><span>Potential Gain</span><span style="color:var(--green);font-family:'Archivo',sans-serif;font-size:20px">$${(riskAmt*3).toFixed(2)}</span></div>`;
 }
 
 // ─── NEWS ─────────────────────────────────────────────────────
@@ -1378,12 +1460,22 @@ function renderNews(){
 
 // ─── SESSIONS & CLOCK ─────────────────────────────────────────
 const SESSIONS=[
-  {name:'Tokyo / Asia',start:0,end:8,desc:'Consolidation only. Mark high and low.',killzone:false},
-  {name:'London Kill Zone',start:7,end:9,desc:'PRIMARY trading window — highest probability.',killzone:true,kzColor:'gold'},
-  {name:'London Session',start:7,end:15,desc:'Active session. Watch for setups in Kill Zone.',killzone:false},
-  {name:'NY Kill Zone',start:12,end:14,desc:'SECONDARY trading window — second highest probability.',killzone:true,kzColor:'gold'},
-  {name:'New York Session',start:12,end:20,desc:'Active session.',killzone:false},
+  {name:'Tokyo / Asia',tz:'Asia/Tokyo',start:9,end:18,window:0,desc:'Consolidation only. Mark the high and low.'},
+  {name:'London',tz:'Europe/London',start:8,end:16.5,window:4,desc:'Primary session. Open Window = first 4 hours.'},
+  {name:'New York',tz:'America/New_York',start:8,end:17,window:4,desc:'Second session. Open Window = first 4 hours.'},
 ];
+
+// Local hour (decimal) inside a given IANA timezone — handles DST automatically
+function hourIn(tz){
+  const p=new Intl.DateTimeFormat('en-GB',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+  const h=+p.find(x=>x.type==='hour').value % 24;
+  const m=+p.find(x=>x.type==='minute').value;
+  return h+(m/60);
+}
+function fmtHr(v){
+  const h=Math.floor(v),m=Math.round((v-h)*60);
+  return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
+}
 
 function getNowGMT(){
   const now=new Date();
@@ -1405,18 +1497,22 @@ function startClock(){
 }
 
 function renderSessions(){
-  const t=getNowGMT();
   document.getElementById('sessions-content').innerHTML=SESSIONS.map(s=>{
+    const t=hourIn(s.tz);
     const active=t>=s.start&&t<s.end;
+    const inWin=s.window>0&&t>=s.start&&t<s.start+s.window;
+    const status=inWin?'OPEN WINDOW':active?'LIVE':'CLOSED';
+    const cls=inWin?'live':active?'live':'closed';
     return`<div class="session-row ${active?'active-now':''}" role="listitem">
       <div>
         <div class="session-name">${s.name}</div>
         <div style="font-size:11px;color:rgba(160,168,184,0.35);margin-top:2px">${s.desc}</div>
       </div>
       <div>
-        <div class="session-times">${String(s.start).padStart(2,'0')}:00 – ${String(s.end).padStart(2,'0')}:00 GMT</div>
+        <div class="session-times">${fmtHr(s.start)} – ${fmtHr(s.end)} local</div>
+        <div style="font-size:10px;color:rgba(160,168,184,0.3);margin-top:2px">now ${fmtHr(t)} there</div>
       </div>
-      <div class="session-status ${active?'live':'closed'}">${active?'LIVE':'CLOSED'}</div>
+      <div class="session-status ${cls}">${status}</div>
     </div>`;
   }).join('');
 }
@@ -1426,26 +1522,83 @@ setInterval(renderSessions,30000);
 if(localStorage.getItem('sa_token')){showCourse()}
 
 function updateSessionStatus(){
-  const t=getNowGMT();
-  const inLondonKZ=t>=7&&t<9;
-  const inNYKZ=t>=12&&t<14;
   const dot=document.getElementById('session-dot');
   const lbl=document.getElementById('session-label');
   if(!dot||!lbl)return;
-  if(inLondonKZ){
+  const lonT=hourIn('Europe/London'), nyT=hourIn('America/New_York');
+  const lonWin=lonT>=8&&lonT<12, nyWin=nyT>=8&&nyT<12;
+  const lonLive=lonT>=8&&lonT<16.5, nyLive=nyT>=8&&nyT<17;
+  if(lonWin||nyWin){
     dot.className='session-dot';lbl.className='session-text active';
-    lbl.textContent='London Kill Zone Active';
-  } else if(inNYKZ){
+    lbl.textContent=(lonWin?'London':'New York')+' Open Window';
+  } else if(lonLive||nyLive){
     dot.className='session-dot';lbl.className='session-text active';
-    lbl.textContent='NY Kill Zone Active';
+    lbl.textContent=(lonLive?'London':'New York')+' Session — late';
   } else {
     dot.className='session-dot inactive';lbl.className='session-text';
-    const next=inLondonKZ?9:t<7?7:t<12?12:t<14?14:7+24;
-    const diff=((next-t+24)%24);
+    const toLon=((8-lonT+24)%24), toNY=((8-nyT+24)%24);
+    const diff=Math.min(toLon,toNY);
     const hh=Math.floor(diff),mm=Math.round((diff-hh)*60);
-    lbl.textContent=`Kill Zone in ${hh}h ${mm}m`;
+    lbl.textContent=`Next Open Window in ${hh}h ${mm}m`;
   }
 }
+
+/* ═══ LIVE SESSION ENGINE — the page's accent IS the market ═══
+   Rule: if the page has colour, you can trade.
+   Tokyo is deliberately colourless — you mark the range, you don't trade it. */
+const SA_SESSIONS=[
+  {key:'TOKYO', label:'Tokyo',    tz:'Asia/Tokyo',       start:9, end:18,   win:0, hex:null},
+  {key:'LON',   label:'London',   tz:'Europe/London',    start:8, end:16.5, win:4, hex:'#5B9CF6'},
+  {key:'NY',    label:'New York', tz:'America/New_York', start:8, end:17,   win:4, hex:'#8E7DE0'},
+];
+const SA_COLD='#6E7887';
+function saHourIn(tz){
+  const p=new Intl.DateTimeFormat('en-GB',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+  return (+p.find(x=>x.type==='hour').value%24)+(+p.find(x=>x.type==='minute').value)/60;
+}
+function saHexA(h,a){const n=parseInt(h.slice(1),16);return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`}
+function saHm(d){const h=Math.floor(d),m=Math.round((d-h)*60);return String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m'}
+let SA_ACCENT=SA_COLD;
+function saState(){
+  let live=null,win=null,marking=null;
+  for(const s of SA_SESSIONS){
+    const t=saHourIn(s.tz);
+    if(t>=s.start&&t<s.end){
+      if(!s.hex){marking=marking||s;continue}
+      live=live||s;
+      if(s.win&&t<s.start+s.win) win=win||s;
+    }
+  }
+  return {live,win,marking};
+}
+function saPaint(){
+  const {live,win,marking}=saState();
+  const a=win||live;
+  SA_ACCENT=a?a.hex:SA_COLD;
+  const r=document.documentElement.style;
+  r.setProperty('--accent',SA_ACCENT);
+  r.setProperty('--accent-dim',saHexA(SA_ACCENT,0.13));
+  r.setProperty('--accent-line',saHexA(SA_ACCENT,0.34));
+  document.body.classList.toggle('sa-live',!!a);
+
+  const nm=document.getElementById('sa-sess'),cl=document.getElementById('sa-cd-l'),
+        cv=document.getElementById('sa-cd-v'),pip=document.getElementById('sa-pip'),
+        ut=document.getElementById('sa-utc');
+  if(nm){
+    if(win){ nm.textContent=win.label; cl.textContent='Open window'; cv.textContent=saHm((win.start+win.win)-saHourIn(win.tz))+' left'; }
+    else if(live){ nm.textContent=live.label; cl.textContent='Status'; cv.textContent='Late session'; }
+    else if(marking){ nm.textContent='Tokyo'; cl.textContent='Status'; cv.textContent='Marking range — no trading'; }
+    else {
+      nm.textContent='Closed'; cl.textContent='Next window';
+      let b=24;
+      for(const s of SA_SESSIONS){ if(!s.win)continue; const d=((s.start-saHourIn(s.tz))+24)%24; if(d<b)b=d; }
+      cv.textContent='opens in '+saHm(b);
+    }
+    if(pip) pip.classList.toggle('beating',!!a);
+  }
+  if(ut){const d=new Date();ut.textContent=[d.getUTCHours(),d.getUTCMinutes(),d.getUTCSeconds()].map(v=>String(v).padStart(2,'0')).join(':')}
+}
+saPaint(); setInterval(saPaint,1000);
 </script>
 </body>
 </html>
