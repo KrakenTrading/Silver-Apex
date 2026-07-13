@@ -7,16 +7,16 @@
 <meta name="description" content="Master the 80/20 mechanical trading strategy for XAG/USD. 66% win rate, 1:3+ RR. Lifetime access from $147."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 /* ─── RESET & BASE ─────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --gold:#C9A84C;--gold-light:#E5C878;--gold-dark:#A8893E;
-  --silver:#E8EDF5;--silver-dim:#A0A8B8;
-  --bg:#04070E;--bg2:#080D18;--bg3:#0C1220;
-  --card:#0F1520;--card2:#131924;
-  --border:rgba(200,205,214,0.08);--border-gold:rgba(201,168,76,0.25);
+  --gold:#C4CFDC;--gold-light:#E6EDF5;--gold-dark:#94A2B3;--accent:#6E7887;--accent-dim:rgba(110,120,135,0.13);--accent-line:rgba(110,120,135,0.34);
+  --silver:#E9EEF6;--silver-dim:#8A94A6;
+  --bg:#05070B;--bg2:#080C13;--bg3:#0D1219;
+  --card:#0E141C;--card2:#121924;
+  --border:rgba(200,212,228,0.08);--border-gold:rgba(196,207,220,0.20);
   --green:#3DDC84;--red:#F05252;--blue:#5B9CF6;
   --z-nav:100;--z-modal:200;
   --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
@@ -33,7 +33,8 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 ::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:2px}
 
 /* ─── UTILITIES ─────────────────────────────────────────────── */
-.serif{font-family:'Playfair Display',serif}
+.serif{font-family:'Archivo',sans-serif;font-weight:800;font-stretch:108%;letter-spacing:-0.022em}
+.struck{font-family:'Archivo',sans-serif;font-weight:900;font-stretch:114%;text-transform:uppercase;letter-spacing:-0.03em;background:linear-gradient(178deg,#FFFFFF 0%,#C8D2E0 38%,#7E8B9C 62%,#EDF2F8 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
 .mono{font-family:'DM Mono',monospace}
 .gold{color:var(--gold)}
 .green{color:var(--green)}
@@ -46,17 +47,17 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 .container--narrow{max-width:800px;margin:0 auto}
 
 .eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-family:'DM Mono',monospace;margin-bottom:16px;display:block}
-.h1{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,96px);font-weight:800;color:var(--silver);line-height:1.0;letter-spacing:-2px}
-.h2{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);font-weight:700;color:var(--silver);line-height:1.1;letter-spacing:-1px}
-.h3{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--silver);line-height:1.2}
+.h1{font-family:'Archivo',sans-serif;font-size:clamp(52px,8vw,96px);font-weight:800;color:var(--silver);line-height:1.0;letter-spacing:-2px}
+.h2{font-family:'Archivo',sans-serif;font-size:clamp(36px,5vw,64px);font-weight:700;color:var(--silver);line-height:1.1;letter-spacing:-1px}
+.h3{font-family:'Archivo',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--silver);line-height:1.2}
 .lead{font-size:clamp(15px,2vw,18px);line-height:1.8;color:var(--silver-dim);max-width:620px}
 
 /* ─── BUTTONS ────────────────────────────────────────────────── */
 .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border-radius:12px;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:all 0.2s var(--ease-out-expo);border:none;position:relative;overflow:hidden}
 .btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0);transition:background 0.2s}
 .btn:hover::after{background:rgba(255,255,255,0.06)}
-.btn--gold{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);color:#000;font-weight:700;box-shadow:0 8px 32px rgba(201,168,76,0.25)}
-.btn--gold:hover{transform:translateY(-2px);box-shadow:0 16px 48px rgba(201,168,76,0.35)}
+.btn--gold{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);color:#000;font-weight:700;box-shadow:0 8px 32px rgba(196,207,220,0.25)}
+.btn--gold:hover{transform:translateY(-2px);box-shadow:0 16px 48px rgba(196,207,220,0.35)}
 .btn--ghost{background:transparent;border:1px solid var(--border);color:var(--silver-dim)}
 .btn--ghost:hover{border-color:var(--border-gold);color:var(--gold)}
 .btn--large{padding:20px 48px;font-size:14px;border-radius:14px}
@@ -67,7 +68,7 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 #nav{position:fixed;top:0;left:0;right:0;z-index:var(--z-nav);padding:0 24px;transition:all 0.4s var(--ease-out-expo)}
 #nav.scrolled{background:rgba(4,7,14,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1160px;margin:0 auto;height:72px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--silver)}
+.nav-logo{font-family:'Archivo',sans-serif;font-size:20px;font-weight:800;color:var(--silver)}
 .nav-logo span{color:var(--gold)}
 .nav-links{display:flex;align-items:center;gap:32px}
 .nav-link{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--silver-dim);transition:color 0.2s;font-weight:500}
@@ -78,9 +79,45 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 /* ─── HERO ──────────────────────────────────────────────────── */
 #hero{position:relative;min-height:100dvh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 24px 80px;overflow:hidden}
 #hero-canvas{position:absolute;inset:0;z-index:0}
-.hero-gradient{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 20% 80%,rgba(91,156,246,0.04) 0%,transparent 50%),linear-gradient(180deg,transparent 40%,var(--bg) 100%);z-index:1}
+/* ═══ ASSAY STRIP — the signature. A struck hallmark bar. ═══ */
+.assay{border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;
+  font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(255,255,255,0.012);overflow-x:auto;scrollbar-width:none}
+.assay::-webkit-scrollbar{display:none}
+.assay-cell{padding:11px 18px;display:flex;align-items:center;gap:9px;border-right:1px solid var(--border);
+  white-space:nowrap;color:var(--silver-dim)}
+.assay-cell:last-child{border-right:none;margin-left:auto}
+.assay-cell b{color:var(--silver);font-weight:500}
+.assay-cell.live b{color:var(--accent);transition:color .9s var(--ease-out-expo)}
+.sa-pip{width:5px;height:5px;border-radius:50%;background:var(--accent);transition:background .9s var(--ease-out-expo)}
+.sa-pip.beating{animation:sa-beat 2.4s infinite}
+@keyframes sa-beat{0%{box-shadow:0 0 0 0 var(--accent-line)}70%{box-shadow:0 0 0 7px rgba(0,0,0,0)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
+
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;width:100%}
+.chart-shell{border:1px solid var(--border);background:linear-gradient(180deg,var(--bg3),var(--bg2));position:relative}
+.chart-head,.chart-foot{display:flex;align-items:center;gap:16px;padding:11px 15px;
+  font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--silver-dim);text-transform:uppercase}
+.chart-head{border-bottom:1px solid var(--border);justify-content:space-between}
+.chart-foot{border-top:1px solid var(--border)}
+#sa-chart{display:block;width:100%;height:320px}
+.ckey{display:flex;align-items:center;gap:6px}
+.ckey i{width:12px;height:2px;display:block}
+.tape-wrap{max-width:1160px;margin:0 auto;padding:0 24px 8px}
+.tape-label{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:9.5px;
+  letter-spacing:.22em;color:var(--silver-dim);text-transform:uppercase;margin-bottom:12px}
+.tape-track{position:relative;height:42px;border:1px solid var(--border);background:var(--bg2);overflow:hidden}
+.tape-block{position:absolute;top:0;bottom:0;display:flex;align-items:center;padding-left:10px;
+  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+  border-left:1px solid var(--border);overflow:hidden}
+.tape-win{position:absolute;top:0;bottom:0;pointer-events:none}
+.tape-now{position:absolute;top:-1px;bottom:-1px;width:1.5px;background:var(--silver);
+  box-shadow:0 0 12px 1px rgba(233,238,246,.5);z-index:3}
+.tape-ticks{display:flex;justify-content:space-between;margin-top:7px;font-family:'DM Mono',monospace;
+  font-size:8.5px;letter-spacing:.1em;color:rgba(138,148,166,0.4)}
+@media(max-width:940px){.hero-grid{grid-template-columns:1fr;gap:34px}#sa-chart{height:250px}}
+.hero-gradient{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(196,207,220,0.08) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 20% 80%,rgba(91,156,246,0.04) 0%,transparent 50%),linear-gradient(180deg,transparent 40%,var(--bg) 100%);z-index:1}
 .hero-content{position:relative;z-index:2;max-width:1160px;margin:0 auto;width:100%}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,0.1);border:1px solid var(--border-gold);border-radius:999px;padding:8px 18px;margin-bottom:32px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(196,207,220,0.1);border:1px solid var(--border-gold);border-radius:999px;padding:8px 18px;margin-bottom:32px}
 .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse-dot 2s infinite}
 .hero-badge-text{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
 .hero-title{margin-bottom:24px}
@@ -88,7 +125,7 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 .hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:64px}
 .hero-stats{display:flex;gap:48px;flex-wrap:wrap;padding-top:48px;border-top:1px solid var(--border)}
 .hero-stat{}
-.hero-stat-value{font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:var(--silver);display:block;margin-bottom:4px}
+.hero-stat-value{font-family:'Archivo',sans-serif;font-size:36px;font-weight:800;color:var(--silver);display:block;margin-bottom:4px}
 .hero-stat-value.gold{color:var(--gold)}
 .hero-stat-value.green{color:var(--green)}
 .hero-stat-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(160,168,184,0.5)}
@@ -109,14 +146,14 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 .problem-item-title{font-size:14px;font-weight:600;color:var(--silver);margin-bottom:4px}
 .problem-item-text{font-size:13px;color:var(--silver-dim);line-height:1.6}
 .solution-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;position:relative;overflow:hidden}
-.solution-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.06) 0%,transparent 60%);pointer-events:none}
+.solution-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(196,207,220,0.06) 0%,transparent 60%);pointer-events:none}
 .solution-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(61,220,132,0.1);border:1px solid rgba(61,220,132,0.2);border-radius:999px;padding:6px 14px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:20px}
 
 /* ─── STATS BAR ──────────────────────────────────────────────── */
 #stats-bar{background:var(--bg3);padding:64px 24px}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
 .stat-cell{background:var(--bg3);padding:48px 32px;text-align:center}
-.stat-num{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);font-weight:800;color:var(--silver);display:block;margin-bottom:8px}
+.stat-num{font-family:'Archivo',sans-serif;font-size:clamp(36px,5vw,64px);font-weight:800;color:var(--silver);display:block;margin-bottom:8px}
 .stat-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(160,168,184,0.4)}
 .stat-sub{font-size:11px;color:rgba(160,168,184,0.5);margin-top:6px}
 
@@ -133,15 +170,15 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 .bento-card:hover::before{opacity:1}
 .bento-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(160,168,184,0.3);margin-bottom:20px}
 .bento-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:22px}
-.bento-icon--gold{background:rgba(201,168,76,0.1)}
+.bento-icon--gold{background:rgba(196,207,220,0.1)}
 .bento-icon--green{background:rgba(61,220,132,0.1)}
 .bento-icon--blue{background:rgba(91,156,246,0.1)}
 .bento-icon--red{background:rgba(240,82,82,0.1)}
 .bento-icon--purple{background:rgba(167,139,250,0.1)}
-.bento-card-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--silver);margin-bottom:10px}
+.bento-card-title{font-family:'Archivo',sans-serif;font-size:20px;font-weight:700;color:var(--silver);margin-bottom:10px}
 .bento-card-text{font-size:13px;color:var(--silver-dim);line-height:1.7}
 .bento-tag{display:inline-block;margin-top:16px;padding:5px 12px;border-radius:6px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase}
-.bento-tag--gold{background:rgba(201,168,76,0.1);color:var(--gold)}
+.bento-tag--gold{background:rgba(196,207,220,0.1);color:var(--gold)}
 .bento-tag--green{background:rgba(61,220,132,0.1);color:var(--green)}
 .bento-tag--blue{background:rgba(91,156,246,0.1);color:var(--blue)}
 
@@ -149,7 +186,7 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 .entry-models-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
 .entry-tabs{display:flex;gap:8px;flex-wrap:wrap}
 .entry-tab{padding:10px 20px;border-radius:10px;background:var(--card);border:1px solid var(--border);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--silver-dim);transition:all 0.2s;cursor:pointer}
-.entry-tab.active{background:rgba(201,168,76,0.1);border-color:var(--border-gold);color:var(--gold)}
+.entry-tab.active{background:rgba(196,207,220,0.1);border-color:var(--border-gold);color:var(--gold)}
 .entry-panel{display:none}
 .entry-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .entry-visual{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;min-height:320px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
@@ -177,8 +214,8 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
 .tool-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;text-align:center;transition:all 0.3s var(--ease-out-expo)}
 .tool-card:hover{border-color:var(--border-gold);transform:translateY(-6px);box-shadow:0 24px 64px rgba(0,0,0,0.4)}
-.tool-icon{width:64px;height:64px;border-radius:16px;background:rgba(201,168,76,0.08);border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:28px}
-.tool-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--silver);margin-bottom:12px}
+.tool-icon{width:64px;height:64px;border-radius:16px;background:rgba(196,207,220,0.08);border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:28px}
+.tool-title{font-family:'Archivo',sans-serif;font-size:22px;font-weight:700;color:var(--silver);margin-bottom:12px}
 .tool-desc{font-size:13px;color:var(--silver-dim);line-height:1.7}
 
 /* ─── SOCIAL PROOF ────────────────────────────────────────────── */
@@ -197,10 +234,10 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 /* ─── PRICING ─────────────────────────────────────────────────── */
 #pricing{background:var(--bg);padding:120px 24px}
 .pricing-wrapper{display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:start;max-width:960px;margin:0 auto}
-.pricing-card{background:var(--card2);border:1px solid var(--border-gold);border-radius:24px;padding:48px;position:relative;overflow:hidden;box-shadow:0 0 80px rgba(201,168,76,0.06)}
+.pricing-card{background:var(--card2);border:1px solid var(--border-gold);border-radius:24px;padding:48px;position:relative;overflow:hidden;box-shadow:0 0 80px rgba(196,207,220,0.06)}
 .pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light),var(--gold-dark))}
-.pricing-badge{display:inline-block;background:rgba(201,168,76,0.15);color:var(--gold);padding:6px 14px;border-radius:999px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
-.pricing-price{font-family:'Playfair Display',serif;font-size:72px;font-weight:900;color:var(--silver);line-height:1;margin-bottom:4px}
+.pricing-badge{display:inline-block;background:rgba(196,207,220,0.15);color:var(--gold);padding:6px 14px;border-radius:999px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
+.pricing-price{font-family:'Archivo',sans-serif;font-size:72px;font-weight:900;color:var(--silver);line-height:1;margin-bottom:4px}
 .pricing-price span{font-size:28px;vertical-align:top;margin-top:12px;display:inline-block;color:var(--gold)}
 .pricing-note{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(160,168,184,0.4);text-transform:uppercase;margin-bottom:32px}
 .pricing-cta{width:100%;padding:20px;font-size:13px;letter-spacing:2px;border-radius:14px;margin-bottom:20px}
@@ -214,18 +251,18 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 .pricing-obj{padding:20px;background:var(--card);border:1px solid var(--border);border-radius:12px}
 .pricing-obj-q{font-size:13px;font-weight:600;color:var(--silver);margin-bottom:8px}
 .pricing-obj-a{font-size:12px;color:var(--silver-dim);line-height:1.65}
-.pricing-guarantee{display:flex;align-items:flex-start;gap:16px;padding:24px;background:rgba(201,168,76,0.05);border:1px solid var(--border-gold);border-radius:16px;margin-top:32px}
+.pricing-guarantee{display:flex;align-items:flex-start;gap:16px;padding:24px;background:rgba(196,207,220,0.05);border:1px solid var(--border-gold);border-radius:16px;margin-top:32px}
 .pricing-guarantee-icon{font-size:32px;flex-shrink:0}
 
 /* ─── FAQ ─────────────────────────────────────────────────────── */
 #faq{background:var(--bg2);padding:120px 24px}
 .faq-list{display:flex;flex-direction:column;gap:12px;margin-top:64px;max-width:760px;margin-left:auto;margin-right:auto}
 .faq-item{background:#0F1520;border:1px solid rgba(200,205,214,0.08);border-radius:16px;overflow:hidden;transition:border-color 0.2s}
-.faq-item.open{border-color:rgba(201,168,76,0.25)}
+.faq-item.open{border-color:rgba(196,207,220,0.25)}
 .faq-q{display:flex;align-items:center;justify-content:space-between;padding:24px 28px;cursor:pointer;font-size:15px;font-weight:500;color:#E8EDF5;background:#0F1520;width:100%;text-align:left;border:none;outline:none}
 .faq-q:hover{color:#fff}
 .faq-icon{width:28px;height:28px;border-radius:50%;background:#131924;border:1px solid rgba(200,205,214,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform 0.3s,background 0.2s;font-size:16px;font-weight:300;color:var(--gold);line-height:1}
-.faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(201,168,76,0.12)}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(196,207,220,0.12)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s var(--ease-out-expo),padding 0.3s;background:#0F1520}
 .faq-item.open .faq-a{max-height:400px;padding:0 28px 24px}
 .faq-a-text{font-size:14px;color:#A0A8B8;line-height:1.75;border-top:1px solid rgba(200,205,214,0.08);padding-top:20px}
@@ -233,7 +270,7 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 /* ─── FINAL CTA ──────────────────────────────────────────────── */
 #final-cta{background:var(--bg);padding:120px 24px;text-align:center}
 .final-cta-inner{max-width:680px;margin:0 auto}
-.final-cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(201,168,76,0.06) 0%,transparent 70%);pointer-events:none}
+.final-cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(196,207,220,0.06) 0%,transparent 70%);pointer-events:none}
 .final-cta-actions{display:flex;justify-content:center;gap:16px;margin-top:40px;flex-wrap:wrap}
 .final-badges{display:flex;justify-content:center;gap:24px;margin-top:40px;flex-wrap:wrap}
 .final-badge{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(160,168,184,0.4);text-transform:uppercase}
@@ -241,7 +278,7 @@ button{font-family:'Inter',sans-serif;cursor:pointer}
 /* ─── FOOTER ─────────────────────────────────────────────────── */
 footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24px}
 .footer-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
-.footer-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:800;color:var(--silver)}
+.footer-logo{font-family:'Archivo',sans-serif;font-size:18px;font-weight:800;color:var(--silver)}
 .footer-logo span{color:var(--gold)}
 .footer-links{display:flex;gap:24px;flex-wrap:wrap}
 .footer-link{font-size:12px;color:rgba(160,168,184,0.4);transition:color 0.2s}
@@ -261,7 +298,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
 @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-@keyframes glow-pulse{0%,100%{box-shadow:0 8px 32px rgba(201,168,76,0.25)}50%{box-shadow:0 8px 48px rgba(201,168,76,0.45)}}
+@keyframes glow-pulse{0%,100%{box-shadow:0 8px 32px rgba(196,207,220,0.25)}50%{box-shadow:0 8px 48px rgba(196,207,220,0.45)}}
 @keyframes counter-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
 
@@ -322,18 +359,38 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-gradient" aria-hidden="true"></div>
   <div class="hero-content">
-    <div class="hero-badge" aria-label="Strategy type">
-      <span class="hero-badge-dot" aria-hidden="true"></span>
-      <span class="hero-badge-text">80/20 Mechanical Strategy &nbsp;·&nbsp; XAG/USD</span>
-    </div>
-    <h1 class="h1 hero-title serif">The Edge<br/><em style="color:var(--gold);font-style:italic">Professionals</em><br/>Trade With.</h1>
-    <p class="hero-sub">A fully mechanical, rule-based trading system for Silver (XAG/USD) built for the London &amp; New York Kill Zones. 4 defined entry models. Zero guesswork.</p>
+    <div class="assay" aria-label="Live market status">
+  <div class="assay-cell"><span>Instrument</span> <b>XAG/USD</b></div>
+  <div class="assay-cell"><span>Fineness</span> <b>.999 Fine</b></div>
+  <div class="assay-cell live"><span class="sa-pip" id="sa-pip" aria-hidden="true"></span> <span>Session</span> <b id="sa-sess">—</b></div>
+  <div class="assay-cell live"><span id="sa-cd-l">Status</span> <b id="sa-cd-v">—</b></div>
+  <div class="assay-cell"><span>UTC</span> <b id="sa-utc">--:--:--</b></div>
+</div>
+    <div class="hero-grid" style="margin-top:44px">
+    <div>
+    <h1 class="h1 hero-title"><span class="struck">Struck</span><span class="struck" style="opacity:.45">From Rules.</span></h1>
+    <p class="hero-sub">A fully mechanical, rule-based trading system for Silver (XAG/USD). Nineteen modules, four entry models, one instrument. You run it in the first four hours of London or New York — then close the laptop.</p>
     <div class="hero-actions">
       <a href="https://brendonmeredith.gumroad.com/l/silverapex" target="_blank" rel="noopener" class="btn btn--gold btn--large" aria-label="Enrol in Silver Apex">
         Get Lifetime Access
         <svg class="btn-arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/></svg>
       </a>
       <a href="#strategy" class="btn btn--ghost" aria-label="See how it works">See How It Works</a>
+    </div>
+    </div>
+    <div class="chart-shell">
+      <div class="chart-head">
+        <span>XAG/USD · 5M</span>
+        <span id="sa-cstate">Confirmation model</span>
+      </div>
+      <canvas id="sa-chart" aria-label="Animated demonstration of a confirmation entry"></canvas>
+      <div class="chart-foot">
+        <span class="ckey"><i style="background:var(--accent)"></i> SMA 9</span>
+        <span class="ckey"><i style="background:var(--silver-dim)"></i> SMA 21</span>
+        <span class="ckey"><i style="background:var(--border)"></i> SMA 50</span>
+        <span class="ckey" style="margin-left:auto">B = confirmation entry</span>
+      </div>
+    </div>
     </div>
     <div class="hero-stats" role="list" aria-label="Key statistics">
       <div class="hero-stat" role="listitem">
@@ -360,32 +417,39 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
   </div>
 </section>
 
+<!-- ═══ 24H TAPE — the page knows what time it is in the market ═══ -->
+<div class="tape-wrap">
+  <div class="tape-label"><span>Trading day · live</span><span id="sa-tape-note">—</span></div>
+  <div class="tape-track" id="sa-tape"></div>
+  <div class="tape-ticks"><span>00</span><span>04</span><span>08</span><span>12</span><span>16</span><span>20</span><span>24 UTC</span></div>
+</div>
+
 <!-- ═══ TICKER ════════════════════════════════════════════════ -->
 <div id="ticker" aria-hidden="true">
   <div class="ticker-track">
     <span class="ticker-item">XAG/USD &nbsp; <span class="ticker-up">▲ LONG BIAS</span></span>
     <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">London Kill Zone &nbsp; 07:00–09:00 GMT</span>
+    <span class="ticker-item">London Open Window &nbsp; First 4 Hours</span>
     <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">NY Kill Zone &nbsp; 12:00–14:00 GMT</span>
+    <span class="ticker-item">NY Open Window &nbsp; First 4 Hours</span>
     <span class="ticker-item ticker-sep">·</span>
     <span class="ticker-item">SMA 200 Daily &nbsp; <span class="ticker-up">BULLISH BIAS</span></span>
     <span class="ticker-item ticker-sep">·</span>
     <span class="ticker-item">0.98R Expectancy Per Trade</span>
     <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">17 Modules &nbsp;·&nbsp; Lifetime Access</span>
+    <span class="ticker-item">19 Modules &nbsp;·&nbsp; Lifetime Access</span>
     <span class="ticker-item ticker-sep">·</span>
     <span class="ticker-item">XAG/USD &nbsp; <span class="ticker-up">▲ LONG BIAS</span></span>
     <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">London Kill Zone &nbsp; 07:00–09:00 GMT</span>
+    <span class="ticker-item">London Open Window &nbsp; First 4 Hours</span>
     <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">NY Kill Zone &nbsp; 12:00–14:00 GMT</span>
+    <span class="ticker-item">NY Open Window &nbsp; First 4 Hours</span>
     <span class="ticker-item ticker-sep">·</span>
     <span class="ticker-item">SMA 200 Daily &nbsp; <span class="ticker-up">BULLISH BIAS</span></span>
     <span class="ticker-item ticker-sep">·</span>
     <span class="ticker-item">0.98R Expectancy Per Trade</span>
     <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">17 Modules &nbsp;·&nbsp; Lifetime Access</span>
+    <span class="ticker-item">19 Modules &nbsp;·&nbsp; Lifetime Access</span>
     <span class="ticker-item ticker-sep">·</span>
   </div>
 </div>
@@ -479,11 +543,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
       <div class="bento-card bento-card--wide reveal">
         <div class="bento-num">01</div>
         <div class="bento-icon bento-icon--gold" aria-hidden="true">⚡</div>
-        <h3 class="bento-card-title serif">The Kill Zone Principle</h3>
-        <p class="bento-card-text">Institutional traders and smart money move markets during the London and New York Kill Zones. Silver Apex focuses exclusively on these 2-hour windows — filtering out the low-quality noise that traps retail traders during consolidation hours. You trade less, but trade better.</p>
+        <h3 class="bento-card-title serif">The Session Open Principle</h3>
+        <p class="bento-card-text">Institutions execute the bulk of their volume shortly after a session opens. Silver Apex concentrates on the first four hours of London and New York — filtering out the low-quality noise that traps retail traders during consolidation hours. You trade less, but you trade better.</p>
         <div style="display:flex;gap:8px;margin-top:20px;flex-wrap:wrap">
-          <span class="bento-tag bento-tag--blue">London: 07:00–09:00 GMT</span>
-          <span class="bento-tag bento-tag--gold">NY: 12:00–14:00 GMT</span>
+          <span class="bento-tag bento-tag--blue">London: first 4 hours</span>
+          <span class="bento-tag bento-tag--gold">New York: first 4 hours</span>
         </div>
       </div>
       <div class="bento-card reveal reveal-delay-1">
@@ -540,7 +604,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
           <svg class="chart-container" viewBox="0 0 440 220" aria-label="Confirmation entry chart illustration">
             <defs>
               <linearGradient id="grad-green" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3DDC84" stop-opacity="0.3"/><stop offset="100%" stop-color="#3DDC84" stop-opacity="0"/></linearGradient>
-              <linearGradient id="grad-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C9A84C" stop-opacity="0.2"/><stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/></linearGradient>
+              <linearGradient id="grad-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C4CFDC" stop-opacity="0.2"/><stop offset="100%" stop-color="#C4CFDC" stop-opacity="0"/></linearGradient>
             </defs>
             <!-- SMA lines -->
             <path d="M20,160 Q80,158 140,140 Q200,122 260,105 Q320,88 440,70" stroke="#3DDC84" stroke-width="1.5" fill="none" opacity="0.6"/>
@@ -549,7 +613,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
             <!-- Price pullback into SMA zone -->
             <path d="M260,90 L280,110 L300,105 L320,115 L340,100 L360,88 L400,72 L440,58" stroke="#E8EDF5" stroke-width="2" fill="none"/>
             <!-- SMA zone fill -->
-            <rect x="280" y="105" width="40" height="20" fill="rgba(201,168,76,0.15)" rx="2"/>
+            <rect x="280" y="105" width="40" height="20" fill="rgba(196,207,220,0.15)" rx="2"/>
             <!-- Entry signal marker -->
             <circle cx="322" cy="115" r="5" fill="#3DDC84"/>
             <line x1="322" y1="115" x2="322" y2="60" stroke="#3DDC84" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
@@ -564,7 +628,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
             <text x="268" y="42" fill="#3DDC84" font-size="8" font-family="DM Mono" opacity="0.7">TP 1:3</text>
             <!-- Session box -->
             <rect x="280" y="40" width="160" height="115" fill="rgba(0,100,212,0.04)" stroke="rgba(91,156,246,0.2)" stroke-width="1" rx="4"/>
-            <text x="286" y="54" fill="rgba(91,156,246,0.5)" font-size="8" font-family="DM Mono">LONDON KZ</text>
+            <text x="286" y="54" fill="rgba(91,156,246,0.5)" font-size="8" font-family="DM Mono">LONDON</text>
           </svg>
         </div>
         <div class="entry-info">
@@ -589,7 +653,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
           </div>
           <div class="entry-rule">
             <span class="entry-rule-dot" style="background:var(--red)"></span>
-            <span>SL placed below the entire Kill Zone box low</span>
+            <span>SL placed below the session box low / last swing low</span>
           </div>
           <div class="win-rate-badge">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 2 .7-4L1.2 5.2l4-.6L7 1z" fill="#3DDC84"/></svg>
@@ -619,8 +683,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
             <!-- SMA curl annotation -->
             <text x="150" y="135" fill="rgba(0,188,212,0.6)" font-size="8" font-family="DM Mono">SMA 9 curling ↑</text>
             <!-- ½ size badge -->
-            <rect x="320" y="18" width="80" height="20" rx="4" fill="rgba(201,168,76,0.15)" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
-            <text x="360" y="32" fill="#C9A84C" font-size="9" font-family="DM Mono" text-anchor="middle">½ POSITION</text>
+            <rect x="320" y="18" width="80" height="20" rx="4" fill="rgba(196,207,220,0.15)" stroke="rgba(196,207,220,0.3)" stroke-width="1"/>
+            <text x="360" y="32" fill="#C4CFDC" font-size="9" font-family="DM Mono" text-anchor="middle">½ POSITION</text>
           </svg>
         </div>
         <div class="entry-info">
@@ -629,7 +693,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
             <span style="font-size:14px;color:var(--silver)">Early Entry</span>
           </div>
           <h3 class="h3 serif" style="margin-bottom:20px">Catching the Breakout</h3>
-          <p style="font-size:13px;color:var(--silver-dim);line-height:1.75;margin-bottom:24px">A strong breakout candle through the SMA zone while SMA 9 is curling sharply. Enter on the breakout candle close — but at half position size, because confirmation hasn't printed yet. Only valid in the first half of London or NY Kill Zone.</p>
+          <p style="font-size:13px;color:var(--silver-dim);line-height:1.75;margin-bottom:24px">A strong breakout candle through the SMA zone while SMA 9 is curling sharply. Enter on the breakout candle close — but at half position size, because confirmation hasn't printed yet. Only valid inside the Session Open Window.</p>
           <div class="entry-rule">
             <span class="entry-rule-dot" style="background:#00BCD4"></span>
             <span>Strong momentum candle closes through the SMA zone</span>
@@ -640,7 +704,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
           </div>
           <div class="entry-rule">
             <span class="entry-rule-dot" style="background:var(--red)"></span>
-            <span>Only first half of the Kill Zone window</span>
+            <span>Only inside the Session Open Window (first 4 hours)</span>
           </div>
           <div class="win-rate-badge" style="background:rgba(0,188,212,0.08);border-color:rgba(0,188,212,0.2);color:#00BCD4">
             ½ Position Size · Higher RR Potential
@@ -754,7 +818,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
   <div class="container">
     <div style="text-align:center;margin-bottom:16px">
       <span class="eyebrow reveal">The Curriculum</span>
-      <h2 class="h2 serif reveal reveal-delay-1" id="modules-heading">17 modules.<br/>Everything you need.</h2>
+      <h2 class="h2 serif reveal reveal-delay-1" id="modules-heading">19 modules.<br/>Everything you need.</h2>
       <p class="lead reveal reveal-delay-2" style="margin:20px auto 0;text-align:center">From reading a candlestick to executing live trades with the custom indicator — the complete A-to-Z roadmap.</p>
     </div>
     <div class="modules-grid" style="margin-top:48px">
@@ -775,8 +839,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
       <div class="module-card reveal reveal-delay-2">
         <div class="module-num">03</div>
         <div class="module-content">
-          <div class="module-title">Market Sessions &amp; Kill Zones</div>
-          <div class="module-desc">Why London and NY windows are disproportionately profitable for Silver. Session timing deep-dive.</div>
+          <div class="module-title">Market Sessions &amp; Timing</div>
+          <div class="module-desc">Why the first hours of London and NY are disproportionately profitable for Silver. Session timing deep-dive.</div>
         </div>
       </div>
       <div class="module-card reveal">
@@ -796,81 +860,95 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
       <div class="module-card reveal reveal-delay-2">
         <div class="module-num">06</div>
         <div class="module-content">
+          <div class="module-title">Market Structure — BOS &amp; CHoCH</div>
+          <div class="module-desc">Reading breaks of structure and changes of character. Knowing when to trust a signal — and when the trend is quietly turning against you.</div>
+        </div>
+      </div>
+      <div class="module-card reveal">
+        <div class="module-num">07</div>
+        <div class="module-content">
+          <div class="module-title">Fair Value Gaps</div>
+          <div class="module-desc">Price imbalances and why the market returns to fill them. Using FVGs as entry zones and as take-profit targets.</div>
+        </div>
+      </div>
+      <div class="module-card reveal reveal-delay-2">
+        <div class="module-num">08</div>
+        <div class="module-content">
           <div class="module-title">Confirmation Entry Model (B/S)</div>
           <div class="module-desc">Detailed drill-down on the primary entry. Every rule, every condition, no exceptions.</div>
         </div>
       </div>
       <div class="module-card reveal">
-        <div class="module-num">07</div>
+        <div class="module-num">09</div>
         <div class="module-content">
           <div class="module-title">Early Entry Model (E)</div>
           <div class="module-desc">Breakout signals, when to use half position size, and how to identify the sharp SMA curl.</div>
         </div>
       </div>
       <div class="module-card reveal reveal-delay-1">
-        <div class="module-num">08</div>
+        <div class="module-num">10</div>
         <div class="module-content">
           <div class="module-title">Liquidity Sweep Model</div>
           <div class="module-desc">The 70–75% win rate setup. How institutions hunt retail stops and how to trade with them.</div>
         </div>
       </div>
       <div class="module-card reveal reveal-delay-2">
-        <div class="module-num">09</div>
+        <div class="module-num">11</div>
         <div class="module-content">
           <div class="module-title">Combo Signal (BUY/SELL)</div>
           <div class="module-desc">RSI divergence combined with a Sweep. The highest-confidence signal in the strategy.</div>
         </div>
       </div>
       <div class="module-card reveal">
-        <div class="module-num">10</div>
+        <div class="module-num">12</div>
         <div class="module-content">
           <div class="module-title">Risk Management</div>
           <div class="module-desc">Fixed SL caps, 1% rule, position sizing, breakeven protocol, and partial take-profit structure.</div>
         </div>
       </div>
       <div class="module-card reveal reveal-delay-1">
-        <div class="module-num">11</div>
+        <div class="module-num">13</div>
         <div class="module-content">
           <div class="module-title">The 8-Point Checklist</div>
           <div class="module-desc">Your mechanical pre-trade gate. All 8 conditions must pass before any entry is taken.</div>
         </div>
       </div>
       <div class="module-card reveal reveal-delay-2">
-        <div class="module-num">12</div>
+        <div class="module-num">14</div>
         <div class="module-content">
           <div class="module-title">News Protocol</div>
           <div class="module-desc">How to handle high-impact economic events. 30-minute exclusion windows, what to avoid.</div>
         </div>
       </div>
       <div class="module-card reveal">
-        <div class="module-num">13</div>
+        <div class="module-num">15</div>
         <div class="module-content">
           <div class="module-title">TradingView Indicator Setup</div>
           <div class="module-desc">Step-by-step guide to adding and configuring the custom Silver Apex indicator on your charts.</div>
         </div>
       </div>
       <div class="module-card reveal reveal-delay-1">
-        <div class="module-num">14</div>
+        <div class="module-num">16</div>
         <div class="module-content">
           <div class="module-title">Backtesting Framework</div>
           <div class="module-desc">How to use TradingView bar replay. Your goal: 100 trades to build your personal edge profile.</div>
         </div>
       </div>
       <div class="module-card reveal reveal-delay-2">
-        <div class="module-num">15</div>
+        <div class="module-num">17</div>
         <div class="module-content">
           <div class="module-title">Trade Management</div>
           <div class="module-desc">Move SL to breakeven at 1R. Partial close at 2R. Letting the rest run to target.</div>
         </div>
       </div>
       <div class="module-card reveal">
-        <div class="module-num">16</div>
+        <div class="module-num">18</div>
         <div class="module-content">
           <div class="module-title">Trading Psychology</div>
           <div class="module-desc">Staying mechanical under emotional pressure. Journaling, reviewing, and building consistency.</div>
         </div>
       </div>
-      <div class="module-card reveal reveal-delay-1" style="border-color:var(--border-gold);background:rgba(201,168,76,0.04)">
+      <div class="module-card reveal reveal-delay-1" style="border-color:var(--border-gold);background:rgba(196,207,220,0.04)">
         <div class="module-num" style="color:var(--gold)">BONUS</div>
         <div class="module-content">
           <div class="module-title" style="color:var(--gold)">500+ Trade Backtest Data</div>
@@ -891,10 +969,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
     <div class="tools-grid">
       <div class="tool-card reveal">
         <div class="tool-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20L10 14l4 4 6-8 4 5" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="2" width="24" height="24" rx="4" stroke="rgba(201,168,76,0.3)" stroke-width="1.5"/></svg>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20L10 14l4 4 6-8 4 5" stroke="#C4CFDC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="2" width="24" height="24" rx="4" stroke="rgba(196,207,220,0.3)" stroke-width="1.5"/></svg>
         </div>
         <h3 class="tool-title serif">Custom Indicator</h3>
-        <p class="tool-desc">The Silver Apex Strategy indicator for TradingView. Session boxes, SMA stack, all 5 signal types (B, S, E, Sweep, BUY/SELL), RSI divergence labels — all automated. Search "Silver Apex Strategy" in TradingView and request access via Discord.</p>
+        <p class="tool-desc">The Silver Apex Strategy indicator for TradingView. Session boxes, SMA stack, all 5 signal types (B, S, E, Sweep, BUY/SELL), RSI divergence, Fair Value Gaps and BOS/CHoCH structure labels — all automated, all toggleable. Search "Silver Apex Strategy" in TradingView and request access via Discord.</p>
       </div>
       <div class="tool-card reveal reveal-delay-1">
         <div class="tool-icon" aria-hidden="true">
@@ -912,10 +990,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
       </div>
       <div class="tool-card reveal">
         <div class="tool-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14a8 8 0 1 1 16 0 8 8 0 0 1-16 0" stroke="#C9A84C" stroke-width="1.5"/><path d="M14 10v4l3 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14a8 8 0 1 1 16 0 8 8 0 0 1-16 0" stroke="#C4CFDC" stroke-width="1.5"/><path d="M14 10v4l3 3" stroke="#C4CFDC" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <h3 class="tool-title serif">Session Timer</h3>
-        <p class="tool-desc">A live GMT clock with real-time session status. See exactly which session is active, countdown to London and NY Kill Zones, and AEST conversion so you always know when to be at your desk — from anywhere in the world.</p>
+        <p class="tool-desc">A live clock with real-time session status. See exactly which session is active, a countdown to the next London or New York Open Window, and AEST conversion — daylight-savings aware, so you always know when to be at your desk.</p>
       </div>
       <div class="tool-card reveal reveal-delay-1">
         <div class="tool-icon" aria-hidden="true">
@@ -1035,7 +1113,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
           </div>
           <div class="pricing-item">
             <div class="pricing-item-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="#3DDC84" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-            Custom TradingView indicator access
+            Custom TradingView indicator — incl. FVG &amp; market structure
           </div>
           <div class="pricing-item">
             <div class="pricing-item-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="#3DDC84" stroke-width="1.5" stroke-linecap="round"/></svg></div>
@@ -1066,7 +1144,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
             All future updates included
           </div>
           <div class="pricing-item" style="color:var(--gold)">
-            <div class="pricing-item-check" style="background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.3)" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <div class="pricing-item-check" style="background:rgba(196,207,220,0.1);border-color:rgba(196,207,220,0.3)" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="#C4CFDC" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             Lifetime access — no expiry
           </div>
         </div>
@@ -1088,14 +1166,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
           How much time per day does this strategy require?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-a" aria-hidden="true"><p class="faq-a-text">The strategy trades two 2-hour windows — London Kill Zone (07:00–09:00 GMT) and NY Kill Zone (12:00–14:00 GMT). In Australian time that's roughly 5–7pm and 10pm–midnight AEST in winter. You don't need to be at the screen all session — signals trigger at candle close, and once you're in a trade you check every 15–30 minutes. Realistically, 30–60 active minutes per session for experienced traders.</p></div>
+        <div class="faq-a" aria-hidden="true"><p class="faq-a-text">The strategy focuses on two windows — the first four hours of the London session and the first four hours of New York. In Australian time that's roughly 6–10pm and 11pm–3am AEST in winter. You don't need to be at the screen the whole time — signals trigger at candle close, and once you're in a trade you check every 15–30 minutes. Realistically, 30–60 active minutes per session for experienced traders, and most members trade one window rather than both.</p></div>
       </div>
       <div class="faq-item" role="listitem">
         <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
           Is this suitable for Australian traders?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-a" aria-hidden="true"><p class="faq-a-text">Yes — Silver Apex was built by an Australian trader specifically for Australian trading hours. The London Kill Zone falls in the early evening AEST, which is a very workable window. The NY Kill Zone is later at night but many members trade both windows or pick the one that suits their schedule. The sessions tab in the member portal shows real-time AEST conversion.</p></div>
+        <div class="faq-a" aria-hidden="true"><p class="faq-a-text">Yes — Silver Apex was built by an Australian trader specifically for Australian trading hours. The London Open Window falls in the evening AEST, which is a very workable slot. The New York window is later at night, so most members pick the one that suits their schedule rather than trading both. The sessions tab in the member portal shows real-time AEST conversion and adjusts for daylight savings automatically.</p></div>
       </div>
       <div class="faq-item" role="listitem">
         <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
@@ -1109,7 +1187,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24p
           How long before I can trade live?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
-        <div class="faq-a" aria-hidden="true"><p class="faq-a-text">The course recommends completing the 17 modules first (most members do this in a week), then backtesting a minimum of 100 trades using TradingView bar replay. For most members that takes 2–4 weeks depending on how much time they invest. Once you have 100 documented trades and understand your personal edge profile, you're ready for a small live account.</p></div>
+        <div class="faq-a" aria-hidden="true"><p class="faq-a-text">The course recommends completing the 19 modules first (most members do this in a week), then backtesting a minimum of 100 trades using TradingView bar replay. For most members that takes 2–4 weeks depending on how much time they invest. Once you have 100 documented trades and understand your personal edge profile, you're ready for a small live account.</p></div>
       </div>
       <div class="faq-item" role="listitem">
         <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
@@ -1248,7 +1326,7 @@ function toggleMobileMenu() {
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < 140) {
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(201,168,76,${0.06 * (1 - dist / 140)})`;
+          ctx.strokeStyle = `rgba(196,207,220,${0.06 * (1 - dist / 140)})`;
           ctx.lineWidth = 0.5;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
@@ -1261,7 +1339,7 @@ function toggleMobileMenu() {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = p.gold
-        ? `rgba(201,168,76,${p.a})`
+        ? `rgba(196,207,220,${p.a})`
         : `rgba(200,205,214,${p.a * 0.6})`;
       ctx.fill();
     }
@@ -1371,6 +1449,177 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+/* ═══ LIVE SESSION ENGINE — the page's accent IS the market ═══
+   Rule: if the page has colour, you can trade.
+   Tokyo is deliberately colourless — you mark the range, you don't trade it. */
+const SA_SESSIONS=[
+  {key:'TOKYO', label:'Tokyo',    tz:'Asia/Tokyo',       start:9, end:18,   win:0, hex:null},
+  {key:'LON',   label:'London',   tz:'Europe/London',    start:8, end:16.5, win:4, hex:'#5B9CF6'},
+  {key:'NY',    label:'New York', tz:'America/New_York', start:8, end:17,   win:4, hex:'#8E7DE0'},
+];
+const SA_COLD='#6E7887';
+function saHourIn(tz){
+  const p=new Intl.DateTimeFormat('en-GB',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+  return (+p.find(x=>x.type==='hour').value%24)+(+p.find(x=>x.type==='minute').value)/60;
+}
+function saHexA(h,a){const n=parseInt(h.slice(1),16);return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`}
+function saHm(d){const h=Math.floor(d),m=Math.round((d-h)*60);return String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m'}
+let SA_ACCENT=SA_COLD;
+function saState(){
+  let live=null,win=null,marking=null;
+  for(const s of SA_SESSIONS){
+    const t=saHourIn(s.tz);
+    if(t>=s.start&&t<s.end){
+      if(!s.hex){marking=marking||s;continue}
+      live=live||s;
+      if(s.win&&t<s.start+s.win) win=win||s;
+    }
+  }
+  return {live,win,marking};
+}
+function saPaint(){
+  const {live,win,marking}=saState();
+  const a=win||live;
+  SA_ACCENT=a?a.hex:SA_COLD;
+  const r=document.documentElement.style;
+  r.setProperty('--accent',SA_ACCENT);
+  r.setProperty('--accent-dim',saHexA(SA_ACCENT,0.13));
+  r.setProperty('--accent-line',saHexA(SA_ACCENT,0.34));
+  document.body.classList.toggle('sa-live',!!a);
+
+  const nm=document.getElementById('sa-sess'),cl=document.getElementById('sa-cd-l'),
+        cv=document.getElementById('sa-cd-v'),pip=document.getElementById('sa-pip'),
+        ut=document.getElementById('sa-utc');
+  if(nm){
+    if(win){ nm.textContent=win.label; cl.textContent='Open window'; cv.textContent=saHm((win.start+win.win)-saHourIn(win.tz))+' left'; }
+    else if(live){ nm.textContent=live.label; cl.textContent='Status'; cv.textContent='Late session'; }
+    else if(marking){ nm.textContent='Tokyo'; cl.textContent='Status'; cv.textContent='Marking range — no trading'; }
+    else {
+      nm.textContent='Closed'; cl.textContent='Next window';
+      let b=24;
+      for(const s of SA_SESSIONS){ if(!s.win)continue; const d=((s.start-saHourIn(s.tz))+24)%24; if(d<b)b=d; }
+      cv.textContent='opens in '+saHm(b);
+    }
+    if(pip) pip.classList.toggle('beating',!!a);
+  }
+  if(ut){const d=new Date();ut.textContent=[d.getUTCHours(),d.getUTCMinutes(),d.getUTCSeconds()].map(v=>String(v).padStart(2,'0')).join(':')}
+}
+saPaint(); setInterval(saPaint,1000);
+
+/* ═══ HERO CHART — the thesis. It draws itself, fires a B, resets. ═══ */
+(function(){
+  const cv=document.getElementById('sa-chart'); if(!cv) return;
+  const cx=cv.getContext('2d');
+  let seed=20260713; const rnd=()=>(seed=seed*16807%2147483647)/2147483647-0.5;
+  const drift=i=> i<24?0.10 : i<46?0.34 : i<62?-0.30 : i<64?0.02 : i===64?0.95 : 0.30;
+  const BARS=[]; let p=30.20;
+  for(let i=0;i<86;i++){
+    const o=p, c=o+drift(i)*0.055+rnd()*0.055, w=0.018+Math.abs(rnd())*0.030;
+    BARS.push({o,c,h:Math.max(o,c)+w,l:Math.min(o,c)-w}); p=c;
+  }
+  const SIG=64;
+  const sma=(n,i)=>{if(i<n-1)return null;let s=0;for(let k=i-n+1;k<=i;k++)s+=BARS[k].c;return s/n};
+  let reveal=24,hold=0,pop=0;
+  const st=document.getElementById('sa-cstate');
+
+  function draw(){
+    const dpr=window.devicePixelRatio||1, W=cv.clientWidth, H=cv.clientHeight;
+    if(!W) return;
+    cv.width=W*dpr; cv.height=H*dpr; cx.setTransform(dpr,0,0,dpr,0,0); cx.clearRect(0,0,W,H);
+    const FROM=24,TO=86,PAD=30;
+    let hi=-1e9,lo=1e9;
+    for(let i=FROM;i<TO;i++){hi=Math.max(hi,BARS[i].h);lo=Math.min(lo,BARS[i].l)}
+    const rg=hi-lo; hi+=rg*0.10; lo-=rg*0.10;
+    const X=i=>PAD+(i-FROM)/(TO-1-FROM)*(W-PAD*1.4), Y=v=>16+(hi-v)/(hi-lo)*(H-44);
+    const bw=Math.max(2.4,(W-PAD*1.4)/(TO-FROM)*0.56);
+
+    cx.strokeStyle='rgba(138,148,166,0.09)'; cx.lineWidth=1;
+    for(let g=0;g<=4;g++){const y=16+g*(H-44)/4;cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke()}
+
+    const line=(n,col,w)=>{cx.strokeStyle=col;cx.lineWidth=w;cx.beginPath();let s=false;
+      for(let i=FROM;i<=reveal&&i<TO;i++){const v=sma(n,i);if(v===null)continue;
+        const x=X(i),y=Y(v); s?cx.lineTo(x,y):(cx.moveTo(x,y),s=true)} cx.stroke()};
+    line(50,'rgba(138,148,166,0.28)',1);
+    line(21,'rgba(138,148,166,0.8)',1.2);
+    line(9,SA_ACCENT,1.6);
+
+    for(let i=FROM;i<=reveal&&i<TO;i++){
+      const b=BARS[i], up=b.c>=b.o, x=X(i);
+      cx.strokeStyle=up?'rgba(200,214,230,0.7)':'rgba(120,132,148,0.7)'; cx.lineWidth=1;
+      cx.beginPath();cx.moveTo(x,Y(b.h));cx.lineTo(x,Y(b.l));cx.stroke();
+      const yo=Y(b.o),yc=Y(b.c),top=Math.min(yo,yc),h=Math.max(1.6,Math.abs(yc-yo));
+      if(i===SIG&&reveal>=SIG){cx.fillStyle=SA_ACCENT;cx.shadowColor=SA_ACCENT;cx.shadowBlur=14}
+      else{cx.fillStyle=up?'#D3DDEA':'#39434F';cx.shadowBlur=0}
+      cx.fillRect(x-bw/2,top,bw,h); cx.shadowBlur=0;
+      if(!up&&i!==SIG){cx.strokeStyle='rgba(130,142,158,0.65)';cx.strokeRect(x-bw/2,top,bw,h)}
+    }
+
+    if(reveal>=SIG){
+      pop=Math.min(1,pop+0.09); const e=1-Math.pow(1-pop,3);
+      const x=X(SIG), y=Y(BARS[SIG].l)+12, s=0.6+0.4*e;
+      cx.save(); cx.globalAlpha=e; cx.translate(x,y+(1-e)*10); cx.scale(s,s);
+      cx.fillStyle=SA_ACCENT;
+      cx.beginPath();cx.moveTo(0,-9);cx.lineTo(9,-1);cx.lineTo(-9,-1);cx.closePath();cx.fill();
+      cx.fillRect(-10,-1,20,17);
+      cx.fillStyle='#05070B'; cx.font='600 11px "DM Mono", monospace';
+      cx.textAlign='center'; cx.textBaseline='middle'; cx.fillText('B',0,8); cx.restore();
+      if(st) st.textContent='B — entry on close';
+    } else if(st){
+      st.textContent = reveal>46 ? 'Pullback into SMA 9/21 zone' : 'Stack forming';
+    }
+  }
+
+  let acc=0, last=0;
+  function loop(ts){
+    if(!last) last=ts;
+    acc+=ts-last; last=ts;
+    if(acc>46){acc=0; if(reveal<85) reveal++; else if(++hold>62){reveal=24;hold=0;pop=0}}
+    draw(); requestAnimationFrame(loop);
+  }
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){reveal=85;pop=1;draw()}
+  else requestAnimationFrame(loop);
+  window.addEventListener('resize',draw);
+})();
+
+/* ═══ 24H TAPE ═══ */
+function saTape(){
+  const track=document.getElementById('sa-tape'); if(!track) return;
+  const d=new Date(), u=d.getUTCHours()+d.getUTCMinutes()/60;
+  track.innerHTML='';
+  SA_SESSIONS.forEach(s=>{
+    const hex=s.hex||SA_COLD;
+    const off=((saHourIn(s.tz)-u)+24)%24;
+    const a=((s.start-off)+24)%24, len=s.end-s.start;
+    const segs=(a+len<=24)?[[a,len]]:[[a,24-a],[0,(a+len)-24]];
+    segs.forEach(([st,ln],i)=>{
+      const b=document.createElement('div');
+      b.className='tape-block';
+      b.style.left=(st/24*100)+'%'; b.style.width=(ln/24*100)+'%';
+      b.style.background=saHexA(hex,s.hex?0.10:0.04);
+      b.style.borderLeftColor=saHexA(hex,0.45);
+      b.style.color=saHexA(hex,s.hex?0.95:0.55);
+      if(i===0) b.textContent=s.hex?s.label:s.label+' · mark only';
+      track.appendChild(b);
+      if(s.win&&i===0){
+        const w=document.createElement('div');
+        w.className='tape-win';
+        w.style.left=(st/24*100)+'%'; w.style.width=(Math.min(s.win,ln)/24*100)+'%';
+        w.style.background=`repeating-linear-gradient(135deg,${saHexA(hex,0.22)} 0 2px,transparent 2px 5px)`;
+        track.appendChild(w);
+      }
+    });
+  });
+  const now=document.createElement('div');
+  now.className='tape-now'; now.style.left=(u/24*100)+'%'; track.appendChild(now);
+  const {live,win,marking}=saState();
+  const note=document.getElementById('sa-tape-note');
+  if(note) note.textContent = win ? win.label.toUpperCase()+' OPEN WINDOW — TRADE NOW'
+    : live ? live.label.toUpperCase()+' — LATE SESSION'
+    : marking ? 'TOKYO — MARK THE RANGE, DO NOT TRADE'
+    : 'MARKET QUIET — CHARTS CLOSED';
+}
+saTape(); setInterval(saTape,60000); window.addEventListener('resize',saTape);
 </script>
 </body>
 </html>
